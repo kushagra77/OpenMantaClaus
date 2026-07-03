@@ -2,6 +2,8 @@
 
 `tasks` executes mission-level behaviors and converts them into RC override commands.
 
+It is the downstream controller stage in the main mission pipeline: `brain` drives `cv`, `cv` forwards task commands to `tasks`, and `ekfslam` supplies the filtered feature observations that `tasks` consumes.
+
 ## Purpose
 
 - Receive active task command relayed by `cv`.

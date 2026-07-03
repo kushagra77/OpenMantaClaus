@@ -46,6 +46,18 @@ For qualification runs, the queue is configured as `["qual_gate", "-qual_gate"]`
 
 `-qual_gate` is still sent intentionally so the `cv` package can switch to reverse-direction qual-gate detector behavior during the return segment.
 
+## Main Mission Behavior
+
+For main runs, `brain` uses `mission.main_run=true` and the configured `main_sequence` from `src/manta_bringup/launch/params.yaml`.
+
+The orchestrated pipeline is:
+
+1. `brain` sends the first task to `cv` through `/cv/task_command`.
+2. `cv` updates its detector/task context and forwards the request to `tasks` when appropriate.
+3. `ekfslam` filters `/cv/feature_observations` and republishes validated features to `/tasks/feature_observations`.
+4. `tasks` executes the active controller and reports status and completion back to `brain`.
+5. `brain` advances through the configured main sequence until mission completion, then sends `none` to `cv` before surfacing.
+
 ## Parameters
 
 Loaded from `src/manta_bringup/launch/params.yaml` under:
@@ -80,3 +92,5 @@ ros2 launch manta_bringup robot_bringup.launch.py
 ros2 launch manta_bringup main.launch.py
 ros2 launch manta_bringup qual.launch.py
 ```
+
+Use `robot_bringup.launch.py` first to bring up `cv`, `bottom_cv`, `tasks`, and `ekfslam`; then run either `main.launch.py` or `qual.launch.py` to start the mission orchestrator.

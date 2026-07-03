@@ -15,17 +15,18 @@ Core subsystems:
 - Shared interfaces: `interfaces`
 - MAVROS bridge and utility controls: `mavros_control`
 
-Shared runtime parameters are loaded from `src/manta_bringup/launch/params.yaml` by the launch files.
+Shared runtime parameters are loaded from `src/manta_bringup/launch/params.yaml` by the bringup launch files. `main.launch.py` and `qual.launch.py` only start `brain`; `robot_bringup.launch.py` starts the perception, SLAM, and task nodes.
 
 ## Primary Runtime Flow
 
-1. `brain` issues task requests to `cv` over `/cv/task_command`.
-2. `cv` updates its active YOLO task context and forwards task start/update to `tasks` over `/tasks/task_command`.
+1. `brain` selects `main_sequence` or `qual_sequence` from `mission.main_run` and issues the first task request to `cv` over `/cv/task_command`.
+2. `cv` updates its active task context and forwards task start/update to `tasks` over `/tasks/task_command`.
 3. `cv` publishes YOLO feature output on `/cv/feature_observations`.
 4. When `debug_yolo` is enabled, `cv_node` draws the YOLO boxes on the original frame before publishing the debug image.
-5. `ekfslam` consumes `/cv/feature_observations`, performs map-aware filtering/association, and publishes `/tasks/feature_observations`.
+5. `ekfslam` consumes `/cv/feature_observations`, performs map-aware filtering/association, and republishes validated observations on `/tasks/feature_observations`.
 6. `tasks` subscribes to `/tasks/feature_observations` and executes control from that EKF-filtered stream.
 7. `tasks` publishes `/mavros/rc/override`, `/tasks/task_status`, and completion via `/tasks/task_complete`.
+8. `brain` advances through the sequence until completion, then commands `none` through `cv` before the vehicle surfaces.
 
 ## Package: `brain`
 
@@ -33,6 +34,12 @@ Purpose:
 Mission orchestrator that performs setup, selects mission sequence, dispatches tasks, and advances mission state.
 
 Launch and shared parameter ownership has moved to `manta_bringup`.
+
+Mission behavior:
+
+- `main.launch.py` starts `brain` with `mission.main_run=true`, so the configured main sequence is used.
+- `qual.launch.py` starts `brain` with `mission.main_run=false`, so the qualification sequence is used.
+- In both modes, `brain` pushes the first task to `cv`, and the `cv -> tasks` handoff drives the rest of the pipeline.
 
 ### Node
 
@@ -49,7 +56,7 @@ Owns the runtime launch files and shared configuration YAMLs for the mission sta
 
 | Launch File | Purpose | Notes |
 | --- | --- | --- |
-| `src/manta_bringup/launch/robot_bringup.launch.py` | Robot bringup launch | Starts `cv`, `bottom_cv`, `tasks`, `ekfslam`, and includes MAVROS launch. |
+| `src/manta_bringup/launch/robot_bringup.launch.py` | Robot bringup launch | Starts `cv`, `bottom_cv`, `tasks`, and `ekfslam`. |
 | `src/manta_bringup/launch/only_mavros.launch.py` | MAVROS-only launch | Starts only MAVROS for isolated FCU/link bringup and testing. |
 | `src/manta_bringup/launch/main.launch.py` | Main mission brain launch | Starts `brain` with `mission.main_run=True`. |
 | `src/manta_bringup/launch/qual.launch.py` | Qualification brain launch | Starts `brain` with `mission.main_run=False`. |
@@ -142,11 +149,15 @@ Bearing-only EKF SLAM with odometry prediction and feature update.
 Purpose:
 Task execution node that converts target behavior into RC override commands.
 
+`tasks` is the downstream controller stage of the main mission pipeline: it does not start tasks on its own and only consumes the EKF-filtered observations published by `ekfslam`.
+
 ### Node
 
 | Node | Source | Description | Interfaces |
 | --- | --- | --- | --- |
 | `task_runner` | `src/tasks/src/task_runner.cpp` | Runs active task controller, applies yaw PD control, publishes RC overrides and task status/completion. | Subscribes: `/tasks/feature_observations` (EKF-filtered). Publishes: `/mavros/rc/override`, `/tasks/task_status`. Server: `/tasks/task_command`. Client: `/tasks/task_complete`. |
+
+`tasks` is the downstream controller stage in the main mission pipeline. It does not start tasks on its own; it only reacts to the task command handed off from `cv` and the validated observations from `ekfslam`.
 
 ### Task Controller Status
 
