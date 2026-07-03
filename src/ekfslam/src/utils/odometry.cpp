@@ -1,5 +1,10 @@
 #include "ekfslam/odometry.hpp"
 
+namespace {
+constexpr int kNeutralPwm = 1500;
+constexpr int kPwmDeadband = 40;
+}
+
 Odometry::Odometry(Config cfg) : cfg_(cfg) {
   pose_.setZero();
   last_read_pose_.setZero();
@@ -13,7 +18,7 @@ Odometry::Odometry(Config cfg) : cfg_(cfg) {
 
 void Odometry::update_physics(int l_rc, int r_rc, int back_rc, double dt, double imu_yaw, double yaw_cov) {
   if (!imu_offset_set_) {
-    if (r_rc == 1500 && back_rc == 1500 && l_rc == 1500) {
+    if (r_rc == kNeutralPwm && back_rc == kNeutralPwm && l_rc == kNeutralPwm) {
       return;
     }
     imu_offset_yaw_ = normalize_angle(imu_yaw);
@@ -28,17 +33,12 @@ void Odometry::update_physics(int l_rc, int r_rc, int back_rc, double dt, double
   const double f_r = force_from_pwm(r_rc);
   const double acc_lin = ((f_l + f_r) - std::max(cfg_.drag_lin * vel_lin_, 1.0)) / cfg_.mass;
 
-  // if (yaw_cov <= 0.0) {
-  //   p_yaw_ += cfg_.r_yaw * dt;
-  // } else {
-  //   p_yaw_ = yaw_cov;
-  // }
   p_yaw_ += cfg_.r_yaw * dt;
   pose_(2) = imu_yaw;
 
   const double ds_abs = std::abs(vel_lin_ * dt);
   vel_lin_ += acc_lin * dt;
-  vel_lin_ = std::max(vel_lin_, 0.0); // prevent going backwards, we don't model that
+  vel_lin_ = std::max(vel_lin_, 0.0); // Reverse thrust is not modeled.
 
   pose_(0) += vel_lin_ * dt * std::cos(pose_(2));
   pose_(1) += vel_lin_ * dt * std::sin(pose_(2));
@@ -73,10 +73,10 @@ Eigen::Vector3d Odometry::get_pose() const {
 }
 
 double Odometry::force_from_pwm(double pwm) const {
-  if (abs(pwm - 1500) < 40) {
+  if (abs(pwm - kNeutralPwm) < kPwmDeadband) {
     return 0.0;
   }
-  return pwm < 1500 ? (pwm - 1500) * cfg_.thrust_k_r : (pwm - 1500) * cfg_.thrust_k_f;
+  return pwm < kNeutralPwm ? (pwm - kNeutralPwm) * cfg_.thrust_k_r : (pwm - kNeutralPwm) * cfg_.thrust_k_f;
 }
 
 double Odometry::normalize_angle(double a) {

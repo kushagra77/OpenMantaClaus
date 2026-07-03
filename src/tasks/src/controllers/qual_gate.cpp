@@ -1,4 +1,5 @@
 #include "tasks/controllers/task_factory.hpp"
+#include "tasks/task_protocol.hpp"
 
 #include <algorithm>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
@@ -9,7 +10,7 @@ QualGate::QualGate(
     const QualGateConfig & config,
     bool forward)
     : Task(std::move(tf_buffer)), config_(config) {
-  state_ = forward ? FORWARD : BACKWARD; // should never be used really
+    state_ = forward ? FORWARD : BACKWARD;
 }
 
 int QualGate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
@@ -20,7 +21,7 @@ int QualGate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg)
     auto gate_l_transform = get_transform("qual_gate_left");
 
   } catch(const tf2::TransformException &ex) {
-    return -10; // stop all rc commands and wait until transform is found
+    return task_protocol::kTransformUnavailable;
   }
 
   auto robot_transform = get_transform("base_link");
@@ -64,19 +65,13 @@ int QualGate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg)
       break;
     case BACKWARD:
       if (robot_p.x < gate_l_p.x - config_.backward_exit_margin_m) {
-        return -1;
+          return task_protocol::kTaskComplete;
       }
       command_ = calculateAPF(robot_p, gate_l_p, gate_r_p);
       break;
   }
   
   command_ = clean_command(command_, robot_p.yaw);
-
-  // MAYBE WILL ADD THIS IDK -> not with the current yolo latency bro
-  // if (msg->size == 2) {
-  //   const double vision_yaw = (msg->observations[0].bearing + msg->observations[1].bearing) / 2.0;
-  //   command_.yaw = normalize_angle(command_.yaw * config_.slam_trust + vision_yaw * (1 - config_.slam_trust));
-  // }
 
   return static_cast<int>(state_);
 }

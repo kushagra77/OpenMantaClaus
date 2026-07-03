@@ -1,0 +1,679 @@
+[0.000000] (-) TimerEvent: {}
+[0.000906] (-) JobUnselected: {'identifier': 'cv_testing'}
+[0.000972] (-) JobUnselected: {'identifier': 'interfaces'}
+[0.001022] (-) JobUnselected: {'identifier': 'mavros_control'}
+[0.001071] (brain) JobQueued: {'identifier': 'brain', 'dependencies': OrderedDict([('interfaces', '/home/kushion/Documents/OpenMantaClaus/install/interfaces')])}
+[0.001139] (cv) JobQueued: {'identifier': 'cv', 'dependencies': OrderedDict([('interfaces', '/home/kushion/Documents/OpenMantaClaus/install/interfaces')])}
+[0.001218] (ekfslam) JobQueued: {'identifier': 'ekfslam', 'dependencies': OrderedDict([('interfaces', '/home/kushion/Documents/OpenMantaClaus/install/interfaces')])}
+[0.001243] (tasks) JobQueued: {'identifier': 'tasks', 'dependencies': OrderedDict([('interfaces', '/home/kushion/Documents/OpenMantaClaus/install/interfaces')])}
+[0.001265] (brain) JobStarted: {'identifier': 'brain'}
+[0.010482] (cv) JobStarted: {'identifier': 'cv'}
+[0.019998] (ekfslam) JobStarted: {'identifier': 'ekfslam'}
+[0.026579] (tasks) JobStarted: {'identifier': 'tasks'}
+[0.036658] (brain) JobProgress: {'identifier': 'brain', 'progress': 'cmake'}
+[0.037627] (brain) Command: {'cmd': ['/usr/bin/cmake', '/home/kushion/Documents/OpenMantaClaus/src/brain', '-DCMAKE_INSTALL_PREFIX=/home/kushion/Documents/OpenMantaClaus/install/brain'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/brain', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/brain'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[0.099610] (-) TimerEvent: {}
+[0.200045] (-) TimerEvent: {}
+[0.300530] (-) TimerEvent: {}
+[0.356563] (ekfslam) JobProgress: {'identifier': 'ekfslam', 'progress': 'cmake'}
+[0.357386] (ekfslam) JobProgress: {'identifier': 'ekfslam', 'progress': 'build'}
+[0.358329] (ekfslam) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam', '--', '-j22', '-l22'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/ekfslam', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[0.363617] (brain) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.364399] (brain) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.364625] (brain) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.364748] (brain) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.364836] (brain) StdoutLine: {'line': b'-- Check for working C compiler: /usr/lib/ccache/cc - skipped\n'}
+[0.364920] (brain) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.365013] (brain) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.365176] (brain) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.365412] (tasks) JobProgress: {'identifier': 'tasks', 'progress': 'cmake'}
+[0.366106] (tasks) JobProgress: {'identifier': 'tasks', 'progress': 'build'}
+[0.366649] (tasks) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kushion/Documents/OpenMantaClaus/build/tasks', '--', '-j22', '-l22'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/tasks', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/tasks'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[0.400668] (-) TimerEvent: {}
+[0.446608] (ekfslam) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ekfslam_node\x1b[0m\n'}
+[0.460149] (brain) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.460528] (tasks) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target task_runner\x1b[0m\n'}
+[0.472846] (brain) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped\n'}
+[0.473246] (brain) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.474109] (brain) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.481545] (brain) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.483810] (ekfslam) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/ekfslam_node.dir/src/utils/slam_params.cpp.o\x1b[0m\n'}
+[0.484236] (ekfslam) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ekfslam_node.dir/src/ekfslam.cpp.o\x1b[0m\n'}
+[0.500876] (-) TimerEvent: {}
+[0.508713] (tasks) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding CXX object CMakeFiles/task_runner.dir/src/task_runner.cpp.o\x1b[0m\n'}
+[0.512308] (tasks) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/task_runner.dir/src/utils/task_runner_params.cpp.o\x1b[0m\n'}
+[0.514503] (tasks) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/qual_gate.cpp.o\x1b[0m\n'}
+[0.515112] (tasks) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/gate.cpp.o\x1b[0m\n'}
+[0.516354] (tasks) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/buckets.cpp.o\x1b[0m\n'}
+[0.517075] (tasks) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/gripper.cpp.o\x1b[0m\n'}
+[0.518162] (tasks) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/aruco.cpp.o\x1b[0m\n'}
+[0.601052] (-) TimerEvent: {}
+[0.701704] (-) TimerEvent: {}
+[0.802368] (-) TimerEvent: {}
+[0.903092] (-) TimerEvent: {}
+[1.003900] (-) TimerEvent: {}
+[1.106250] (-) TimerEvent: {}
+[1.206856] (-) TimerEvent: {}
+[1.266892] (brain) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.307007] (-) TimerEvent: {}
+[1.319917] (cv) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/cv', 'build', '--build-base', '/home/kushion/Documents/OpenMantaClaus/build/cv/build', 'install', '--record', '/home/kushion/Documents/OpenMantaClaus/build/cv/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/src/cv', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'PYTHON_BASIC_REPL': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model', 'LANGUAGE': 'en_AU:en', 'USER': 'kushion', 'FONTCONFIG_PATH': '/etc/fonts', 'GZ_CONFIG_PATH': '/usr/share/gz', 'GIT_EDITOR': ':', 'GIO_MODULE_DIR': '/home/kushion/snap/code/common/.cache/gio-modules', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'GTK_EXE_PREFIX_VSCODE_SNAP_ORIG': '', 'GDK_BACKEND_VSCODE_SNAP_ORIG': '', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code', 'ACADOS_SOURCE_DIR': '/home/kushion/Documents/acados', 'HOME': '/home/kushion', 'CHROME_DESKTOP': 'code.desktop', 'LOCPATH_VSCODE_SNAP_ORIG': '', 'TERM_PROGRAM_VERSION': '1.117.0', 'DESKTOP_SESSION': 'ubuntu', 'GTK_PATH': '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0', 'XDG_DATA_HOME_VSCODE_SNAP_ORIG': '', 'GTK_IM_MODULE_FILE': '/home/kushion/snap/code/common/.cache/immodules/immodules.cache', 'GIO_LAUNCHED_DESKTOP_FILE': '/var/lib/snapd/desktop/applications/code_code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG': '', 'VSCODE_GIT_ASKPASS_MAIN': '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/snap/code/235/usr/share/code/code', 'MANAGERPID': '1230', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '1528', 'BUNDLED_DEBUGPY_PATH': '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy', 'IM_CONFIG_CHECK_ENV': '1', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '494115', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'kushion', 'JOURNAL_STREAM': '8:26819', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_SESSION_CLASS': 'user', 'XDG_DATA_DIRS_VSCODE_SNAP_ORIG': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'USERNAME': 'kushion', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'FC_FONTATIONS': '1', 'ROS_LOCALHOST_ONLY': '0', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502', 'GTK_EXE_PREFIX': '/snap/code/235/usr', 'INVOCATION_ID': '6961dd283a234b75911ffe506126379d', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'LOCPATH': '/snap/code/235/usr/lib/locale', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'PYTHONSTARTUP': '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py', 'GIO_MODULE_DIR_VSCODE_SNAP_ORIG': '', 'XDG_DATA_HOME': '/home/kushion/snap/code/235/.local/share', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.0P72Q3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-6cdf9cd762.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'GSETTINGS_SCHEMA_DIR': '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GTK_PATH_VSCODE_SNAP_ORIG': '', 'FONTCONFIG_FILE': '/etc/fonts/fonts.conf', 'GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG': '', 'GJS_DEBUG_OUTPUT': 'stderr', 'GZ_VERSION': 'harmonic', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/kushion/Documents/OpenMantaClaus/build/cv', 'GIT_MERGE_AUTOEDIT': 'no', 'GZ_TRANSPORT_USE_SHARED_MEMORY': '0', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/kushion/Documents/OpenMantaClaus/build/cv/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages:/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation'}, 'shell': False}
+[1.407156] (-) TimerEvent: {}
+[1.460257] (brain) StdoutLine: {'line': b'-- Found rclcpp: 16.0.17 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.507302] (-) TimerEvent: {}
+[1.530693] (brain) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.539756] (brain) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.554584] (brain) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.575628] (brain) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.599438] (brain) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.607440] (-) TimerEvent: {}
+[1.666530] (cv) StdoutLine: {'line': b'running egg_info\n'}
+[1.687282] (cv) StdoutLine: {'line': b'writing ../../build/cv/cv.egg-info/PKG-INFO\n'}
+[1.687893] (cv) StdoutLine: {'line': b'writing dependency_links to ../../build/cv/cv.egg-info/dependency_links.txt\n'}
+[1.688145] (brain) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.688356] (cv) StdoutLine: {'line': b'writing entry points to ../../build/cv/cv.egg-info/entry_points.txt\n'}
+[1.688530] (cv) StdoutLine: {'line': b'writing requirements to ../../build/cv/cv.egg-info/requires.txt\n'}
+[1.688675] (cv) StdoutLine: {'line': b'writing top-level names to ../../build/cv/cv.egg-info/top_level.txt\n'}
+[1.695926] (brain) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.707585] (-) TimerEvent: {}
+[1.739227] (cv) StdoutLine: {'line': b"reading manifest file '../../build/cv/cv.egg-info/SOURCES.txt'\n"}
+[1.740956] (cv) StdoutLine: {'line': b"writing manifest file '../../build/cv/cv.egg-info/SOURCES.txt'\n"}
+[1.741339] (cv) StdoutLine: {'line': b'running build\n'}
+[1.741497] (cv) StdoutLine: {'line': b'running build_py\n'}
+[1.741694] (cv) StdoutLine: {'line': b'copying cv/__init__.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv\n'}
+[1.741890] (cv) StdoutLine: {'line': b'copying cv/constants.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv\n'}
+[1.742050] (cv) StdoutLine: {'line': b'copying cv/cv_node.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv\n'}
+[1.742271] (cv) StdoutLine: {'line': b'copying cv/bottom_cv_node.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv\n'}
+[1.742496] (cv) StdoutLine: {'line': b'copying cv/testing_node.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv\n'}
+[1.742878] (cv) StdoutLine: {'line': b'copying cv/utils/filter_detections.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils\n'}
+[1.743137] (cv) StdoutLine: {'line': b'copying cv/utils/cv_node_params.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils\n'}
+[1.743355] (cv) StdoutLine: {'line': b'copying cv/utils/__init__.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils\n'}
+[1.743526] (cv) StdoutLine: {'line': b'copying cv/utils/yolo.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils\n'}
+[1.743725] (cv) StdoutLine: {'line': b'copying cv/utils/param_helpers.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils\n'}
+[1.743924] (cv) StdoutLine: {'line': b'copying cv/utils/camera_control.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils\n'}
+[1.744550] (cv) StdoutLine: {'line': b'running install\n'}
+[1.749712] (cv) StdoutLine: {'line': b'running install_lib\n'}
+[1.771354] (cv) StdoutLine: {'line': b'copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/cv_node.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv\n'}
+[1.771762] (cv) StdoutLine: {'line': b'copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils/filter_detections.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/utils\n'}
+[1.771974] (cv) StdoutLine: {'line': b'copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils/cv_node_params.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/utils\n'}
+[1.772327] (cv) StdoutLine: {'line': b'copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/bottom_cv_node.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv\n'}
+[1.773338] (cv) StdoutLine: {'line': b'byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/cv_node.py to cv_node.cpython-310.pyc\n'}
+[1.776908] (cv) StdoutLine: {'line': b'byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/utils/filter_detections.py to filter_detections.cpython-310.pyc\n'}
+[1.781651] (cv) StdoutLine: {'line': b'byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/utils/cv_node_params.py to cv_node_params.cpython-310.pyc\n'}
+[1.783428] (cv) StdoutLine: {'line': b'byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/bottom_cv_node.py to bottom_cv_node.cpython-310.pyc\n'}
+[1.784704] (cv) StdoutLine: {'line': b'running install_data\n'}
+[1.785154] (cv) StdoutLine: {'line': b'copying resource/cv -> /home/kushion/Documents/OpenMantaClaus/install/cv/share/ament_index/resource_index/packages\n'}
+[1.785456] (cv) StdoutLine: {'line': b'copying package.xml -> /home/kushion/Documents/OpenMantaClaus/install/cv/share/cv\n'}
+[1.785662] (cv) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.807732] (-) TimerEvent: {}
+[1.808681] (cv) StdoutLine: {'line': b"removing '/home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[1.809183] (cv) StdoutLine: {'line': b'Copying ../../build/cv/cv.egg-info to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv-0.0.0-py3.10.egg-info\n'}
+[1.810393] (cv) StdoutLine: {'line': b'running install_scripts\n'}
+[1.828650] (brain) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[1.869156] (brain) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[1.907896] (-) TimerEvent: {}
+[1.949975] (brain) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.972794] (cv) StdoutLine: {'line': b'Installing bottom_cv_node script to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/cv\n'}
+[1.973228] (cv) StdoutLine: {'line': b'Installing cv_node script to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/cv\n'}
+[1.973419] (cv) StdoutLine: {'line': b'Installing testing_node script to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/cv\n'}
+[1.973898] (cv) StdoutLine: {'line': b"writing list of installed files to '/home/kushion/Documents/OpenMantaClaus/build/cv/install.log'\n"}
+[1.985809] (brain) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[2.008099] (-) TimerEvent: {}
+[2.015412] (cv) CommandEnded: {'returncode': 0}
+[2.027759] (cv) JobEnded: {'identifier': 'cv', 'rc': 0}
+[2.100932] (brain) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[2.101838] (brain) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[2.108258] (-) TimerEvent: {}
+[2.208817] (-) TimerEvent: {}
+[2.277599] (brain) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[2.280191] (brain) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[2.308994] (-) TimerEvent: {}
+[2.401018] (brain) StdoutLine: {'line': b'-- Found mavros_msgs: 2.14.0 (/opt/ros/humble/share/mavros_msgs/cmake)\n'}
+[2.409145] (-) TimerEvent: {}
+[2.510056] (-) TimerEvent: {}
+[2.571385] (brain) StdoutLine: {'line': b'-- Found interfaces: 0.0.0 (/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake)\n'}
+[2.598985] (brain) StdoutLine: {'line': b'-- Found std_srvs: 4.9.0 (/opt/ros/humble/share/std_srvs/cmake)\n'}
+[2.610245] (-) TimerEvent: {}
+[2.710782] (-) TimerEvent: {}
+[2.731165] (brain) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.755772] (brain) StdoutLine: {'line': b'-- Generating done\n'}
+[2.765163] (brain) StdoutLine: {'line': b'-- Build files have been written to: /home/kushion/Documents/OpenMantaClaus/build/brain\n'}
+[2.797081] (brain) CommandEnded: {'returncode': 0}
+[2.798758] (brain) JobProgress: {'identifier': 'brain', 'progress': 'build'}
+[2.799313] (brain) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kushion/Documents/OpenMantaClaus/build/brain', '--', '-j22', '-l22'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/brain', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/brain'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[2.810952] (-) TimerEvent: {}
+[2.909636] (brain) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/brain_node.dir/src/brain.cpp.o\x1b[0m\n'}
+[2.910120] (brain) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/brain_node.dir/src/utils/brain_params.cpp.o\x1b[0m\n'}
+[2.911039] (-) TimerEvent: {}
+[3.011617] (-) TimerEvent: {}
+[3.114297] (-) TimerEvent: {}
+[3.215077] (-) TimerEvent: {}
+[3.315789] (-) TimerEvent: {}
+[3.416476] (-) TimerEvent: {}
+[3.517181] (-) TimerEvent: {}
+[3.617913] (-) TimerEvent: {}
+[3.718628] (-) TimerEvent: {}
+[3.819326] (-) TimerEvent: {}
+[3.920090] (-) TimerEvent: {}
+[4.020861] (-) TimerEvent: {}
+[4.121582] (-) TimerEvent: {}
+[4.222301] (-) TimerEvent: {}
+[4.322989] (-) TimerEvent: {}
+[4.423729] (-) TimerEvent: {}
+[4.524449] (-) TimerEvent: {}
+[4.625156] (-) TimerEvent: {}
+[4.725871] (-) TimerEvent: {}
+[4.826607] (-) TimerEvent: {}
+[4.927357] (-) TimerEvent: {}
+[5.028050] (-) TimerEvent: {}
+[5.128794] (-) TimerEvent: {}
+[5.229572] (-) TimerEvent: {}
+[5.330255] (-) TimerEvent: {}
+[5.430890] (-) TimerEvent: {}
+[5.531538] (-) TimerEvent: {}
+[5.632187] (-) TimerEvent: {}
+[5.733164] (-) TimerEvent: {}
+[5.833751] (-) TimerEvent: {}
+[5.934434] (-) TimerEvent: {}
+[6.035041] (-) TimerEvent: {}
+[6.135651] (-) TimerEvent: {}
+[6.236277] (-) TimerEvent: {}
+[6.336923] (-) TimerEvent: {}
+[6.437617] (-) TimerEvent: {}
+[6.538285] (-) TimerEvent: {}
+[6.639111] (-) TimerEvent: {}
+[6.739913] (-) TimerEvent: {}
+[6.840675] (-) TimerEvent: {}
+[6.941460] (-) TimerEvent: {}
+[7.042249] (-) TimerEvent: {}
+[7.142951] (-) TimerEvent: {}
+[7.243641] (-) TimerEvent: {}
+[7.344280] (-) TimerEvent: {}
+[7.445238] (-) TimerEvent: {}
+[7.545933] (-) TimerEvent: {}
+[7.646708] (-) TimerEvent: {}
+[7.747309] (-) TimerEvent: {}
+[7.847932] (-) TimerEvent: {}
+[7.948590] (-) TimerEvent: {}
+[8.049280] (-) TimerEvent: {}
+[8.149950] (-) TimerEvent: {}
+[8.250678] (-) TimerEvent: {}
+[8.351385] (-) TimerEvent: {}
+[8.452071] (-) TimerEvent: {}
+[8.552838] (-) TimerEvent: {}
+[8.653397] (-) TimerEvent: {}
+[8.753946] (-) TimerEvent: {}
+[8.854514] (-) TimerEvent: {}
+[8.955066] (-) TimerEvent: {}
+[9.055633] (-) TimerEvent: {}
+[9.156197] (-) TimerEvent: {}
+[9.256742] (-) TimerEvent: {}
+[9.357278] (-) TimerEvent: {}
+[9.457838] (-) TimerEvent: {}
+[9.558480] (-) TimerEvent: {}
+[9.659019] (-) TimerEvent: {}
+[9.759611] (-) TimerEvent: {}
+[9.860157] (-) TimerEvent: {}
+[9.960681] (-) TimerEvent: {}
+[10.061241] (-) TimerEvent: {}
+[10.161792] (-) TimerEvent: {}
+[10.262364] (-) TimerEvent: {}
+[10.363012] (-) TimerEvent: {}
+[10.463577] (-) TimerEvent: {}
+[10.564114] (-) TimerEvent: {}
+[10.664673] (-) TimerEvent: {}
+[10.765294] (-) TimerEvent: {}
+[10.865966] (-) TimerEvent: {}
+[10.966530] (-) TimerEvent: {}
+[11.067073] (-) TimerEvent: {}
+[11.167624] (-) TimerEvent: {}
+[11.268193] (-) TimerEvent: {}
+[11.368801] (-) TimerEvent: {}
+[11.469342] (-) TimerEvent: {}
+[11.569862] (-) TimerEvent: {}
+[11.670430] (-) TimerEvent: {}
+[11.770976] (-) TimerEvent: {}
+[11.871505] (-) TimerEvent: {}
+[11.972014] (-) TimerEvent: {}
+[12.072533] (-) TimerEvent: {}
+[12.173052] (-) TimerEvent: {}
+[12.273612] (-) TimerEvent: {}
+[12.374182] (-) TimerEvent: {}
+[12.474700] (-) TimerEvent: {}
+[12.575228] (-) TimerEvent: {}
+[12.675748] (-) TimerEvent: {}
+[12.776279] (-) TimerEvent: {}
+[12.876855] (-) TimerEvent: {}
+[12.977381] (-) TimerEvent: {}
+[13.077919] (-) TimerEvent: {}
+[13.178466] (-) TimerEvent: {}
+[13.279013] (-) TimerEvent: {}
+[13.379643] (-) TimerEvent: {}
+[13.480243] (-) TimerEvent: {}
+[13.580776] (-) TimerEvent: {}
+[13.681310] (-) TimerEvent: {}
+[13.781857] (-) TimerEvent: {}
+[13.882429] (-) TimerEvent: {}
+[13.982974] (-) TimerEvent: {}
+[14.083524] (-) TimerEvent: {}
+[14.184056] (-) TimerEvent: {}
+[14.284602] (-) TimerEvent: {}
+[14.385126] (-) TimerEvent: {}
+[14.485667] (-) TimerEvent: {}
+[14.586223] (-) TimerEvent: {}
+[14.686750] (-) TimerEvent: {}
+[14.787272] (-) TimerEvent: {}
+[14.887795] (-) TimerEvent: {}
+[14.988323] (-) TimerEvent: {}
+[15.088855] (-) TimerEvent: {}
+[15.189406] (-) TimerEvent: {}
+[15.289940] (-) TimerEvent: {}
+[15.390480] (-) TimerEvent: {}
+[15.490998] (-) TimerEvent: {}
+[15.591535] (-) TimerEvent: {}
+[15.692057] (-) TimerEvent: {}
+[15.792599] (-) TimerEvent: {}
+[15.893100] (-) TimerEvent: {}
+[15.993629] (-) TimerEvent: {}
+[16.094166] (-) TimerEvent: {}
+[16.194688] (-) TimerEvent: {}
+[16.295228] (-) TimerEvent: {}
+[16.395797] (-) TimerEvent: {}
+[16.496323] (-) TimerEvent: {}
+[16.596893] (-) TimerEvent: {}
+[16.697425] (-) TimerEvent: {}
+[16.797950] (-) TimerEvent: {}
+[16.898490] (-) TimerEvent: {}
+[16.999011] (-) TimerEvent: {}
+[17.099547] (-) TimerEvent: {}
+[17.200057] (-) TimerEvent: {}
+[17.300596] (-) TimerEvent: {}
+[17.401114] (-) TimerEvent: {}
+[17.501647] (-) TimerEvent: {}
+[17.602204] (-) TimerEvent: {}
+[17.702735] (-) TimerEvent: {}
+[17.803286] (-) TimerEvent: {}
+[17.903822] (-) TimerEvent: {}
+[18.004337] (-) TimerEvent: {}
+[18.104853] (-) TimerEvent: {}
+[18.205415] (-) TimerEvent: {}
+[18.306204] (-) TimerEvent: {}
+[18.406894] (-) TimerEvent: {}
+[18.507646] (-) TimerEvent: {}
+[18.597637] (tasks) StdoutLine: {'line': b'[ 72%] \x1b[32m\x1b[1mLinking CXX executable task_runner\x1b[0m\n'}
+[18.607802] (-) TimerEvent: {}
+[18.708419] (-) TimerEvent: {}
+[18.809067] (-) TimerEvent: {}
+[18.909746] (-) TimerEvent: {}
+[19.010402] (-) TimerEvent: {}
+[19.111054] (-) TimerEvent: {}
+[19.211625] (-) TimerEvent: {}
+[19.312108] (-) TimerEvent: {}
+[19.412627] (-) TimerEvent: {}
+[19.513170] (-) TimerEvent: {}
+[19.613688] (-) TimerEvent: {}
+[19.638910] (tasks) StdoutLine: {'line': b'[100%] Built target task_runner\n'}
+[19.658782] (tasks) CommandEnded: {'returncode': 0}
+[19.661174] (tasks) JobProgress: {'identifier': 'tasks', 'progress': 'install'}
+[19.675595] (tasks) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kushion/Documents/OpenMantaClaus/build/tasks'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/tasks', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/tasks'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[19.687077] (tasks) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[19.687465] (tasks) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/lib/tasks/task_runner\n'}
+[19.695933] (tasks) StdoutLine: {'line': b'-- Set runtime path of "/home/kushion/Documents/OpenMantaClaus/install/tasks/lib/tasks/task_runner" to ""\n'}
+[19.696233] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include\n'}
+[19.696355] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks\n'}
+[19.696534] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/controllers\n'}
+[19.696639] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/controllers/task_factory.hpp\n'}
+[19.696775] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_config.hpp\n'}
+[19.696939] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_runner.hpp\n'}
+[19.697102] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task.hpp\n'}
+[19.697268] (tasks) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_protocol.hpp\n'}
+[19.697430] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/utils\n'}
+[19.697540] (tasks) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/utils/task_runner_params.hpp\n'}
+[19.697704] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/package_run_dependencies/tasks\n'}
+[19.697840] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/parent_prefix_path/tasks\n'}
+[19.697947] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/ament_prefix_path.sh\n'}
+[19.698058] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/ament_prefix_path.dsv\n'}
+[19.698177] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/path.sh\n'}
+[19.698294] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/path.dsv\n'}
+[19.698401] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.bash\n'}
+[19.698506] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.sh\n'}
+[19.698611] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.zsh\n'}
+[19.698715] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.dsv\n'}
+[19.698817] (tasks) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/package.dsv\n'}
+[19.698923] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/packages/tasks\n'}
+[19.699028] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/cmake/tasksConfig.cmake\n'}
+[19.699149] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/cmake/tasksConfig-version.cmake\n'}
+[19.699282] (tasks) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/package.xml\n'}
+[19.700874] (tasks) CommandEnded: {'returncode': 0}
+[19.713872] (-) TimerEvent: {}
+[19.721990] (tasks) JobEnded: {'identifier': 'tasks', 'rc': 0}
+[19.814070] (-) TimerEvent: {}
+[19.914682] (-) TimerEvent: {}
+[20.015356] (-) TimerEvent: {}
+[20.116014] (-) TimerEvent: {}
+[20.216701] (-) TimerEvent: {}
+[20.317240] (-) TimerEvent: {}
+[20.417722] (-) TimerEvent: {}
+[20.518250] (-) TimerEvent: {}
+[20.618778] (-) TimerEvent: {}
+[20.719318] (-) TimerEvent: {}
+[20.819847] (-) TimerEvent: {}
+[20.920361] (-) TimerEvent: {}
+[21.020883] (-) TimerEvent: {}
+[21.121412] (-) TimerEvent: {}
+[21.221952] (-) TimerEvent: {}
+[21.322486] (-) TimerEvent: {}
+[21.423001] (-) TimerEvent: {}
+[21.523548] (-) TimerEvent: {}
+[21.624091] (-) TimerEvent: {}
+[21.724635] (-) TimerEvent: {}
+[21.755479] (brain) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable brain_node\x1b[0m\n'}
+[21.824833] (-) TimerEvent: {}
+[21.925467] (-) TimerEvent: {}
+[22.026109] (-) TimerEvent: {}
+[22.126774] (-) TimerEvent: {}
+[22.227493] (-) TimerEvent: {}
+[22.328048] (-) TimerEvent: {}
+[22.428608] (-) TimerEvent: {}
+[22.529098] (-) TimerEvent: {}
+[22.629419] (-) TimerEvent: {}
+[22.712623] (brain) StdoutLine: {'line': b'[100%] Built target brain_node\n'}
+[22.729580] (-) TimerEvent: {}
+[22.730257] (brain) CommandEnded: {'returncode': 0}
+[22.731796] (brain) JobProgress: {'identifier': 'brain', 'progress': 'install'}
+[22.732414] (brain) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kushion/Documents/OpenMantaClaus/build/brain'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/brain', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/brain'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[22.749162] (brain) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[22.749888] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/lib/brain/brain_node\n'}
+[22.759267] (brain) StdoutLine: {'line': b'-- Set runtime path of "/home/kushion/Documents/OpenMantaClaus/install/brain/lib/brain/brain_node" to ""\n'}
+[22.759663] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch\n'}
+[22.759784] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/qual.launch.py\n'}
+[22.759891] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/main.launch.py\n'}
+[22.760057] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/sim_only_mavros.launch.py\n'}
+[22.760187] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/params.yaml\n'}
+[22.760304] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/robot_bringup.launch.py\n'}
+[22.760401] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/apm_pluginlist.yaml\n'}
+[22.760546] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/only_mavros.launch.py\n'}
+[22.760695] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/dummy_cv.yaml\n'}
+[22.760786] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/apm_config.yaml\n'}
+[22.760876] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/brain_qual.yaml\n'}
+[22.761016] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/hardcode_qual_full.launch.py\n'}
+[22.761101] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/mavros.launch\n'}
+[22.761194] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/include\n'}
+[22.761281] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/include/brain\n'}
+[22.761402] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/include/brain/brain.hpp\n'}
+[22.761483] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/include/brain/utils\n'}
+[22.761567] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/include/brain/utils/brain_params.hpp\n'}
+[22.761712] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/ament_index/resource_index/package_run_dependencies/brain\n'}
+[22.761800] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/ament_index/resource_index/parent_prefix_path/brain\n'}
+[22.761947] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/environment/ament_prefix_path.sh\n'}
+[22.762077] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/environment/ament_prefix_path.dsv\n'}
+[22.762199] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/environment/path.sh\n'}
+[22.762344] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/environment/path.dsv\n'}
+[22.762504] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/local_setup.bash\n'}
+[22.762654] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/local_setup.sh\n'}
+[22.762813] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/local_setup.zsh\n'}
+[22.762964] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/local_setup.dsv\n'}
+[22.763119] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/package.dsv\n'}
+[22.763325] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/ament_index/resource_index/packages/brain\n'}
+[22.763505] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/cmake/brainConfig.cmake\n'}
+[22.763627] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/cmake/brainConfig-version.cmake\n'}
+[22.763789] (brain) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/package.xml\n'}
+[22.766884] (brain) CommandEnded: {'returncode': 0}
+[22.791591] (brain) JobEnded: {'identifier': 'brain', 'rc': 0}
+[22.829759] (-) TimerEvent: {}
+[22.930340] (-) TimerEvent: {}
+[23.030974] (-) TimerEvent: {}
+[23.131507] (-) TimerEvent: {}
+[23.232044] (-) TimerEvent: {}
+[23.332588] (-) TimerEvent: {}
+[23.433146] (-) TimerEvent: {}
+[23.533767] (-) TimerEvent: {}
+[23.634357] (-) TimerEvent: {}
+[23.734936] (-) TimerEvent: {}
+[23.835528] (-) TimerEvent: {}
+[23.936144] (-) TimerEvent: {}
+[24.036785] (-) TimerEvent: {}
+[24.137394] (-) TimerEvent: {}
+[24.238008] (-) TimerEvent: {}
+[24.338660] (-) TimerEvent: {}
+[24.439361] (-) TimerEvent: {}
+[24.539864] (-) TimerEvent: {}
+[24.640375] (-) TimerEvent: {}
+[24.740874] (-) TimerEvent: {}
+[24.841553] (-) TimerEvent: {}
+[24.942122] (-) TimerEvent: {}
+[25.042666] (-) TimerEvent: {}
+[25.143210] (-) TimerEvent: {}
+[25.243738] (-) TimerEvent: {}
+[25.344260] (-) TimerEvent: {}
+[25.444719] (-) TimerEvent: {}
+[25.545184] (-) TimerEvent: {}
+[25.645692] (-) TimerEvent: {}
+[25.746210] (-) TimerEvent: {}
+[25.846760] (-) TimerEvent: {}
+[25.947304] (-) TimerEvent: {}
+[26.047837] (-) TimerEvent: {}
+[26.148361] (-) TimerEvent: {}
+[26.248847] (-) TimerEvent: {}
+[26.349375] (-) TimerEvent: {}
+[26.449892] (-) TimerEvent: {}
+[26.550418] (-) TimerEvent: {}
+[26.650919] (-) TimerEvent: {}
+[26.751422] (-) TimerEvent: {}
+[26.851982] (-) TimerEvent: {}
+[26.952624] (-) TimerEvent: {}
+[27.053283] (-) TimerEvent: {}
+[27.153798] (-) TimerEvent: {}
+[27.254331] (-) TimerEvent: {}
+[27.354826] (-) TimerEvent: {}
+[27.455324] (-) TimerEvent: {}
+[27.555833] (-) TimerEvent: {}
+[27.656516] (-) TimerEvent: {}
+[27.757008] (-) TimerEvent: {}
+[27.857535] (-) TimerEvent: {}
+[27.958039] (-) TimerEvent: {}
+[28.058564] (-) TimerEvent: {}
+[28.167404] (-) TimerEvent: {}
+[28.267896] (-) TimerEvent: {}
+[28.368417] (-) TimerEvent: {}
+[28.468899] (-) TimerEvent: {}
+[28.569408] (-) TimerEvent: {}
+[28.669875] (-) TimerEvent: {}
+[28.770393] (-) TimerEvent: {}
+[28.870975] (-) TimerEvent: {}
+[28.971611] (-) TimerEvent: {}
+[29.072106] (-) TimerEvent: {}
+[29.172642] (-) TimerEvent: {}
+[29.273213] (-) TimerEvent: {}
+[29.373730] (-) TimerEvent: {}
+[29.474255] (-) TimerEvent: {}
+[29.574772] (-) TimerEvent: {}
+[29.675269] (-) TimerEvent: {}
+[29.775748] (-) TimerEvent: {}
+[29.876251] (-) TimerEvent: {}
+[29.976795] (-) TimerEvent: {}
+[30.077308] (-) TimerEvent: {}
+[30.177844] (-) TimerEvent: {}
+[30.278364] (-) TimerEvent: {}
+[30.378871] (-) TimerEvent: {}
+[30.479393] (-) TimerEvent: {}
+[30.580042] (-) TimerEvent: {}
+[30.680690] (-) TimerEvent: {}
+[30.781204] (-) TimerEvent: {}
+[30.881703] (-) TimerEvent: {}
+[30.982242] (-) TimerEvent: {}
+[31.082721] (-) TimerEvent: {}
+[31.183247] (-) TimerEvent: {}
+[31.283748] (-) TimerEvent: {}
+[31.384259] (-) TimerEvent: {}
+[31.484758] (-) TimerEvent: {}
+[31.585301] (-) TimerEvent: {}
+[31.685828] (-) TimerEvent: {}
+[31.786349] (-) TimerEvent: {}
+[31.886871] (-) TimerEvent: {}
+[31.987410] (-) TimerEvent: {}
+[32.087912] (-) TimerEvent: {}
+[32.188423] (-) TimerEvent: {}
+[32.288909] (-) TimerEvent: {}
+[32.389424] (-) TimerEvent: {}
+[32.489941] (-) TimerEvent: {}
+[32.590464] (-) TimerEvent: {}
+[32.690973] (-) TimerEvent: {}
+[32.791487] (-) TimerEvent: {}
+[32.891974] (-) TimerEvent: {}
+[32.992598] (-) TimerEvent: {}
+[33.093107] (-) TimerEvent: {}
+[33.193693] (-) TimerEvent: {}
+[33.294218] (-) TimerEvent: {}
+[33.394711] (-) TimerEvent: {}
+[33.495224] (-) TimerEvent: {}
+[33.595722] (-) TimerEvent: {}
+[33.696254] (-) TimerEvent: {}
+[33.796790] (-) TimerEvent: {}
+[33.897307] (-) TimerEvent: {}
+[33.997811] (-) TimerEvent: {}
+[34.098327] (-) TimerEvent: {}
+[34.198829] (-) TimerEvent: {}
+[34.299317] (-) TimerEvent: {}
+[34.399811] (-) TimerEvent: {}
+[34.500334] (-) TimerEvent: {}
+[34.600818] (-) TimerEvent: {}
+[34.701315] (-) TimerEvent: {}
+[34.801783] (-) TimerEvent: {}
+[34.902260] (-) TimerEvent: {}
+[35.002728] (-) TimerEvent: {}
+[35.103236] (-) TimerEvent: {}
+[35.203731] (-) TimerEvent: {}
+[35.304235] (-) TimerEvent: {}
+[35.404705] (-) TimerEvent: {}
+[35.505243] (-) TimerEvent: {}
+[35.605820] (-) TimerEvent: {}
+[35.706325] (-) TimerEvent: {}
+[35.806793] (-) TimerEvent: {}
+[35.907253] (-) TimerEvent: {}
+[36.007723] (-) TimerEvent: {}
+[36.108200] (-) TimerEvent: {}
+[36.208686] (-) TimerEvent: {}
+[36.309147] (-) TimerEvent: {}
+[36.409602] (-) TimerEvent: {}
+[36.510076] (-) TimerEvent: {}
+[36.610559] (-) TimerEvent: {}
+[36.711006] (-) TimerEvent: {}
+[36.811500] (-) TimerEvent: {}
+[36.911988] (-) TimerEvent: {}
+[37.012494] (-) TimerEvent: {}
+[37.113003] (-) TimerEvent: {}
+[37.213515] (-) TimerEvent: {}
+[37.314009] (-) TimerEvent: {}
+[37.414495] (-) TimerEvent: {}
+[37.514949] (-) TimerEvent: {}
+[37.615432] (-) TimerEvent: {}
+[37.715944] (-) TimerEvent: {}
+[37.816453] (-) TimerEvent: {}
+[37.916951] (-) TimerEvent: {}
+[38.017475] (-) TimerEvent: {}
+[38.117936] (-) TimerEvent: {}
+[38.218421] (-) TimerEvent: {}
+[38.318939] (-) TimerEvent: {}
+[38.419445] (-) TimerEvent: {}
+[38.519945] (-) TimerEvent: {}
+[38.620470] (-) TimerEvent: {}
+[38.720980] (-) TimerEvent: {}
+[38.821502] (-) TimerEvent: {}
+[38.922004] (-) TimerEvent: {}
+[39.022477] (-) TimerEvent: {}
+[39.122922] (-) TimerEvent: {}
+[39.223405] (-) TimerEvent: {}
+[39.323853] (-) TimerEvent: {}
+[39.424372] (-) TimerEvent: {}
+[39.524864] (-) TimerEvent: {}
+[39.625373] (-) TimerEvent: {}
+[39.725867] (-) TimerEvent: {}
+[39.826439] (-) TimerEvent: {}
+[39.926962] (-) TimerEvent: {}
+[40.027482] (-) TimerEvent: {}
+[40.128007] (-) TimerEvent: {}
+[40.228543] (-) TimerEvent: {}
+[40.329144] (-) TimerEvent: {}
+[40.429669] (-) TimerEvent: {}
+[40.530175] (-) TimerEvent: {}
+[40.630686] (-) TimerEvent: {}
+[40.731194] (-) TimerEvent: {}
+[40.831640] (-) TimerEvent: {}
+[40.932150] (-) TimerEvent: {}
+[41.032675] (-) TimerEvent: {}
+[41.133215] (-) TimerEvent: {}
+[41.233717] (-) TimerEvent: {}
+[41.334256] (-) TimerEvent: {}
+[41.434783] (-) TimerEvent: {}
+[41.535312] (-) TimerEvent: {}
+[41.635815] (-) TimerEvent: {}
+[41.736339] (-) TimerEvent: {}
+[41.836854] (-) TimerEvent: {}
+[41.937385] (-) TimerEvent: {}
+[42.037919] (-) TimerEvent: {}
+[42.138469] (-) TimerEvent: {}
+[42.239017] (-) TimerEvent: {}
+[42.339554] (-) TimerEvent: {}
+[42.440084] (-) TimerEvent: {}
+[42.540609] (-) TimerEvent: {}
+[42.641149] (-) TimerEvent: {}
+[42.741683] (-) TimerEvent: {}
+[42.842226] (-) TimerEvent: {}
+[42.942748] (-) TimerEvent: {}
+[43.043259] (-) TimerEvent: {}
+[43.143744] (-) TimerEvent: {}
+[43.244285] (-) TimerEvent: {}
+[43.344813] (-) TimerEvent: {}
+[43.433340] (ekfslam) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable ekfslam_node\x1b[0m\n'}
+[43.444913] (-) TimerEvent: {}
+[43.545387] (-) TimerEvent: {}
+[43.645936] (-) TimerEvent: {}
+[43.746575] (-) TimerEvent: {}
+[43.847162] (-) TimerEvent: {}
+[43.947756] (-) TimerEvent: {}
+[44.048468] (-) TimerEvent: {}
+[44.148923] (-) TimerEvent: {}
+[44.249454] (-) TimerEvent: {}
+[44.349989] (-) TimerEvent: {}
+[44.450632] (-) TimerEvent: {}
+[44.551230] (-) TimerEvent: {}
+[44.651757] (-) TimerEvent: {}
+[44.752289] (-) TimerEvent: {}
+[44.852819] (-) TimerEvent: {}
+[44.953351] (-) TimerEvent: {}
+[45.053897] (-) TimerEvent: {}
+[45.154479] (-) TimerEvent: {}
+[45.255053] (-) TimerEvent: {}
+[45.355586] (-) TimerEvent: {}
+[45.416159] (ekfslam) StdoutLine: {'line': b'[100%] Built target ekfslam_node\n'}
+[45.430797] (ekfslam) CommandEnded: {'returncode': 0}
+[45.432062] (ekfslam) JobProgress: {'identifier': 'ekfslam', 'progress': 'install'}
+[45.432448] (ekfslam) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/ekfslam', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[45.443783] (ekfslam) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[45.444063] (ekfslam) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/ekfslam/ekfslam_node\n'}
+[45.455711] (-) TimerEvent: {}
+[45.461235] (ekfslam) StdoutLine: {'line': b'-- Set runtime path of "/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/ekfslam/ekfslam_node" to ""\n'}
+[45.461555] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include\n'}
+[45.461758] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam\n'}
+[45.461948] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/odometry.hpp\n'}
+[45.462242] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/utils\n'}
+[45.462443] (ekfslam) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/utils/slam_params.hpp\n'}
+[45.462558] (ekfslam) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/ekfslam.hpp\n'}
+[45.462714] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/package_run_dependencies/ekfslam\n'}
+[45.462847] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/parent_prefix_path/ekfslam\n'}
+[45.462958] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/ament_prefix_path.sh\n'}
+[45.463065] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/ament_prefix_path.dsv\n'}
+[45.463181] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/path.sh\n'}
+[45.463289] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/path.dsv\n'}
+[45.463408] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.bash\n'}
+[45.463516] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.sh\n'}
+[45.463622] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.zsh\n'}
+[45.463725] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.dsv\n'}
+[45.463829] (ekfslam) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.dsv\n'}
+[45.463930] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/packages/ekfslam\n'}
+[45.464038] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/cmake/ekfslamConfig.cmake\n'}
+[45.464150] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/cmake/ekfslamConfig-version.cmake\n'}
+[45.464258] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.xml\n'}
+[45.465726] (ekfslam) CommandEnded: {'returncode': 0}
+[45.479105] (ekfslam) JobEnded: {'identifier': 'ekfslam', 'rc': 0}
+[45.479881] (-) EventReactorShutdown: {}

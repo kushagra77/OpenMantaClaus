@@ -1,0 +1,2 @@
+string command
+bool initial

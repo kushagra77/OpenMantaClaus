@@ -1,0 +1,520 @@
+[0.153s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'interfaces', 'ekfslam']
+[0.153s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=22, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['interfaces', 'ekfslam'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7df44e2a61d0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7df44e2a5a50>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7df44e2a5a50>>, mixin_verb=('build',))
+[0.208s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.209s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/kushion/Documents/OpenMantaClaus'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.241s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore_ament_install'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_pkg']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_pkg'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_meta']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_meta'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ros']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ros'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['cmake', 'python']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'cmake'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['python_setup_py']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python_setup_py'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.242s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ignore_ament_install'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_pkg']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_pkg'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['colcon_meta']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'colcon_meta'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['ros']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'ros'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['cmake', 'python']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'cmake'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extensions ['python_setup_py']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts) by extension 'python_setup_py'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extensions ['ignore', 'ignore_ament_install']
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'ignore'
+[0.243s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'ignore_ament_install'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extensions ['colcon_pkg']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'colcon_pkg'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extensions ['colcon_meta']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'colcon_meta'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extensions ['ros']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'ros'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extensions ['cmake', 'python']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'cmake'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'python'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extensions ['python_setup_py']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/bottom_camera) by extension 'python_setup_py'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extensions ['ignore', 'ignore_ament_install']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extension 'ignore'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extension 'ignore_ament_install'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extensions ['colcon_pkg']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extension 'colcon_pkg'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extensions ['colcon_meta']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extension 'colcon_meta'
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extensions ['ros']
+[0.244s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/cv_testing) by extension 'ros'
+[0.247s] DEBUG:colcon.colcon_core.package_identification:Package 'scripts/cv_testing' with type 'ros.ament_python' and name 'cv_testing'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extensions ['ignore', 'ignore_ament_install']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'ignore'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'ignore_ament_install'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extensions ['colcon_pkg']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'colcon_pkg'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extensions ['colcon_meta']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'colcon_meta'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extensions ['ros']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'ros'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extensions ['cmake', 'python']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'cmake'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'python'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extensions ['python_setup_py']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo) by extension 'python_setup_py'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extensions ['ignore', 'ignore_ament_install']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'ignore'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'ignore_ament_install'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extensions ['colcon_pkg']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'colcon_pkg'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extensions ['colcon_meta']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'colcon_meta'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extensions ['ros']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'ros'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extensions ['cmake', 'python']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'cmake'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'python'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extensions ['python_setup_py']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs) by extension 'python_setup_py'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extensions ['ignore', 'ignore_ament_install']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'ignore'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'ignore_ament_install'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extensions ['colcon_pkg']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'colcon_pkg'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extensions ['colcon_meta']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'colcon_meta'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extensions ['ros']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'ros'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extensions ['cmake', 'python']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'cmake'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'python'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extensions ['python_setup_py']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect) by extension 'python_setup_py'
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extensions ['ignore', 'ignore_ament_install']
+[0.250s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'ignore'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'ignore_ament_install'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extensions ['colcon_pkg']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'colcon_pkg'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extensions ['colcon_meta']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'colcon_meta'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extensions ['ros']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'ros'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extensions ['cmake', 'python']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'cmake'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'python'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extensions ['python_setup_py']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1) by extension 'python_setup_py'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extensions ['ignore', 'ignore_ament_install']
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'ignore'
+[0.251s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'ignore_ament_install'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extensions ['colcon_pkg']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'colcon_pkg'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extensions ['colcon_meta']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'colcon_meta'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extensions ['ros']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'ros'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extensions ['cmake', 'python']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'cmake'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'python'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extensions ['python_setup_py']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights) by extension 'python_setup_py'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extensions ['ignore', 'ignore_ament_install']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'ignore'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'ignore_ament_install'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extensions ['colcon_pkg']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'colcon_pkg'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extensions ['colcon_meta']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'colcon_meta'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extensions ['ros']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'ros'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extensions ['cmake', 'python']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'cmake'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'python'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extensions ['python_setup_py']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model) by extension 'python_setup_py'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extensions ['ignore', 'ignore_ament_install']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'ignore'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'ignore_ament_install'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extensions ['colcon_pkg']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'colcon_pkg'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extensions ['colcon_meta']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'colcon_meta'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extensions ['ros']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'ros'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extensions ['cmake', 'python']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'cmake'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'python'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extensions ['python_setup_py']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/finetune_specialist_v1/weights/best_saved_model/variables) by extension 'python_setup_py'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extensions ['ignore', 'ignore_ament_install']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'ignore'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'ignore_ament_install'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extensions ['colcon_pkg']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'colcon_pkg'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extensions ['colcon_meta']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'colcon_meta'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extensions ['ros']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'ros'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extensions ['cmake', 'python']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'cmake'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'python'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extensions ['python_setup_py']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2) by extension 'python_setup_py'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extensions ['ignore', 'ignore_ament_install']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'ignore'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'ignore_ament_install'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extensions ['colcon_pkg']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'colcon_pkg'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extensions ['colcon_meta']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'colcon_meta'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extensions ['ros']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'ros'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extensions ['cmake', 'python']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'cmake'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'python'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extensions ['python_setup_py']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights) by extension 'python_setup_py'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extensions ['ignore', 'ignore_ament_install']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'ignore'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'ignore_ament_install'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extensions ['colcon_pkg']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'colcon_pkg'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extensions ['colcon_meta']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'colcon_meta'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extensions ['ros']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'ros'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extensions ['cmake', 'python']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'cmake'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'python'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extensions ['python_setup_py']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model) by extension 'python_setup_py'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extensions ['ignore', 'ignore_ament_install']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'ignore'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'ignore_ament_install'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extensions ['colcon_pkg']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'colcon_pkg'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extensions ['colcon_meta']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'colcon_meta'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extensions ['ros']
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'ros'
+[0.257s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extensions ['cmake', 'python']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'cmake'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'python'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extensions ['python_setup_py']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/variables) by extension 'python_setup_py'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extensions ['ignore', 'ignore_ament_install']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'ignore'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'ignore_ament_install'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extensions ['colcon_pkg']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'colcon_pkg'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extensions ['colcon_meta']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'colcon_meta'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extensions ['ros']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'ros'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extensions ['cmake', 'python']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'cmake'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'python'
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extensions ['python_setup_py']
+[0.258s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og) by extension 'python_setup_py'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extensions ['ignore', 'ignore_ament_install']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'ignore'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'ignore_ament_install'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extensions ['colcon_pkg']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'colcon_pkg'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extensions ['colcon_meta']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'colcon_meta'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extensions ['ros']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'ros'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extensions ['cmake', 'python']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'cmake'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'python'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extensions ['python_setup_py']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights) by extension 'python_setup_py'
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extensions ['ignore', 'ignore_ament_install']
+[0.259s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'ignore'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'ignore_ament_install'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extensions ['colcon_pkg']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'colcon_pkg'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extensions ['colcon_meta']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'colcon_meta'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extensions ['ros']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'ros'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extensions ['cmake', 'python']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'cmake'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'python'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extensions ['python_setup_py']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model) by extension 'python_setup_py'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extensions ['ignore', 'ignore_ament_install']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'ignore'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'ignore_ament_install'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extensions ['colcon_pkg']
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'colcon_pkg'
+[0.260s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extensions ['colcon_meta']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'colcon_meta'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extensions ['ros']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'ros'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extensions ['cmake', 'python']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'cmake'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'python'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extensions ['python_setup_py']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(scripts/yolo/runs/detect/pretrain_og/weights/best_saved_model/variables) by extension 'python_setup_py'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.261s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extensions ['ignore', 'ignore_ament_install']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extension 'ignore'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extension 'ignore_ament_install'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extensions ['colcon_pkg']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extension 'colcon_pkg'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extensions ['colcon_meta']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extension 'colcon_meta'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extensions ['ros']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(src/brain) by extension 'ros'
+[0.263s] DEBUG:colcon.colcon_core.package_identification:Package 'src/brain' with type 'ros.ament_cmake' and name 'brain'
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extensions ['ignore', 'ignore_ament_install']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extension 'ignore'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extension 'ignore_ament_install'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extensions ['colcon_pkg']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extension 'colcon_pkg'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extensions ['colcon_meta']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extension 'colcon_meta'
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extensions ['ros']
+[0.264s] Level 1:colcon.colcon_core.package_identification:_identify(src/cv) by extension 'ros'
+[0.265s] DEBUG:colcon.colcon_core.package_identification:Package 'src/cv' with type 'ros.ament_python' and name 'cv'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extensions ['ignore', 'ignore_ament_install']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extension 'ignore'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extension 'ignore_ament_install'
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extensions ['colcon_pkg']
+[0.265s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extension 'colcon_pkg'
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extensions ['colcon_meta']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extension 'colcon_meta'
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extensions ['ros']
+[0.266s] Level 1:colcon.colcon_core.package_identification:_identify(src/ekfslam) by extension 'ros'
+[0.267s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ekfslam' with type 'ros.ament_cmake' and name 'ekfslam'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ignore'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ignore_ament_install'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['colcon_pkg']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'colcon_pkg'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['colcon_meta']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'colcon_meta'
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extensions ['ros']
+[0.267s] Level 1:colcon.colcon_core.package_identification:_identify(src/interfaces) by extension 'ros'
+[0.268s] DEBUG:colcon.colcon_core.package_identification:Package 'src/interfaces' with type 'ros.ament_cmake' and name 'interfaces'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extensions ['ignore', 'ignore_ament_install']
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extension 'ignore'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extension 'ignore_ament_install'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extensions ['colcon_pkg']
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extension 'colcon_pkg'
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extensions ['colcon_meta']
+[0.268s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extension 'colcon_meta'
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extensions ['ros']
+[0.269s] Level 1:colcon.colcon_core.package_identification:_identify(src/mavros_control) by extension 'ros'
+[0.270s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mavros_control' with type 'ros.ament_python' and name 'mavros_control'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extensions ['ignore', 'ignore_ament_install']
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extension 'ignore'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extension 'ignore_ament_install'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extensions ['colcon_pkg']
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extension 'colcon_pkg'
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extensions ['colcon_meta']
+[0.270s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extension 'colcon_meta'
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extensions ['ros']
+[0.271s] Level 1:colcon.colcon_core.package_identification:_identify(src/tasks) by extension 'ros'
+[0.272s] DEBUG:colcon.colcon_core.package_identification:Package 'src/tasks' with type 'ros.ament_cmake' and name 'tasks'
+[0.272s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.272s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.272s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.272s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.272s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.299s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'cv_testing' in 'scripts/cv_testing'
+[0.299s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'mavros_control' in 'src/mavros_control'
+[0.299s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'brain' in 'src/brain'
+[0.299s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'cv' in 'src/cv'
+[0.299s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'tasks' in 'src/tasks'
+[0.299s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.299s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.302s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 10 installed packages in /home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install
+[0.304s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 453 installed packages in /opt/ros/humble
+[0.306s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_args' from command line to 'None'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_target' from command line to 'None'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.374s] Level 5:colcon.colcon_core.verb:set package 'interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.374s] DEBUG:colcon.colcon_core.verb:Building package 'interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kushion/Documents/OpenMantaClaus/build/interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kushion/Documents/OpenMantaClaus/install/interfaces', 'merge_install': False, 'path': '/home/kushion/Documents/OpenMantaClaus/src/interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'cmake_args' from command line to 'None'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'cmake_target' from command line to 'None'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'cmake_clean_cache' from command line to 'False'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'cmake_clean_first' from command line to 'False'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'cmake_force_configure' from command line to 'False'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'ament_cmake_args' from command line to 'None'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'catkin_cmake_args' from command line to 'None'
+[0.375s] Level 5:colcon.colcon_core.verb:set package 'ekfslam' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.375s] DEBUG:colcon.colcon_core.verb:Building package 'ekfslam' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kushion/Documents/OpenMantaClaus/build/ekfslam', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kushion/Documents/OpenMantaClaus/install/ekfslam', 'merge_install': False, 'path': '/home/kushion/Documents/OpenMantaClaus/src/ekfslam', 'symlink_install': False, 'test_result_base': None}
+[0.375s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.376s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.377s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kushion/Documents/OpenMantaClaus/src/interfaces' with build type 'ament_cmake'
+[0.377s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kushion/Documents/OpenMantaClaus/src/interfaces'
+[0.380s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.380s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.380s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.395s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kushion/Documents/OpenMantaClaus/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble /usr/bin/cmake --build /home/kushion/Documents/OpenMantaClaus/build/interfaces -- -j22 -l22
+[0.927s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kushion/Documents/OpenMantaClaus/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble /usr/bin/cmake --build /home/kushion/Documents/OpenMantaClaus/build/interfaces -- -j22 -l22
+[0.944s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kushion/Documents/OpenMantaClaus/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble /usr/bin/cmake --install /home/kushion/Documents/OpenMantaClaus/build/interfaces
+[1.030s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces)
+[1.031s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kushion/Documents/OpenMantaClaus/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble /usr/bin/cmake --install /home/kushion/Documents/OpenMantaClaus/build/interfaces
+[1.034s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces' for CMake module files
+[1.035s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces' for CMake config files
+[1.036s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'cmake_prefix_path')
+[1.036s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[1.037s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[1.038s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[1.039s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib'
+[1.039s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'ld_library_path_lib')
+[1.040s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[1.040s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[1.041s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[1.041s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/bin'
+[1.041s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/pkgconfig/interfaces.pc'
+[1.042s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/python3.10/site-packages'
+[1.042s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/bin'
+[1.042s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.ps1'
+[1.044s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.dsv'
+[1.044s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.sh'
+[1.045s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.bash'
+[1.046s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.zsh'
+[1.047s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/colcon-core/packages/interfaces)
+[1.048s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interfaces)
+[1.048s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces' for CMake module files
+[1.049s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces' for CMake config files
+[1.050s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'cmake_prefix_path')
+[1.050s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[1.051s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[1.051s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[1.052s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib'
+[1.052s] Level 1:colcon.colcon_core.shell:create_environment_hook('interfaces', 'ld_library_path_lib')
+[1.052s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[1.053s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[1.053s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[1.054s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/bin'
+[1.054s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/pkgconfig/interfaces.pc'
+[1.054s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/python3.10/site-packages'
+[1.054s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/interfaces/bin'
+[1.055s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.ps1'
+[1.055s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.dsv'
+[1.056s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.sh'
+[1.056s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.bash'
+[1.057s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.zsh'
+[1.057s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/colcon-core/packages/interfaces)
+[1.058s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kushion/Documents/OpenMantaClaus/src/ekfslam' with build type 'ament_cmake'
+[1.058s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kushion/Documents/OpenMantaClaus/src/ekfslam'
+[1.058s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.058s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.077s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kushion/Documents/OpenMantaClaus/build/ekfslam': AMENT_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble LD_LIBRARY_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code PYTHONPATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kushion/Documents/OpenMantaClaus/build/ekfslam -- -j22 -l22
+[44.508s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kushion/Documents/OpenMantaClaus/build/ekfslam' returned '0': AMENT_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble LD_LIBRARY_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code PYTHONPATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/kushion/Documents/OpenMantaClaus/build/ekfslam -- -j22 -l22
+[44.510s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kushion/Documents/OpenMantaClaus/build/ekfslam': AMENT_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble LD_LIBRARY_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code PYTHONPATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kushion/Documents/OpenMantaClaus/build/ekfslam
+[44.543s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ekfslam)
+[44.544s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam' for CMake module files
+[44.545s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kushion/Documents/OpenMantaClaus/build/ekfslam' returned '0': AMENT_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble LD_LIBRARY_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code PYTHONPATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/kushion/Documents/OpenMantaClaus/build/ekfslam
+[44.545s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam' for CMake config files
+[44.546s] Level 1:colcon.colcon_core.shell:create_environment_hook('ekfslam', 'cmake_prefix_path')
+[44.546s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/hook/cmake_prefix_path.ps1'
+[44.547s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/hook/cmake_prefix_path.dsv'
+[44.548s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/hook/cmake_prefix_path.sh'
+[44.548s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib'
+[44.548s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/bin'
+[44.548s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/pkgconfig/ekfslam.pc'
+[44.549s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/python3.10/site-packages'
+[44.549s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/bin'
+[44.549s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.ps1'
+[44.550s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.dsv'
+[44.550s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.sh'
+[44.551s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.bash'
+[44.551s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.zsh'
+[44.551s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/colcon-core/packages/ekfslam)
+[44.552s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ekfslam)
+[44.552s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam' for CMake module files
+[44.552s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam' for CMake config files
+[44.553s] Level 1:colcon.colcon_core.shell:create_environment_hook('ekfslam', 'cmake_prefix_path')
+[44.553s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/hook/cmake_prefix_path.ps1'
+[44.553s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/hook/cmake_prefix_path.dsv'
+[44.554s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/hook/cmake_prefix_path.sh'
+[44.554s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib'
+[44.554s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/bin'
+[44.554s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/pkgconfig/ekfslam.pc'
+[44.554s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/python3.10/site-packages'
+[44.555s] Level 1:colcon.colcon_core.environment:checking '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/bin'
+[44.555s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.ps1'
+[44.556s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.dsv'
+[44.556s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.sh'
+[44.556s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.bash'
+[44.557s] INFO:colcon.colcon_core.shell:Creating package script '/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.zsh'
+[44.557s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/colcon-core/packages/ekfslam)
+[44.558s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[44.558s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[44.558s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[44.558s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[44.567s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[44.567s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[44.567s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[44.586s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[44.586s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kushion/Documents/OpenMantaClaus/install/local_setup.ps1'
+[44.588s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kushion/Documents/OpenMantaClaus/install/_local_setup_util_ps1.py'
+[44.589s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kushion/Documents/OpenMantaClaus/install/setup.ps1'
+[44.591s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kushion/Documents/OpenMantaClaus/install/local_setup.sh'
+[44.592s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kushion/Documents/OpenMantaClaus/install/_local_setup_util_sh.py'
+[44.593s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kushion/Documents/OpenMantaClaus/install/setup.sh'
+[44.595s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kushion/Documents/OpenMantaClaus/install/local_setup.bash'
+[44.595s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kushion/Documents/OpenMantaClaus/install/setup.bash'
+[44.597s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kushion/Documents/OpenMantaClaus/install/local_setup.zsh'
+[44.598s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kushion/Documents/OpenMantaClaus/install/setup.zsh'

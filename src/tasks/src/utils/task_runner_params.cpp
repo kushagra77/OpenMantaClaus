@@ -36,6 +36,7 @@ TaskRunnerParams load_task_runner_params(rclcpp::Node & node)
   node.declare_parameter<double>("gripper_yaw_speed", params.gripper_yaw_speed);
   node.declare_parameter<double>("servo_sleep", params.servo_sleep);
   node.declare_parameter<double>("pickup_sleep", params.pickup_sleep);
+  node.declare_parameter<double>("stop_cooldown_s", params.stop_cooldown_s);
   node.declare_parameter<double>("task.target_gain", params.task_config.target_gain);
   node.declare_parameter<double>("task.repellant_gain", params.task_config.repellant_gain);
   node.declare_parameter<double>("task.repellant_range", params.task_config.repellant_range);
@@ -99,6 +100,7 @@ TaskRunnerParams load_task_runner_params(rclcpp::Node & node)
   node.get_parameter("gripper_yaw_speed", params.gripper_yaw_speed);
   node.get_parameter("servo_sleep", params.servo_sleep);
   node.get_parameter("pickup_sleep", params.pickup_sleep);
+  node.get_parameter("stop_cooldown_s", params.stop_cooldown_s);
   node.get_parameter("task.target_gain", params.task_config.target_gain);
   node.get_parameter("task.repellant_gain", params.task_config.repellant_gain);
   node.get_parameter("task.repellant_range", params.task_config.repellant_range);

@@ -8,11 +8,9 @@ std::unordered_map<std::string, bool> Task::feature_seen;
 Task::Task(std::shared_ptr<tf2_ros::Buffer> tf_buffer) : tf_buffer_(std::move(tf_buffer)) {}
 
 void Task::lock_in_flares() {
-  // have to force assign all flare colour
   if (lock_flares_) {
     return;
   }
-  // get unknown flares and unknown colours
   std::set<int> unknown_flares;
   std::set<int> unknown_colors = {RED, BLUE, YELLOW};
   for (int i = 0; i < 3; i++) {
@@ -22,7 +20,6 @@ void Task::lock_in_flares() {
       unknown_flares.insert(i);
     }
   }
-  // if only one unknown flare, assign the remaining colour to it (SHOULD NEVER HAPPEN BUT WELL)
   if (unknown_flares.size() == 1) {
     int flare_idx = *unknown_flares.begin();
     int color = *unknown_colors.begin();
@@ -32,7 +29,6 @@ void Task::lock_in_flares() {
     flare_colors_[1] = BLUE;
     flare_colors_[2] = YELLOW;
   } else if (unknown_flares.size() == 2) {
-    // if flare 2 (idx 1) unknown prioritize flare 2 being RED or YELLOW and the other flare being the other colour
     if (unknown_flares.count(1)) {
       if (unknown_colors.count(RED)) {
         flare_colors_[1] = RED;
@@ -61,7 +57,6 @@ void Task::lock_in_buckets() {
     return;
   }
   lock_buckets_ = true;
-  // check if any bucket is assigned blue, if so assign all unknown buckets to red and lock
   for (int i = 0; i < 4; i++) {
     if (bucket_colors_[i] == BLUE) {
       for (int j = 0; j < 4; j++) {
@@ -73,7 +68,6 @@ void Task::lock_in_buckets() {
     }
   }
 
-  // set the first unknown bucket to blue starting from bucket 2, and the rest to red
   bool blue_assigned = false;
   for (int j = 1; j < 5; j++) {
     int i = j % 4;
@@ -89,21 +83,16 @@ void Task::lock_in_buckets() {
 }
 
 void Task::process_colored_feature(int feature_id, int color) {
-    // ---------------------------------------------------------
-    // 1. FLARES 
-    // ---------------------------------------------------------  
     if (feature_id >= 3 && feature_id <= 5 and !lock_flares_) {
         int f_idx = feature_id - 3;
 
-        // Direct assignment for RED and YELLOW
         for (int i = 0; i < 3; i++) {
             if (flare_colors_[i] == color) {
-                flare_colors_[i] = UNKNOWN; // Clear old info if same color is called
+        flare_colors_[i] = UNKNOWN;
             }
         }
         flare_colors_[f_idx] = color;
 
-        // Auto-assign BLUE if exactly ONE flare is unassigned
         int unassigned_count = 0;
         int unassigned_idx = -1;
         for (int i = 0; i < 3; i++) {
@@ -111,24 +100,18 @@ void Task::process_colored_feature(int feature_id, int color) {
                 unassigned_count++;
                 unassigned_idx = i;
             } else if (flare_colors_[i] == BLUE) {
-                return; // return if already have assigned blue
+        return;
             }
         }
 
         if (unassigned_count == 1) {
             flare_colors_[unassigned_idx] = BLUE;
         }
-
-    // ---------------------------------------------------------
-    // 2. BUCKETS - only process if all 4 buckets ahve been seen (=> bucket_4 feature seen)
-    // ---------------------------------------------------------
     } else if (feature_id >= 6 && feature_id <= 9 and !lock_buckets_ and feature_seen["bucket_4"]) {
         int b_idx = feature_id - 6;
 
-        // Directly assign the incoming color
         bucket_colors_[b_idx] = color;
 
-        // Auto-assign 'B' if exactly ONE bucket is unassigned
         int unassigned_count = 0;
         int unassigned_idx = -1;
         for (int i = 0; i < 4; i++) {
@@ -136,7 +119,6 @@ void Task::process_colored_feature(int feature_id, int color) {
                 unassigned_count++;
                 unassigned_idx = i;
             } else if (bucket_colors_[i] == BLUE) {
-                // assign every other bucket to red and lock
                 for (int i = 0; i < 4; i++) {
                     if (bucket_colors_[i] == UNKNOWN) {
                         bucket_colors_[i] = RED;
@@ -151,23 +133,17 @@ void Task::process_colored_feature(int feature_id, int color) {
             lock_buckets_ = true;
         }
 
-    // ---------------------------------------------------------
-    // 3. ARUCO (ID 10)
-    // ---------------------------------------------------------
     } else if (feature_id == 10) {
         int perm_val = color;
 
         if (perm_val != -1) {
-            // The 6 possible permutations of course order (0, 1, 2).
-            // Adjust the rows below if your specific Aruco mapping 
-            // has a different order for values 0 through 5.
             static const int permutations[6][3] = {
-                {1, 2, 3}, // Permutation 0: RED BLUE YELLOW
-                {1, 3, 2}, // Permutation 1: RED YELLOW BLUE
-                {2, 3, 1}, // Permutation 2: BLUE YELLOW RED
-                {2, 1, 3}, // Permutation 3: BLUE RED YELLOW
-                {3, 1, 2}, // Permutation 4: YELLOW RED BLUE
-                {3, 2, 1}, // Permutation 5: YELLOW BLUE RED
+        {1, 2, 3},
+        {1, 3, 2},
+        {2, 3, 1},
+        {2, 1, 3},
+        {3, 1, 2},
+        {3, 2, 1},
             };
 
             for (int i = 0; i < 3; i++) {

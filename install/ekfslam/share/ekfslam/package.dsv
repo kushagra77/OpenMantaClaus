@@ -1,0 +1,8 @@
+source;share/ekfslam/hook/cmake_prefix_path.ps1
+source;share/ekfslam/hook/cmake_prefix_path.dsv
+source;share/ekfslam/hook/cmake_prefix_path.sh
+source;share/ekfslam/local_setup.bash
+source;share/ekfslam/local_setup.dsv
+source;share/ekfslam/local_setup.ps1
+source;share/ekfslam/local_setup.sh
+source;share/ekfslam/local_setup.zsh

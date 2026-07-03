@@ -52,11 +52,13 @@ EKFSLAMParams load_ekfslam_params(rclcpp::Node & node, int feature_count)
   node.declare_parameter("bearing_noise.range_scale", params.bearing_range_scale);
   node.declare_parameter("association_tolerance_deg", params.association_tolerance_rad * 180.0 / M_PI);
   node.declare_parameter("new_association_min_deg", params.new_association_min_rad * 180.0 / M_PI);
+  node.declare_parameter("snapshot_time_tolerance_s", params.snapshot_time_tolerance_s);
+  node.declare_parameter("imu_yaw_std_dev_deg", params.imu_yaw_std_dev_deg);
   node.declare_parameter("constraints.gate_width_m", params.gate_width_m);
   node.declare_parameter("constraints.qual_gate_width_m", params.qual_gate_width_m);
   node.declare_parameter("constraints.bucket_spacing_m", params.bucket_spacing_m);
   node.declare_parameter("constraints.bucket_spacing_y_noise", params.bucket_spacing_y_noise);
-  // Feature X-position priors
+  // Feature position priors.
   node.declare_parameter("features.gate_x", params.gate_x);
   node.declare_parameter("features.qual_gate_x", params.qual_gate_x);
   node.declare_parameter("features.bucket_x", params.bucket_x);
@@ -74,7 +76,7 @@ EKFSLAMParams load_ekfslam_params(rclcpp::Node & node, int feature_count)
   node.declare_parameter("odometry.rc_lag", params.odometry_config.rc_lag);
   node.declare_parameter("odometry.xy_dist_noise_scaler", params.odometry_config.xy_dist_noise_scaler);
   node.declare_parameter("odometry.r_yaw", params.odometry_config.r_yaw);
-  // New flare tuning parameters
+  // Flare tuning parameters.
   node.declare_parameter("flare_association_factor", params.flare_association_factor);
   node.declare_parameter("new_flare_dist", params.new_flare_dist);
   node.declare_parameter("new_flare_cov_depth", params.new_flare_cov_depth);
@@ -95,11 +97,13 @@ EKFSLAMParams load_ekfslam_params(rclcpp::Node & node, int feature_count)
   params.bearing_range_scale = node.get_parameter("bearing_noise.range_scale").as_double();
   params.association_tolerance_rad = node.get_parameter("association_tolerance_deg").as_double() * M_PI / 180.0;
   params.new_association_min_rad = node.get_parameter("new_association_min_deg").as_double() * M_PI / 180.0;
+  params.snapshot_time_tolerance_s = node.get_parameter("snapshot_time_tolerance_s").as_double();
+  params.imu_yaw_std_dev_deg = node.get_parameter("imu_yaw_std_dev_deg").as_double();
   params.gate_width_m = node.get_parameter("constraints.gate_width_m").as_double();
   params.qual_gate_width_m = node.get_parameter("constraints.qual_gate_width_m").as_double();
   params.bucket_spacing_m = node.get_parameter("constraints.bucket_spacing_m").as_double();
   params.bucket_spacing_y_noise = node.get_parameter("constraints.bucket_spacing_y_noise").as_double();
-  // Read feature position priors
+  // Read feature position priors.
   params.gate_x = node.get_parameter("features.gate_x").as_double();
   params.qual_gate_x = node.get_parameter("features.qual_gate_x").as_double();
   params.bucket_x = node.get_parameter("features.bucket_x").as_double();
@@ -117,7 +121,7 @@ EKFSLAMParams load_ekfslam_params(rclcpp::Node & node, int feature_count)
   params.odometry_config.rc_lag = node.get_parameter("odometry.rc_lag").as_double();
   params.odometry_config.xy_dist_noise_scaler = node.get_parameter("odometry.xy_dist_noise_scaler").as_double();
   params.odometry_config.r_yaw = node.get_parameter("odometry.r_yaw").as_double();
-  // Read new flare parameters
+  // Read flare tuning parameters.
   params.flare_association_factor = node.get_parameter("flare_association_factor").as_double();
   params.new_flare_dist = node.get_parameter("new_flare_dist").as_double();
   params.new_flare_cov_depth = node.get_parameter("new_flare_cov_depth").as_double();

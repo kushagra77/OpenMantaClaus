@@ -1,0 +1,46 @@
+[0.941s] Invoking command in '/home/kushion/Documents/OpenMantaClaus/src/cv': AMENT_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code PYTHONPATH=/home/kushion/Documents/OpenMantaClaus/build/cv/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages:/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cv build --build-base /home/kushion/Documents/OpenMantaClaus/build/cv/build install --record /home/kushion/Documents/OpenMantaClaus/build/cv/install.log --single-version-externally-managed install_data
+[1.241s] running egg_info
+[1.261s] writing ../../build/cv/cv.egg-info/PKG-INFO
+[1.261s] writing dependency_links to ../../build/cv/cv.egg-info/dependency_links.txt
+[1.262s] writing entry points to ../../build/cv/cv.egg-info/entry_points.txt
+[1.262s] writing requirements to ../../build/cv/cv.egg-info/requires.txt
+[1.262s] writing top-level names to ../../build/cv/cv.egg-info/top_level.txt
+[1.304s] reading manifest file '../../build/cv/cv.egg-info/SOURCES.txt'
+[1.306s] writing manifest file '../../build/cv/cv.egg-info/SOURCES.txt'
+[1.306s] running build
+[1.306s] running build_py
+[1.307s] copying cv/__init__.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv
+[1.307s] copying cv/constants.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv
+[1.307s] copying cv/cv_node.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv
+[1.307s] copying cv/bottom_cv_node.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv
+[1.307s] copying cv/testing_node.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv
+[1.307s] copying cv/utils/filter_detections.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils
+[1.308s] copying cv/utils/cv_node_params.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils
+[1.308s] copying cv/utils/__init__.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils
+[1.308s] copying cv/utils/yolo.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils
+[1.308s] copying cv/utils/param_helpers.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils
+[1.308s] copying cv/utils/camera_control.py -> /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils
+[1.308s] running install
+[1.313s] running install_lib
+[1.333s] copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/constants.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv
+[1.333s] copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/cv_node.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv
+[1.334s] copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/utils/filter_detections.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/utils
+[1.334s] copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/bottom_cv_node.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv
+[1.334s] copying /home/kushion/Documents/OpenMantaClaus/build/cv/build/lib/cv/testing_node.py -> /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv
+[1.335s] byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/constants.py to constants.cpython-310.pyc
+[1.335s] byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/cv_node.py to cv_node.cpython-310.pyc
+[1.338s] byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/utils/filter_detections.py to filter_detections.cpython-310.pyc
+[1.341s] byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/bottom_cv_node.py to bottom_cv_node.cpython-310.pyc
+[1.342s] byte-compiling /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv/testing_node.py to testing_node.cpython-310.pyc
+[1.343s] running install_data
+[1.343s] copying resource/cv -> /home/kushion/Documents/OpenMantaClaus/install/cv/share/ament_index/resource_index/packages
+[1.344s] copying package.xml -> /home/kushion/Documents/OpenMantaClaus/install/cv/share/cv
+[1.344s] running install_egg_info
+[1.368s] removing '/home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv-0.0.0-py3.10.egg-info' (and everything under it)
+[1.368s] Copying ../../build/cv/cv.egg-info to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages/cv-0.0.0-py3.10.egg-info
+[1.369s] running install_scripts
+[1.522s] Installing bottom_cv_node script to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/cv
+[1.522s] Installing cv_node script to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/cv
+[1.522s] Installing testing_node script to /home/kushion/Documents/OpenMantaClaus/install/cv/lib/cv
+[1.523s] writing list of installed files to '/home/kushion/Documents/OpenMantaClaus/build/cv/install.log'
+[1.557s] Invoked command in '/home/kushion/Documents/OpenMantaClaus/src/cv' returned '0': AMENT_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code PYTHONPATH=/home/kushion/Documents/OpenMantaClaus/build/cv/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/kushion/Documents/OpenMantaClaus/install/cv/lib/python3.10/site-packages:/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/cv build --build-base /home/kushion/Documents/OpenMantaClaus/build/cv/build install --record /home/kushion/Documents/OpenMantaClaus/build/cv/install.log --single-version-externally-managed install_data

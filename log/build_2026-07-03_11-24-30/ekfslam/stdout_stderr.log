@@ -1,0 +1,28 @@
+[35m[1mConsolidate compiler generated dependencies of target ekfslam_node[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/ekfslam_node.dir/src/ekfslam.cpp.o[0m
+[ 50%] [32m[1mLinking CXX executable ekfslam_node[0m
+[100%] Built target ekfslam_node
+-- Install configuration: ""
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/ekfslam/ekfslam_node
+-- Set runtime path of "/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/ekfslam/ekfslam_node" to ""
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/odometry.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/utils
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/utils/slam_params.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/ekfslam.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/package_run_dependencies/ekfslam
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/parent_prefix_path/ekfslam
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/ament_prefix_path.sh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/path.sh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/path.dsv
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.bash
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.sh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.zsh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.dsv
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.dsv
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/packages/ekfslam
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/cmake/ekfslamConfig.cmake
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/cmake/ekfslamConfig-version.cmake
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.xml

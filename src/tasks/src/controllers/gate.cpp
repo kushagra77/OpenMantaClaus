@@ -1,4 +1,5 @@
 #include "tasks/controllers/task_factory.hpp"
+#include "tasks/task_protocol.hpp"
 
 #include <algorithm>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
@@ -18,7 +19,7 @@ int Gate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
     auto gate_l_transform = get_transform("gate_left");
 
   } catch(const tf2::TransformException &ex) {
-    return -10; // just keep doing what we were doing, hopefully will get the transform in the next iteration
+    return task_protocol::kTransformUnavailable;
   }
 
   auto robot_transform = get_transform("base_link");
@@ -45,15 +46,15 @@ int Gate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
 
   if (!forward_) {
     if (robot_p.x < gate_l_p.x - config_.forward_exit_margin_m) {
-      return -1;
+      return task_protocol::kTaskComplete;
     }
     std::swap(gate_l_p, gate_r_p);
-    repellant_names.clear(); // no repellants when reversing, just rely on gate forces to stay in the middle
+    repellant_names.clear();
   } else {
     if (robot_p.x > gate_l_p.x + config_.forward_exit_margin_m) {
-      return -1;
+      return task_protocol::kTaskComplete;
     }
-    auto flag_tf = get_transform("flag"); // put flag in even if unseen
+    auto flag_tf = get_transform("flag");
     repellants.push_back({
       flag_tf.transform.translation.x,
       flag_tf.transform.translation.y
@@ -66,7 +67,6 @@ int Gate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
     if (Task::feature_seen[repellant_name]) {
       try {
         auto repellant_tf = get_flare_transform(repellant_name);
-        // Only add to repellants if the flare is within bounds (x != -100)
         if (repellant_tf.transform.translation.x >= 0.0) {
           repellants.push_back({
             repellant_tf.transform.translation.x,
@@ -74,15 +74,12 @@ int Gate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
           });
         }
       } catch (const tf2::TransformException &ex) {
-        // Ignore if we can't get the repellant flare transform
       }
     }
   }
 
 
   command_ = clean_command(calculateAPF(robot_p, gate_l_p, gate_r_p, repellants), robot_p.yaw);
-
-  // no computer vision override or state handling
   return 1;
 }
 
@@ -96,9 +93,9 @@ Task::Pos Gate::calculateAPF(const Task::Pos& robot_pos, const Task::Pos& gate_l
   const double repellant_ellipse_y = config_.repellant_ellipse_y;
   const double repellant_passed_margin_m = config_.repellant_passed_margin_m;
   if (!(Task::feature_seen["gate_left"] || Task::feature_seen["gate_right"])) {
-    gate_gain *= config_.blind_gate_gain_factor; // if we haven't seen either gate pillar, reduce the gain to motivate exploration
+    gate_gain *= config_.blind_gate_gain_factor;
   }
-  // gate force
+
   if (robot_pos.y > std::max(gate_left.y, gate_right.y)
       || robot_pos.y < std::min(gate_left.y, gate_right.y)) {
     Task::Pos target = (gate_left + gate_right) * 0.5;
@@ -110,14 +107,12 @@ Task::Pos Gate::calculateAPF(const Task::Pos& robot_pos, const Task::Pos& gate_l
     sum_force += (left_force + right_force) * gate_gain;
   }
 
-  // repellant forces
   for (auto repellant: repellants) {
-    // ignore if behind
     if (repellant.x < robot_pos.x - repellant_passed_margin_m) {
       continue;
     }
     bool counter_clockwise = (repellant.y >= (gate_left.y + gate_right.y) / 2.0);
-    if (!forward_) counter_clockwise = !counter_clockwise; // if reversing, flip the direction of the tangential force to go the other way around the gate
+    if (!forward_) counter_clockwise = !counter_clockwise;
     sum_force += calculateEllipticalField(robot_pos, repellant, counter_clockwise, repellant_ellipse_x, repellant_ellipse_y, repellant_range) * repellant_gain;
   }
 

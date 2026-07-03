@@ -1,0 +1,10 @@
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/uninstall.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/tasks_uninstall.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/task_runner.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/test.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/edit_cache.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/rebuild_cache.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/list_install_components.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/install.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/install/local.dir
+/home/kushion/Documents/OpenMantaClaus/build/tasks/CMakeFiles/install/strip.dir

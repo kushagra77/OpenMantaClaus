@@ -1,0 +1,83 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/lib/ccache/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/lib/ccache/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rclcpp: 16.0.17 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.9 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+-- Found tf2: 0.25.18 (/opt/ros/humble/share/tf2/cmake)
+-- Found tf2_ros: 0.25.18 (/opt/ros/humble/share/tf2_ros/cmake)
+-- Found tf2_geometry_msgs: 0.25.18 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found interfaces: 0.0.0 (/home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake)
+-- Found mavros: 2.14.0 (/opt/ros/humble/share/mavros/cmake)
+-- Found mavros_msgs: 2.14.0 (/opt/ros/humble/share/mavros_msgs/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kushion/Documents/OpenMantaClaus/build/tasks
+[ 27%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/qual_gate.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/utils/task_runner_params.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/gate.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/gripper.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/task_runner.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/task_factory.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/aruco.cpp.o[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/task.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/buckets.cpp.o[0m
+[ 90%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/flare.cpp.o[0m
+[100%] [32m[1mLinking CXX executable task_runner[0m
+[100%] Built target task_runner
+-- Install configuration: ""
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/lib/tasks/task_runner
+-- Set runtime path of "/home/kushion/Documents/OpenMantaClaus/install/tasks/lib/tasks/task_runner" to ""
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/controllers
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/controllers/task_factory.hpp
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_config.hpp
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_runner.hpp
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task.hpp
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_protocol.hpp
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/utils
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/utils/task_runner_params.hpp
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/package_run_dependencies/tasks
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/parent_prefix_path/tasks
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/ament_prefix_path.sh
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/ament_prefix_path.dsv
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/path.sh
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/path.dsv
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.bash
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.sh
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.zsh
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.dsv
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/package.dsv
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/packages/tasks
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/cmake/tasksConfig.cmake
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/cmake/tasksConfig-version.cmake
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/package.xml

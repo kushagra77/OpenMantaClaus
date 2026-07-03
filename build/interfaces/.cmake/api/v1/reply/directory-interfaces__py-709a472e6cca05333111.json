@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "interfaces__py",
+		"source" : "/home/kushion/Documents/OpenMantaClaus/build/interfaces/interfaces__py"
+	}
+}

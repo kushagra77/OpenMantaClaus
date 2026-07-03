@@ -1,4 +1,5 @@
 #include "tasks/controllers/task_factory.hpp"
+#include "tasks/task_protocol.hpp"
 
 #include <utility>
 
@@ -13,7 +14,7 @@ int Buckets::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) 
     auto gate_l_transform = get_transform("bucket_1");
 
   } catch(const tf2::TransformException &ex) {
-    return -10; // stop all rc commands and wait until transform is found
+    return task_protocol::kTransformUnavailable;
   }
 
   auto robot_transform = get_transform("base_link");
@@ -23,10 +24,8 @@ int Buckets::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) 
     tf2::getYaw(robot_transform.transform.rotation)
   };
 
-  // figure out target
-  int target_id = 2; // default to bucket 2 if can't find blue bucket
+  int target_id = 2;
   if (Task::lock_buckets_) {
-    // if buckets locked, target is the locked colour
     for (int i = 0; i < 4; i++) {
       if (bucket_colors_[i] == BLUE) {
         target_id = i + 1;
@@ -41,15 +40,12 @@ int Buckets::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) 
   };
 
   double dist = (target_p - robot_p).norm();
-  // check deadbands, if target within target_reached_threshold_m, then return -1 for completion
   if (dist < config_.target_reached_threshold_m) {
-    return -1;
+    return task_protocol::kTaskComplete;
   } else if (drop_ && dist < config_.lock_bucket_proximity_threshold_m && !Task::lock_buckets_) {
-    // if dropping ball, and target within lock_bucket_proximity_threshold_m lock in the buckets.
     lock_in_buckets();
   }
   
-  // if dropping ball, no repellants, if picking up ball, gates and flare repelllants
   std::vector<Task::Pos> repellants;
   if (!drop_) {
     std::vector<std::string> repellant_names = {"flare_1", "flare_2", "flare_3", "gate_left", "gate_right"};
@@ -59,12 +55,10 @@ int Buckets::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) 
         if (repellant_name[0] == 'f') {
           try {
             repellant_tf = get_flare_transform(repellant_name);
-            // Only add to repellants if the flare is within bounds (x != -100)
             if (repellant_tf.transform.translation.x < 0.0) {
               continue;
             }
           } catch (const tf2::TransformException &ex) {
-            // Ignore if we can't get the repellant flare transform
           }
         }
         repellants.push_back({

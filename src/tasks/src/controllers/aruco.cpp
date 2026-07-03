@@ -1,4 +1,5 @@
 #include "tasks/controllers/task_factory.hpp"
+#include "tasks/task_protocol.hpp"
 
 #include <utility>
 
@@ -13,13 +14,11 @@ int Aruco::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
     auto gate_l_transform = get_transform("aruco_marker");
 
   } catch(const tf2::TransformException &ex) {
-    return -10; // stop all rc commands and wait until transform is found
+    return task_protocol::kTransformUnavailable;
   }
 
-  // early exit from task if aruco is detected
-  if (Task::flare_order_[0] != -1) return -1;
+  if (Task::flare_order_[0] != -1) return task_protocol::kTaskComplete;
 
-  // Navigate to aruco marker with flag as repellant
   auto robot_transform = get_transform("base_link");
   auto aruco_transform = get_transform("aruco_marker");
   auto flag_transform = get_transform("flag");
@@ -37,7 +36,7 @@ int Aruco::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
 
   double dist = (aruco_p - robot_p).norm();
   if (dist < config_.target_reached_threshold_m) {
-    return -1;
+    return task_protocol::kTaskComplete;
   }
 
   const Task::Pos flag_p = {
@@ -49,6 +48,5 @@ int Aruco::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
   repellants.push_back(flag_p);
   command_ = clean_command(calculateStandardAPF(robot_p, aruco_p, repellants), robot_p.yaw);
 
-  // by end of task, task should have a flare order set
   return 1;
 }

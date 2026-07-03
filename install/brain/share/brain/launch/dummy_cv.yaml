@@ -1,0 +1,51 @@
+cv_node:
+  ros__parameters:
+
+    aruco_marker_ids: [0, 1, 2, 3, 6, 7] # ARUCO marker dataset: six marker IDs used by the aruco processor in CVNode
+    debug_flag: true  # Enables periodic CV FPS logging.
+    debug_image: false  # When true, publishes processed camera frames to /camera/debug_img for debugging.
+    debug_yolo: false  # When true, draws YOLO detections on the published debug image.
+    debug_fps_period_s: 4.0  # Period for CV FPS debug logs, in seconds.
+    default_task: "gate"  # Initial YOLO task used before any external task command is received.
+    enable_auto_exposure: 0  # Uses camera auto exposure when set to 1; smart manual exposure logic when set to 0.
+    manual_override_exposure: 0  # When > 0, forces this fixed manual exposure and overrides auto/smart exposure modes.
+    min_exposure: 5  # Lower clamp for smart exposure adjustments; ignored when manual_override_exposure > 0.
+    max_exposure: 500  # Upper clamp for smart exposure adjustments; ignored when manual_override_exposure > 0.
+    brightness: 10  # Camera brightness property applied at startup.
+    target_brightness: 225.0  # Highlight brightness target used by smart manual exposure tuning.
+    exposure_check_interval: 2  # Number of captured frames between smart exposure updates.
+    yolo:
+      model_path: "scripts/yolo/runs/detect/pretrain_generalist_v1/weights/best_saved_model/best_int8.tflite"  # TFLite model path used by the YOLO helper.
+      num_threads: 2  # Number of threads used by the YOLO TFLite interpreter.
+      conf_threshold: 0.8  # General confidence threshold for filtering YOLO detections.
+    capture:
+      fps: 20.0  # Requested camera capture FPS.
+      timer_rate_hz: 0.0001  # Frame capture and publish rate for the live CV node, in hertz.
+      device_index: 0  # Camera device index passed to OpenCV VideoCapture.
+      backend: 200  # OpenCV backend constant used to open the capture device; 200 is CAP_V4L2.
+      frame_width: 640  # Requested camera capture width in pixels.
+      frame_height: 360  # Requested camera capture height in pixels.
+      processing_width: 640  # Width used after resizing each frame for downstream CV processing.
+      processing_height: 360  # Height used after resizing each frame for downstream CV processing.
+      autofocus: 0  # OpenCV autofocus setting written to the capture device.
+      auto_white_balance: 0  # OpenCV auto white balance setting written to the capture device.
+      focus: 255  # Manual focus value written to the capture device.
+      white_balance_blue_u: 5500  # Manual white balance temperature written to the capture device.
+      backlight: 0  # Backlight compensation value written to the capture device.
+      fourcc: "MJPG"  # FourCC codec requested from the camera device.
+    camera:
+      camera_matrix: [516.36315, 0.0, 322.031903, 0.0, 517.166678, 155.100222, 0.0, 0.0, 1.0]  # Row-major 3x3 camera intrinsic matrix used for undistortion.
+      distortion_coefficients: [0.096618, -0.729662, -0.005456, -0.003541, 1.410276]  # Lens distortion coefficients used for undistortion.
+    
+    color_ranges:  # YUV color range thresholds used for flare and bucket color detection
+      red_lower: [0, 0, 80]  # YUV lower bound for red color detection (Y, U, V)
+      red_higher: [140, 160, 255]  # YUV upper bound for red color detection
+      blue_lower: [50, 150, 0]  # YUV lower bound for blue color detection (U channel primary)
+      blue_higher: [160, 255, 135]  # YUV upper bound for blue color detection
+      yellow_lower: [150, 100, 110]  # YUV lower bound for yellow color detection
+      yellow_higher: [190, 150, 200]  # YUV upper bound for yellow color detection
+    
+    detection_filter:  # Parameters for the detection filter used in flare and bucket tasks
+      erode_kernel_size: 3  # Morphological erode kernel size for color mask post-processing
+      flare_percentage_threshold: 0.2  # Minimum percentage of bbox pixels that must match flare color to classify
+      bucket_percentage_threshold: 0.7  # Minimum percentage of bbox pixels that must match bucket color to classify

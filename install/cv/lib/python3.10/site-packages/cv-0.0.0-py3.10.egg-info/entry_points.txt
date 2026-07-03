@@ -1,0 +1,4 @@
+[console_scripts]
+bottom_cv_node = cv.bottom_cv_node:main
+cv_node = cv.cv_node:main
+testing_node = cv.testing_node:main

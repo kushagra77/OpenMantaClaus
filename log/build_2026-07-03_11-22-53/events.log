@@ -1,0 +1,759 @@
+[0.000000] (-) TimerEvent: {}
+[0.000591] (-) JobUnselected: {'identifier': 'brain'}
+[0.000866] (-) JobUnselected: {'identifier': 'cv'}
+[0.000929] (-) JobUnselected: {'identifier': 'cv_testing'}
+[0.000976] (-) JobUnselected: {'identifier': 'mavros_control'}
+[0.001019] (-) JobUnselected: {'identifier': 'tasks'}
+[0.001067] (interfaces) JobQueued: {'identifier': 'interfaces', 'dependencies': OrderedDict()}
+[0.001123] (ekfslam) JobQueued: {'identifier': 'ekfslam', 'dependencies': OrderedDict([('interfaces', '/home/kushion/Documents/OpenMantaClaus/install/interfaces')])}
+[0.001203] (interfaces) JobStarted: {'identifier': 'interfaces'}
+[0.012382] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'cmake'}
+[0.013484] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'build'}
+[0.014574] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kushion/Documents/OpenMantaClaus/build/interfaces', '--', '-j22', '-l22'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib::/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/interfaces'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[0.088956] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_generator_c\x1b[0m\n'}
+[0.099525] (-) TimerEvent: {}
+[0.102984] (interfaces) StdoutLine: {'line': b'[  1%] Built target interfaces__cpp\n'}
+[0.109504] (interfaces) StdoutLine: {'line': b'[ 12%] Built target interfaces__rosidl_generator_c\n'}
+[0.117528] (interfaces) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_interfaces\n'}
+[0.119276] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_cpp\x1b[0m\n'}
+[0.121297] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[0.122452] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[0.126674] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[0.127330] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_c\x1b[0m\n'}
+[0.127533] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[0.143170] (interfaces) StdoutLine: {'line': b'[ 23%] Built target interfaces__rosidl_typesupport_cpp\n'}
+[0.144097] (interfaces) StdoutLine: {'line': b'[ 45%] Built target interfaces__rosidl_typesupport_c\n'}
+[0.144292] (interfaces) StdoutLine: {'line': b'[ 46%] Built target interfaces__rosidl_typesupport_introspection_cpp\n'}
+[0.147367] (interfaces) StdoutLine: {'line': b'[ 57%] Built target interfaces__rosidl_typesupport_introspection_c\n'}
+[0.147666] (interfaces) StdoutLine: {'line': b'[ 69%] Built target interfaces__rosidl_typesupport_fastrtps_c\n'}
+[0.148206] (interfaces) StdoutLine: {'line': b'[ 80%] Built target interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[0.181157] (interfaces) StdoutLine: {'line': b'[ 80%] Built target interfaces\n'}
+[0.199648] (-) TimerEvent: {}
+[0.216308] (interfaces) StdoutLine: {'line': b'[ 81%] Built target interfaces__py\n'}
+[0.236752] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_generator_py\x1b[0m\n'}
+[0.261809] (interfaces) StdoutLine: {'line': b'[ 91%] Built target interfaces__rosidl_generator_py\n'}
+[0.277371] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[0.279233] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[0.279445] (interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target interfaces__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[0.296916] (interfaces) StdoutLine: {'line': b'[ 94%] Built target interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.299547] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[0.299806] (-) TimerEvent: {}
+[0.300002] (interfaces) StdoutLine: {'line': b'[100%] Built target interfaces__rosidl_typesupport_c__pyext\n'}
+[0.399973] (-) TimerEvent: {}
+[0.434050] (interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[0.453873] (interfaces) StdoutLine: {'line': b'writing interfaces.egg-info/PKG-INFO\n'}
+[0.454489] (interfaces) StdoutLine: {'line': b'writing dependency_links to interfaces.egg-info/dependency_links.txt\n'}
+[0.454730] (interfaces) StdoutLine: {'line': b'writing top-level names to interfaces.egg-info/top_level.txt\n'}
+[0.500141] (-) TimerEvent: {}
+[0.516550] (interfaces) StdoutLine: {'line': b"reading manifest file 'interfaces.egg-info/SOURCES.txt'\n"}
+[0.517692] (interfaces) StdoutLine: {'line': b"writing manifest file 'interfaces.egg-info/SOURCES.txt'\n"}
+[0.557496] (interfaces) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_interfaces_egg\n'}
+[0.579658] (interfaces) CommandEnded: {'returncode': 0}
+[0.581120] (interfaces) JobProgress: {'identifier': 'interfaces', 'progress': 'install'}
+[0.597365] (interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kushion/Documents/OpenMantaClaus/build/interfaces'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/interfaces', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib::/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/interfaces'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[0.600143] (-) TimerEvent: {}
+[0.612877] (interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.613291] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/ament_index/resource_index/rosidl_interfaces/interfaces\n'}
+[0.613469] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces\n'}
+[0.613614] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv\n'}
+[0.613760] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail\n'}
+[0.613883] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__struct.h\n'}
+[0.614017] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__type_support.h\n'}
+[0.614171] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__struct.h\n'}
+[0.614291] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__functions.c\n'}
+[0.614383] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__functions.h\n'}
+[0.614518] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__struct.h\n'}
+[0.614611] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__type_support.h\n'}
+[0.614763] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__functions.h\n'}
+[0.614857] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__functions.c\n'}
+[0.615035] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__functions.h\n'}
+[0.615295] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__functions.c\n'}
+[0.615443] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__type_support.h\n'}
+[0.615530] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/task_complete.h\n'}
+[0.615608] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/setup.h\n'}
+[0.615680] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/task_command.h\n'}
+[0.615753] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg\n'}
+[0.615827] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.615899] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail\n'}
+[0.615971] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__type_support.h\n'}
+[0.616072] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__struct.h\n'}
+[0.616150] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__functions.h\n'}
+[0.616216] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__functions.h\n'}
+[0.616286] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__functions.c\n'}
+[0.616356] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__functions.c\n'}
+[0.616463] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__struct.h\n'}
+[0.616531] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__struct.h\n'}
+[0.616598] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__type_support.h\n'}
+[0.616667] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__type_support.h\n'}
+[0.616856] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__functions.h\n'}
+[0.617063] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__functions.c\n'}
+[0.617202] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/feature_observation.h\n'}
+[0.617343] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/task_status.h\n'}
+[0.617478] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/feature_observations.h\n'}
+[0.617594] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/library_path.sh\n'}
+[0.617707] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/library_path.dsv\n'}
+[0.617835] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_generator_c.so\n'}
+[0.617947] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces\n'}
+[0.618044] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv\n'}
+[0.618138] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail\n'}
+[0.618225] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__rosidl_typesupport_fastrtps_c.h\n'}
+[0.618330] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__rosidl_typesupport_fastrtps_c.h\n'}
+[0.618414] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__rosidl_typesupport_fastrtps_c.h\n'}
+[0.618499] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg\n'}
+[0.618606] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail\n'}
+[0.618720] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__rosidl_typesupport_fastrtps_c.h\n'}
+[0.618845] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__rosidl_typesupport_fastrtps_c.h\n'}
+[0.618969] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__rosidl_typesupport_fastrtps_c.h\n'}
+[0.619077] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.619341] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[0.619474] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces\n'}
+[0.619554] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv\n'}
+[0.619628] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail\n'}
+[0.619697] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__rosidl_typesupport_introspection_c.h\n'}
+[0.619829] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__rosidl_typesupport_introspection_c.h\n'}
+[0.619894] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__rosidl_typesupport_introspection_c.h\n'}
+[0.619957] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__type_support.c\n'}
+[0.620041] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__type_support.c\n'}
+[0.620108] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__type_support.c\n'}
+[0.620231] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg\n'}
+[0.620293] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.620356] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail\n'}
+[0.620448] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__rosidl_typesupport_introspection_c.h\n'}
+[0.620526] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__type_support.c\n'}
+[0.620586] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__rosidl_typesupport_introspection_c.h\n'}
+[0.620645] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__type_support.c\n'}
+[0.620708] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__rosidl_typesupport_introspection_c.h\n'}
+[0.620770] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__type_support.c\n'}
+[0.620833] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_c.so\n'}
+[0.620894] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_typesupport_c.so\n'}
+[0.621016] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces\n'}
+[0.621124] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv\n'}
+[0.621190] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/task_command.hpp\n'}
+[0.621252] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail\n'}
+[0.621315] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__struct.hpp\n'}
+[0.621396] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__builder.hpp\n'}
+[0.621488] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__builder.hpp\n'}
+[0.621552] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__type_support.hpp\n'}
+[0.621634] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__traits.hpp\n'}
+[0.621691] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__struct.hpp\n'}
+[0.621752] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__type_support.hpp\n'}
+[0.621813] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__struct.hpp\n'}
+[0.621892] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__traits.hpp\n'}
+[0.621951] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__builder.hpp\n'}
+[0.622012] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__traits.hpp\n'}
+[0.622111] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__type_support.hpp\n'}
+[0.622174] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/task_complete.hpp\n'}
+[0.622232] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/setup.hpp\n'}
+[0.622291] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg\n'}
+[0.622368] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/task_status.hpp\n'}
+[0.622428] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail\n'}
+[0.622492] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__struct.hpp\n'}
+[0.622572] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__traits.hpp\n'}
+[0.622633] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__builder.hpp\n'}
+[0.622710] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__traits.hpp\n'}
+[0.622781] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__builder.hpp\n'}
+[0.622868] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__type_support.hpp\n'}
+[0.622930] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__builder.hpp\n'}
+[0.623027] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__struct.hpp\n'}
+[0.623114] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__type_support.hpp\n'}
+[0.623429] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__type_support.hpp\n'}
+[0.623606] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__struct.hpp\n'}
+[0.623697] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__traits.hpp\n'}
+[0.623778] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/feature_observations.hpp\n'}
+[0.623858] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/feature_observation.hpp\n'}
+[0.623935] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.624013] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces\n'}
+[0.624089] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv\n'}
+[0.624185] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail\n'}
+[0.624262] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.624338] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/dds_fastrtps\n'}
+[0.624413] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.624488] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.624570] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg\n'}
+[0.624646] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail\n'}
+[0.624723] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.624799] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.624876] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.624951] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/dds_fastrtps\n'}
+[0.625034] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.625117] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.625198] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces\n'}
+[0.625272] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv\n'}
+[0.625346] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail\n'}
+[0.625420] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__type_support.cpp\n'}
+[0.625494] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__type_support.cpp\n'}
+[0.625569] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.625644] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/task_complete__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.625718] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__type_support.cpp\n'}
+[0.625791] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/srv/detail/setup__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.625875] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg\n'}
+[0.625950] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail\n'}
+[0.626024] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.626105] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__type_support.cpp\n'}
+[0.626188] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observation__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.626265] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__type_support.cpp\n'}
+[0.626340] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/task_status__type_support.cpp\n'}
+[0.626414] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/include/interfaces/interfaces/msg/detail/feature_observations__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.626488] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[0.626561] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_typesupport_cpp.so\n'}
+[0.626646] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/pythonpath.sh\n'}
+[0.626723] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/pythonpath.dsv\n'}
+[0.626800] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces-0.0.0-py3.10.egg-info\n'}
+[0.626880] (interfaces) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[0.626959] (interfaces) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[0.627037] (interfaces) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[0.627129] (interfaces) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[0.627214] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces\n'}
+[0.627292] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.627371] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv\n'}
+[0.627450] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv/_task_command_s.c\n'}
+[0.627530] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv/__init__.py\n'}
+[0.627610] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv/_task_command.py\n'}
+[0.627689] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv/_setup.py\n'}
+[0.627767] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv/_task_complete_s.c\n'}
+[0.627844] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv/_task_complete.py\n'}
+[0.627924] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv/_setup_s.c\n'}
+[0.628001] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/__init__.py\n'}
+[0.628079] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.628183] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.628267] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.628353] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/libinterfaces__rosidl_generator_py.so\n'}
+[0.628435] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.628517] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg\n'}
+[0.628596] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg/_task_status.py\n'}
+[0.628673] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg/__init__.py\n'}
+[0.628753] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg/_feature_observations_s.c\n'}
+[0.628845] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg/_feature_observation.py\n'}
+[0.628929] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg/_feature_observation_s.c\n'}
+[0.629006] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg/_feature_observations.py\n'}
+[0.629083] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg/_task_status_s.c\n'}
+[0.629173] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[0.668378] (interfaces) StdoutLine: {'line': b"Listing '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces'...\n"}
+[0.668746] (interfaces) StdoutLine: {'line': b"Listing '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/msg'...\n"}
+[0.668842] (interfaces) StdoutLine: {'line': b"Listing '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/srv'...\n"}
+[0.673317] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.673753] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.673869] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages/interfaces/interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.673980] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/lib/libinterfaces__rosidl_generator_py.so\n'}
+[0.674154] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/msg/FeatureObservation.idl\n'}
+[0.674301] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/msg/FeatureObservations.idl\n'}
+[0.674409] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/msg/TaskStatus.idl\n'}
+[0.674551] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/Setup.idl\n'}
+[0.674674] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskCommand.idl\n'}
+[0.674781] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskComplete.idl\n'}
+[0.674906] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/msg/FeatureObservation.msg\n'}
+[0.675013] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/msg/FeatureObservations.msg\n'}
+[0.675125] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/msg/TaskStatus.msg\n'}
+[0.675240] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/Setup.srv\n'}
+[0.675370] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/Setup_Request.msg\n'}
+[0.675487] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/Setup_Response.msg\n'}
+[0.675605] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskCommand.srv\n'}
+[0.675703] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskCommand_Request.msg\n'}
+[0.675783] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskCommand_Response.msg\n'}
+[0.675862] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskComplete.srv\n'}
+[0.675965] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskComplete_Request.msg\n'}
+[0.676075] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/srv/TaskComplete_Response.msg\n'}
+[0.676192] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/ament_index/resource_index/package_run_dependencies/interfaces\n'}
+[0.676310] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/ament_index/resource_index/parent_prefix_path/interfaces\n'}
+[0.676394] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/ament_prefix_path.sh\n'}
+[0.676510] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/ament_prefix_path.dsv\n'}
+[0.676611] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/path.sh\n'}
+[0.676718] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/environment/path.dsv\n'}
+[0.676825] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/local_setup.bash\n'}
+[0.676948] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/local_setup.sh\n'}
+[0.677053] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/local_setup.zsh\n'}
+[0.677282] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/local_setup.dsv\n'}
+[0.677427] (interfaces) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.dsv\n'}
+[0.677541] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/ament_index/resource_index/packages/interfaces\n'}
+[0.677641] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_generator_cExport.cmake\n'}
+[0.677751] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.677825] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.677930] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.678003] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.678102] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.678175] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport.cmake\n'}
+[0.678240] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.678304] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_generator_cppExport.cmake\n'}
+[0.678374] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.678440] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.678515] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.678581] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.678646] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[0.678709] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.678791] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_generator_pyExport.cmake\n'}
+[0.678855] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/export_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.678918] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[0.678983] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.679046] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.679116] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.679183] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.679247] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.679318] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.679389] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfacesConfig.cmake\n'}
+[0.679458] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/cmake/interfacesConfig-version.cmake\n'}
+[0.679523] (interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/interfaces/share/interfaces/package.xml\n'}
+[0.681874] (interfaces) CommandEnded: {'returncode': 0}
+[0.700218] (-) TimerEvent: {}
+[0.709098] (interfaces) JobEnded: {'identifier': 'interfaces', 'rc': 0}
+[0.709965] (ekfslam) JobStarted: {'identifier': 'ekfslam'}
+[0.723530] (ekfslam) JobProgress: {'identifier': 'ekfslam', 'progress': 'cmake'}
+[0.724394] (ekfslam) JobProgress: {'identifier': 'ekfslam', 'progress': 'build'}
+[0.724747] (ekfslam) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam', '--', '-j22', '-l22'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/ekfslam', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[0.794424] (ekfslam) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target ekfslam_node\x1b[0m\n'}
+[0.800323] (-) TimerEvent: {}
+[0.828085] (ekfslam) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/ekfslam_node.dir/src/ekfslam.cpp.o\x1b[0m\n'}
+[0.900488] (-) TimerEvent: {}
+[1.000982] (-) TimerEvent: {}
+[1.101473] (-) TimerEvent: {}
+[1.201951] (-) TimerEvent: {}
+[1.302482] (-) TimerEvent: {}
+[1.402955] (-) TimerEvent: {}
+[1.503456] (-) TimerEvent: {}
+[1.603935] (-) TimerEvent: {}
+[1.704421] (-) TimerEvent: {}
+[1.804931] (-) TimerEvent: {}
+[1.905522] (-) TimerEvent: {}
+[2.006082] (-) TimerEvent: {}
+[2.106604] (-) TimerEvent: {}
+[2.207130] (-) TimerEvent: {}
+[2.307626] (-) TimerEvent: {}
+[2.408108] (-) TimerEvent: {}
+[2.508576] (-) TimerEvent: {}
+[2.609055] (-) TimerEvent: {}
+[2.709558] (-) TimerEvent: {}
+[2.810033] (-) TimerEvent: {}
+[2.910546] (-) TimerEvent: {}
+[3.011123] (-) TimerEvent: {}
+[3.111739] (-) TimerEvent: {}
+[3.212327] (-) TimerEvent: {}
+[3.312851] (-) TimerEvent: {}
+[3.413406] (-) TimerEvent: {}
+[3.514000] (-) TimerEvent: {}
+[3.614633] (-) TimerEvent: {}
+[3.715174] (-) TimerEvent: {}
+[3.815669] (-) TimerEvent: {}
+[3.916179] (-) TimerEvent: {}
+[4.016670] (-) TimerEvent: {}
+[4.117166] (-) TimerEvent: {}
+[4.217644] (-) TimerEvent: {}
+[4.318227] (-) TimerEvent: {}
+[4.418727] (-) TimerEvent: {}
+[4.519228] (-) TimerEvent: {}
+[4.619727] (-) TimerEvent: {}
+[4.720233] (-) TimerEvent: {}
+[4.820723] (-) TimerEvent: {}
+[4.921221] (-) TimerEvent: {}
+[5.021714] (-) TimerEvent: {}
+[5.122238] (-) TimerEvent: {}
+[5.222750] (-) TimerEvent: {}
+[5.323220] (-) TimerEvent: {}
+[5.423703] (-) TimerEvent: {}
+[5.524217] (-) TimerEvent: {}
+[5.624735] (-) TimerEvent: {}
+[5.725236] (-) TimerEvent: {}
+[5.825731] (-) TimerEvent: {}
+[5.926236] (-) TimerEvent: {}
+[6.026749] (-) TimerEvent: {}
+[6.127222] (-) TimerEvent: {}
+[6.227731] (-) TimerEvent: {}
+[6.328314] (-) TimerEvent: {}
+[6.428848] (-) TimerEvent: {}
+[6.529385] (-) TimerEvent: {}
+[6.629898] (-) TimerEvent: {}
+[6.730379] (-) TimerEvent: {}
+[6.830850] (-) TimerEvent: {}
+[6.931343] (-) TimerEvent: {}
+[7.031827] (-) TimerEvent: {}
+[7.132338] (-) TimerEvent: {}
+[7.232854] (-) TimerEvent: {}
+[7.333404] (-) TimerEvent: {}
+[7.433914] (-) TimerEvent: {}
+[7.534413] (-) TimerEvent: {}
+[7.634904] (-) TimerEvent: {}
+[7.735435] (-) TimerEvent: {}
+[7.835948] (-) TimerEvent: {}
+[7.936447] (-) TimerEvent: {}
+[8.036927] (-) TimerEvent: {}
+[8.137440] (-) TimerEvent: {}
+[8.237936] (-) TimerEvent: {}
+[8.338441] (-) TimerEvent: {}
+[8.438946] (-) TimerEvent: {}
+[8.539458] (-) TimerEvent: {}
+[8.639949] (-) TimerEvent: {}
+[8.740474] (-) TimerEvent: {}
+[8.840967] (-) TimerEvent: {}
+[8.941464] (-) TimerEvent: {}
+[9.041941] (-) TimerEvent: {}
+[9.142454] (-) TimerEvent: {}
+[9.242946] (-) TimerEvent: {}
+[9.343477] (-) TimerEvent: {}
+[9.443985] (-) TimerEvent: {}
+[9.544522] (-) TimerEvent: {}
+[9.645086] (-) TimerEvent: {}
+[9.745617] (-) TimerEvent: {}
+[9.846181] (-) TimerEvent: {}
+[9.946747] (-) TimerEvent: {}
+[10.047236] (-) TimerEvent: {}
+[10.147716] (-) TimerEvent: {}
+[10.248219] (-) TimerEvent: {}
+[10.348761] (-) TimerEvent: {}
+[10.449333] (-) TimerEvent: {}
+[10.549906] (-) TimerEvent: {}
+[10.650445] (-) TimerEvent: {}
+[10.750935] (-) TimerEvent: {}
+[10.851465] (-) TimerEvent: {}
+[10.952021] (-) TimerEvent: {}
+[11.052580] (-) TimerEvent: {}
+[11.153170] (-) TimerEvent: {}
+[11.253704] (-) TimerEvent: {}
+[11.354220] (-) TimerEvent: {}
+[11.454722] (-) TimerEvent: {}
+[11.555229] (-) TimerEvent: {}
+[11.655731] (-) TimerEvent: {}
+[11.756205] (-) TimerEvent: {}
+[11.856704] (-) TimerEvent: {}
+[11.957228] (-) TimerEvent: {}
+[12.057769] (-) TimerEvent: {}
+[12.158342] (-) TimerEvent: {}
+[12.258934] (-) TimerEvent: {}
+[12.359475] (-) TimerEvent: {}
+[12.460014] (-) TimerEvent: {}
+[12.560568] (-) TimerEvent: {}
+[12.661080] (-) TimerEvent: {}
+[12.761607] (-) TimerEvent: {}
+[12.862104] (-) TimerEvent: {}
+[12.962625] (-) TimerEvent: {}
+[13.063133] (-) TimerEvent: {}
+[13.163628] (-) TimerEvent: {}
+[13.264145] (-) TimerEvent: {}
+[13.364639] (-) TimerEvent: {}
+[13.465135] (-) TimerEvent: {}
+[13.565639] (-) TimerEvent: {}
+[13.666135] (-) TimerEvent: {}
+[13.766659] (-) TimerEvent: {}
+[13.867297] (-) TimerEvent: {}
+[13.967791] (-) TimerEvent: {}
+[14.068214] (-) TimerEvent: {}
+[14.168711] (-) TimerEvent: {}
+[14.269215] (-) TimerEvent: {}
+[14.369715] (-) TimerEvent: {}
+[14.470192] (-) TimerEvent: {}
+[14.570660] (-) TimerEvent: {}
+[14.671148] (-) TimerEvent: {}
+[14.771625] (-) TimerEvent: {}
+[14.872117] (-) TimerEvent: {}
+[14.972604] (-) TimerEvent: {}
+[15.073112] (-) TimerEvent: {}
+[15.173601] (-) TimerEvent: {}
+[15.274078] (-) TimerEvent: {}
+[15.374581] (-) TimerEvent: {}
+[15.475067] (-) TimerEvent: {}
+[15.575568] (-) TimerEvent: {}
+[15.676056] (-) TimerEvent: {}
+[15.776548] (-) TimerEvent: {}
+[15.877034] (-) TimerEvent: {}
+[15.977528] (-) TimerEvent: {}
+[16.078022] (-) TimerEvent: {}
+[16.178519] (-) TimerEvent: {}
+[16.278994] (-) TimerEvent: {}
+[16.379494] (-) TimerEvent: {}
+[16.480028] (-) TimerEvent: {}
+[16.580694] (-) TimerEvent: {}
+[16.681222] (-) TimerEvent: {}
+[16.781707] (-) TimerEvent: {}
+[16.882184] (-) TimerEvent: {}
+[16.982663] (-) TimerEvent: {}
+[17.083157] (-) TimerEvent: {}
+[17.183669] (-) TimerEvent: {}
+[17.284160] (-) TimerEvent: {}
+[17.384658] (-) TimerEvent: {}
+[17.485191] (-) TimerEvent: {}
+[17.585695] (-) TimerEvent: {}
+[17.686206] (-) TimerEvent: {}
+[17.786678] (-) TimerEvent: {}
+[17.887162] (-) TimerEvent: {}
+[17.987642] (-) TimerEvent: {}
+[18.088136] (-) TimerEvent: {}
+[18.188625] (-) TimerEvent: {}
+[18.289126] (-) TimerEvent: {}
+[18.389650] (-) TimerEvent: {}
+[18.490180] (-) TimerEvent: {}
+[18.591033] (-) TimerEvent: {}
+[18.691566] (-) TimerEvent: {}
+[18.792110] (-) TimerEvent: {}
+[18.892650] (-) TimerEvent: {}
+[18.993196] (-) TimerEvent: {}
+[19.093733] (-) TimerEvent: {}
+[19.194242] (-) TimerEvent: {}
+[19.294748] (-) TimerEvent: {}
+[19.395289] (-) TimerEvent: {}
+[19.495818] (-) TimerEvent: {}
+[19.596359] (-) TimerEvent: {}
+[19.696892] (-) TimerEvent: {}
+[19.797442] (-) TimerEvent: {}
+[19.898037] (-) TimerEvent: {}
+[19.998577] (-) TimerEvent: {}
+[20.099136] (-) TimerEvent: {}
+[20.199648] (-) TimerEvent: {}
+[20.300192] (-) TimerEvent: {}
+[20.400716] (-) TimerEvent: {}
+[20.501219] (-) TimerEvent: {}
+[20.601729] (-) TimerEvent: {}
+[20.702294] (-) TimerEvent: {}
+[20.802810] (-) TimerEvent: {}
+[20.903305] (-) TimerEvent: {}
+[21.003796] (-) TimerEvent: {}
+[21.104308] (-) TimerEvent: {}
+[21.204804] (-) TimerEvent: {}
+[21.305323] (-) TimerEvent: {}
+[21.405823] (-) TimerEvent: {}
+[21.506342] (-) TimerEvent: {}
+[21.606839] (-) TimerEvent: {}
+[21.707383] (-) TimerEvent: {}
+[21.807899] (-) TimerEvent: {}
+[21.908461] (-) TimerEvent: {}
+[22.008935] (-) TimerEvent: {}
+[22.109431] (-) TimerEvent: {}
+[22.209908] (-) TimerEvent: {}
+[22.310410] (-) TimerEvent: {}
+[22.410917] (-) TimerEvent: {}
+[22.511412] (-) TimerEvent: {}
+[22.611878] (-) TimerEvent: {}
+[22.712368] (-) TimerEvent: {}
+[22.812856] (-) TimerEvent: {}
+[22.913355] (-) TimerEvent: {}
+[23.013877] (-) TimerEvent: {}
+[23.114391] (-) TimerEvent: {}
+[23.214905] (-) TimerEvent: {}
+[23.315413] (-) TimerEvent: {}
+[23.415921] (-) TimerEvent: {}
+[23.516438] (-) TimerEvent: {}
+[23.616944] (-) TimerEvent: {}
+[23.717545] (-) TimerEvent: {}
+[23.818038] (-) TimerEvent: {}
+[23.918606] (-) TimerEvent: {}
+[24.019123] (-) TimerEvent: {}
+[24.119721] (-) TimerEvent: {}
+[24.220220] (-) TimerEvent: {}
+[24.320703] (-) TimerEvent: {}
+[24.421250] (-) TimerEvent: {}
+[24.521985] (-) TimerEvent: {}
+[24.622745] (-) TimerEvent: {}
+[24.723549] (-) TimerEvent: {}
+[24.824252] (-) TimerEvent: {}
+[24.925000] (-) TimerEvent: {}
+[25.025775] (-) TimerEvent: {}
+[25.126546] (-) TimerEvent: {}
+[25.227204] (-) TimerEvent: {}
+[25.327916] (-) TimerEvent: {}
+[25.428436] (-) TimerEvent: {}
+[25.528965] (-) TimerEvent: {}
+[25.629494] (-) TimerEvent: {}
+[25.730017] (-) TimerEvent: {}
+[25.830544] (-) TimerEvent: {}
+[25.931228] (-) TimerEvent: {}
+[26.031904] (-) TimerEvent: {}
+[26.132678] (-) TimerEvent: {}
+[26.233453] (-) TimerEvent: {}
+[26.334136] (-) TimerEvent: {}
+[26.434807] (-) TimerEvent: {}
+[26.535500] (-) TimerEvent: {}
+[26.636223] (-) TimerEvent: {}
+[26.736979] (-) TimerEvent: {}
+[26.837817] (-) TimerEvent: {}
+[26.938426] (-) TimerEvent: {}
+[27.039222] (-) TimerEvent: {}
+[27.139898] (-) TimerEvent: {}
+[27.240461] (-) TimerEvent: {}
+[27.341070] (-) TimerEvent: {}
+[27.441666] (-) TimerEvent: {}
+[27.542406] (-) TimerEvent: {}
+[27.642980] (-) TimerEvent: {}
+[27.743563] (-) TimerEvent: {}
+[27.844129] (-) TimerEvent: {}
+[27.944729] (-) TimerEvent: {}
+[28.045251] (-) TimerEvent: {}
+[28.145878] (-) TimerEvent: {}
+[28.246547] (-) TimerEvent: {}
+[28.347115] (-) TimerEvent: {}
+[28.447677] (-) TimerEvent: {}
+[28.548340] (-) TimerEvent: {}
+[28.648842] (-) TimerEvent: {}
+[28.749341] (-) TimerEvent: {}
+[28.849805] (-) TimerEvent: {}
+[28.950307] (-) TimerEvent: {}
+[29.050809] (-) TimerEvent: {}
+[29.151323] (-) TimerEvent: {}
+[29.251832] (-) TimerEvent: {}
+[29.352401] (-) TimerEvent: {}
+[29.452944] (-) TimerEvent: {}
+[29.553458] (-) TimerEvent: {}
+[29.653966] (-) TimerEvent: {}
+[29.754479] (-) TimerEvent: {}
+[29.854968] (-) TimerEvent: {}
+[29.955469] (-) TimerEvent: {}
+[30.055965] (-) TimerEvent: {}
+[30.156505] (-) TimerEvent: {}
+[30.256965] (-) TimerEvent: {}
+[30.357462] (-) TimerEvent: {}
+[30.457970] (-) TimerEvent: {}
+[30.558514] (-) TimerEvent: {}
+[30.659007] (-) TimerEvent: {}
+[30.759488] (-) TimerEvent: {}
+[30.860039] (-) TimerEvent: {}
+[30.960717] (-) TimerEvent: {}
+[31.061287] (-) TimerEvent: {}
+[31.161894] (-) TimerEvent: {}
+[31.262480] (-) TimerEvent: {}
+[31.363206] (-) TimerEvent: {}
+[31.463843] (-) TimerEvent: {}
+[31.564577] (-) TimerEvent: {}
+[31.665088] (-) TimerEvent: {}
+[31.765598] (-) TimerEvent: {}
+[31.866088] (-) TimerEvent: {}
+[31.966750] (-) TimerEvent: {}
+[32.067206] (-) TimerEvent: {}
+[32.167858] (-) TimerEvent: {}
+[32.268511] (-) TimerEvent: {}
+[32.369263] (-) TimerEvent: {}
+[32.469783] (-) TimerEvent: {}
+[32.570307] (-) TimerEvent: {}
+[32.670828] (-) TimerEvent: {}
+[32.771406] (-) TimerEvent: {}
+[32.871899] (-) TimerEvent: {}
+[32.972426] (-) TimerEvent: {}
+[33.072938] (-) TimerEvent: {}
+[33.173438] (-) TimerEvent: {}
+[33.274003] (-) TimerEvent: {}
+[33.374586] (-) TimerEvent: {}
+[33.475088] (-) TimerEvent: {}
+[33.575596] (-) TimerEvent: {}
+[33.676165] (-) TimerEvent: {}
+[33.776687] (-) TimerEvent: {}
+[33.877221] (-) TimerEvent: {}
+[33.977725] (-) TimerEvent: {}
+[34.078229] (-) TimerEvent: {}
+[34.178750] (-) TimerEvent: {}
+[34.279250] (-) TimerEvent: {}
+[34.379756] (-) TimerEvent: {}
+[34.480268] (-) TimerEvent: {}
+[34.580770] (-) TimerEvent: {}
+[34.681249] (-) TimerEvent: {}
+[34.781776] (-) TimerEvent: {}
+[34.882458] (-) TimerEvent: {}
+[34.982978] (-) TimerEvent: {}
+[35.083596] (-) TimerEvent: {}
+[35.184250] (-) TimerEvent: {}
+[35.284839] (-) TimerEvent: {}
+[35.385439] (-) TimerEvent: {}
+[35.486026] (-) TimerEvent: {}
+[35.586611] (-) TimerEvent: {}
+[35.687267] (-) TimerEvent: {}
+[35.787858] (-) TimerEvent: {}
+[35.888485] (-) TimerEvent: {}
+[35.989062] (-) TimerEvent: {}
+[36.089646] (-) TimerEvent: {}
+[36.190301] (-) TimerEvent: {}
+[36.290891] (-) TimerEvent: {}
+[36.391481] (-) TimerEvent: {}
+[36.492045] (-) TimerEvent: {}
+[36.592632] (-) TimerEvent: {}
+[36.693232] (-) TimerEvent: {}
+[36.793820] (-) TimerEvent: {}
+[36.894466] (-) TimerEvent: {}
+[36.995031] (-) TimerEvent: {}
+[37.095625] (-) TimerEvent: {}
+[37.196305] (-) TimerEvent: {}
+[37.296928] (-) TimerEvent: {}
+[37.397524] (-) TimerEvent: {}
+[37.498152] (-) TimerEvent: {}
+[37.598716] (-) TimerEvent: {}
+[37.699291] (-) TimerEvent: {}
+[37.799871] (-) TimerEvent: {}
+[37.900508] (-) TimerEvent: {}
+[38.001143] (-) TimerEvent: {}
+[38.101734] (-) TimerEvent: {}
+[38.202333] (-) TimerEvent: {}
+[38.302885] (-) TimerEvent: {}
+[38.403488] (-) TimerEvent: {}
+[38.504161] (-) TimerEvent: {}
+[38.604787] (-) TimerEvent: {}
+[38.705445] (-) TimerEvent: {}
+[38.806045] (-) TimerEvent: {}
+[38.906656] (-) TimerEvent: {}
+[39.007250] (-) TimerEvent: {}
+[39.107880] (-) TimerEvent: {}
+[39.208508] (-) TimerEvent: {}
+[39.309237] (-) TimerEvent: {}
+[39.409776] (-) TimerEvent: {}
+[39.510317] (-) TimerEvent: {}
+[39.610838] (-) TimerEvent: {}
+[39.711368] (-) TimerEvent: {}
+[39.811857] (-) TimerEvent: {}
+[39.912363] (-) TimerEvent: {}
+[40.012867] (-) TimerEvent: {}
+[40.113399] (-) TimerEvent: {}
+[40.213935] (-) TimerEvent: {}
+[40.314479] (-) TimerEvent: {}
+[40.414980] (-) TimerEvent: {}
+[40.515462] (-) TimerEvent: {}
+[40.615965] (-) TimerEvent: {}
+[40.716485] (-) TimerEvent: {}
+[40.817064] (-) TimerEvent: {}
+[40.917600] (-) TimerEvent: {}
+[41.018349] (-) TimerEvent: {}
+[41.118870] (-) TimerEvent: {}
+[41.219458] (-) TimerEvent: {}
+[41.265512] (ekfslam) StdoutLine: {'line': b'[ 50%] \x1b[32m\x1b[1mLinking CXX executable ekfslam_node\x1b[0m\n'}
+[41.319626] (-) TimerEvent: {}
+[41.420246] (-) TimerEvent: {}
+[41.520950] (-) TimerEvent: {}
+[41.621648] (-) TimerEvent: {}
+[41.722259] (-) TimerEvent: {}
+[41.822869] (-) TimerEvent: {}
+[41.923467] (-) TimerEvent: {}
+[42.024063] (-) TimerEvent: {}
+[42.124803] (-) TimerEvent: {}
+[42.225553] (-) TimerEvent: {}
+[42.326151] (-) TimerEvent: {}
+[42.426791] (-) TimerEvent: {}
+[42.527425] (-) TimerEvent: {}
+[42.627995] (-) TimerEvent: {}
+[42.728595] (-) TimerEvent: {}
+[42.829257] (-) TimerEvent: {}
+[42.929929] (-) TimerEvent: {}
+[43.030531] (-) TimerEvent: {}
+[43.131211] (-) TimerEvent: {}
+[43.231889] (-) TimerEvent: {}
+[43.311162] (ekfslam) StdoutLine: {'line': b'[100%] Built target ekfslam_node\n'}
+[43.328037] (ekfslam) CommandEnded: {'returncode': 0}
+[43.329569] (ekfslam) JobProgress: {'identifier': 'ekfslam', 'progress': 'install'}
+[43.331502] (ekfslam) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam'], 'cwd': '/home/kushion/Documents/OpenMantaClaus/build/ekfslam', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('GZ_SIM_RESOURCE_PATH', ':/home/kushion/Documents/robocup_work/src/robot_description/model:/home/kushion/Documents/robocup_work/src/robot_description/model'), ('LANGUAGE', 'en_AU:en'), ('USER', 'kushion'), ('FONTCONFIG_PATH', '/etc/fonts'), ('GZ_CONFIG_PATH', '/usr/share/gz'), ('GIT_EDITOR', ':'), ('GIO_MODULE_DIR', '/home/kushion/snap/code/common/.cache/gio-modules'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('GTK_EXE_PREFIX_VSCODE_SNAP_ORIG', ''), ('GDK_BACKEND_VSCODE_SNAP_ORIG', ''), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/lib:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code:/home/kushion/Documents/acados/lib:/home/kushion/Documents/robocup_work/c_generated_code'), ('ACADOS_SOURCE_DIR', '/home/kushion/Documents/acados'), ('HOME', '/home/kushion'), ('CHROME_DESKTOP', 'code.desktop'), ('LOCPATH_VSCODE_SNAP_ORIG', ''), ('TERM_PROGRAM_VERSION', '1.117.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GTK_PATH', '/snap/code/235/usr/lib/x86_64-linux-gnu/gtk-3.0'), ('XDG_DATA_HOME_VSCODE_SNAP_ORIG', ''), ('GTK_IM_MODULE_FILE', '/home/kushion/snap/code/common/.cache/immodules/immodules.cache'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('GSETTINGS_SCHEMA_DIR_VSCODE_SNAP_ORIG', ''), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/235/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/235/usr/share/code/code'), ('MANAGERPID', '1230'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1528'), ('BUNDLED_DEBUGPY_PATH', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('IM_CONFIG_CHECK_ENV', '1'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '494115'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kushion'), ('JOURNAL_STREAM', '8:26819'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_SESSION_CLASS', 'user'), ('XDG_DATA_DIRS_VSCODE_SNAP_ORIG', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('USERNAME', 'kushion'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('FC_FONTATIONS', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('HISTCONTROL', 'ignorespace'), ('PATH', '/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/debugCommand:/home/kushion/.config/Code/User/globalStorage/github.copilot-chat/copilotCli:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/opt/ros/humble/bin:/home/kushion/Documents/ardupilot/Tools/autotest:/usr/lib/ccache:/home/kushion/Desktop/SAUVC/ardupilot/Tools/autotest:/opt/gcc-arm-none-eabi-10-2020-q4-major/bin:/home/kushion/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts'), ('SESSION_MANAGER', 'local/kushion-Inspiron-16-Plus-7640:@/tmp/.ICE-unix/1502,unix/kushion-Inspiron-16-Plus-7640:/tmp/.ICE-unix/1502'), ('GTK_EXE_PREFIX', '/snap/code/235/usr'), ('INVOCATION_ID', '6961dd283a234b75911ffe506126379d'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LOCPATH', '/snap/code/235/usr/lib/locale'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/kushion/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-3c455a856550ef91.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('PYTHONSTARTUP', '/home/kushion/.config/Code/User/workspaceStorage/7c773a938c815b93dd5471a2c4c26d0a/ms-python.python/pythonrc.py'), ('GIO_MODULE_DIR_VSCODE_SNAP_ORIG', ''), ('XDG_DATA_HOME', '/home/kushion/snap/code/235/.local/share'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.0P72Q3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6cdf9cd762.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/home/kushion/snap/code/235/.local/share/glib-2.0/schemas'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GTK_PATH_VSCODE_SNAP_ORIG', ''), ('FONTCONFIG_FILE', '/etc/fonts/fonts.conf'), ('GTK_IM_MODULE_FILE_VSCODE_SNAP_ORIG', ''), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GZ_VERSION', 'harmonic'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('GIT_PAGER', 'cat'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kushion/Documents/OpenMantaClaus/build/ekfslam'), ('GIT_MERGE_AUTOEDIT', 'no'), ('GZ_TRANSPORT_USE_SHARED_MEMORY', '0'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/home/kushion/snap/code/235/.local/share:/home/kushion/snap/code/235:/snap/code/235/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal/lib/python3.10/site-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages/local/lib/python3.10/dist-packages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/kushion/Documents/OpenMantaClaus/install/interfaces:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/iw_hub_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaacsim:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_tutorials:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros2_messages:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_moveit:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/h1_fullbody_controller:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/custom_message:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/cmdvel_to_ackermann:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/carter_navigation:/home/kushion/Desktop/piles/pile_detection/IsaacSim-ros_workspaces/humble_ws/install/isaac_ros_navigation_goal:/opt/ros/humble')]), 'shell': False}
+[43.332589] (-) TimerEvent: {}
+[43.342178] (ekfslam) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[43.342445] (ekfslam) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/ekfslam/ekfslam_node\n'}
+[43.359152] (ekfslam) StdoutLine: {'line': b'-- Set runtime path of "/home/kushion/Documents/OpenMantaClaus/install/ekfslam/lib/ekfslam/ekfslam_node" to ""\n'}
+[43.359407] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include\n'}
+[43.359480] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam\n'}
+[43.359547] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/odometry.hpp\n'}
+[43.359613] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/utils\n'}
+[43.359680] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/utils/slam_params.hpp\n'}
+[43.359748] (ekfslam) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/include/ekfslam/ekfslam.hpp\n'}
+[43.359861] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/package_run_dependencies/ekfslam\n'}
+[43.359924] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/parent_prefix_path/ekfslam\n'}
+[43.360019] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/ament_prefix_path.sh\n'}
+[43.360082] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/ament_prefix_path.dsv\n'}
+[43.360173] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/path.sh\n'}
+[43.360237] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/environment/path.dsv\n'}
+[43.360299] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.bash\n'}
+[43.360399] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.sh\n'}
+[43.360465] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.zsh\n'}
+[43.360530] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/local_setup.dsv\n'}
+[43.360612] (ekfslam) StdoutLine: {'line': b'-- Installing: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.dsv\n'}
+[43.360676] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ament_index/resource_index/packages/ekfslam\n'}
+[43.360739] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/cmake/ekfslamConfig.cmake\n'}
+[43.360799] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/cmake/ekfslamConfig-version.cmake\n'}
+[43.360859] (ekfslam) StdoutLine: {'line': b'-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/ekfslam/share/ekfslam/package.xml\n'}
+[43.363558] (ekfslam) CommandEnded: {'returncode': 0}
+[43.383416] (ekfslam) JobEnded: {'identifier': 'ekfslam', 'rc': 0}
+[43.383999] (-) EventReactorShutdown: {}

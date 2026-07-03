@@ -4,6 +4,20 @@
 
 #include <limits>
 
+namespace {
+constexpr double kAssociationNoMatchError = 10.0;
+constexpr double kAssociationNewUnseenFeatureError = 5.0;
+constexpr double kAssociationInvalidIdFallback = 0.001;
+constexpr int kFeatureFlagId = 0;
+constexpr int kFeatureGateLeftId = 1;
+constexpr int kFeatureGateRightId = 2;
+constexpr int kFeatureFirstFlareId = 3;
+constexpr int kFeatureLastFlareId = 5;
+constexpr int kFeatureFirstBucketId = 6;
+constexpr int kFeatureLastBucketId = 9;
+constexpr int kBucketCount = 4;
+}  // namespace
+
 EKFSLAM::EKFSLAM() : Node("ekf_slam") {
     const auto params = load_ekfslam_params(*this, feature_count_);
 
@@ -14,9 +28,11 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
     bearing_range_scale_ = params.bearing_range_scale;
     association_tolerance_rad_ = params.association_tolerance_rad;
     new_association_min_rad_ = params.new_association_min_rad;
+    snapshot_time_tolerance_s_ = params.snapshot_time_tolerance_s;
+    imu_yaw_std_dev_deg_ = params.imu_yaw_std_dev_deg;
     active_ = params.brainless_run;
     use_imu_update_ = params.use_imu_update;
-    // populate new flare tuning parameters
+    // Flare association and initialization tuning.
     flare_association_factor_ = params.flare_association_factor;
     new_flare_dist_ = params.new_flare_dist;
     new_flare_cov_depth_ = params.new_flare_cov_depth;
@@ -24,12 +40,10 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
 
     // State layout: [robot_x, robot_y, robot_yaw, landmark_0_x, landmark_0_y, ...].
     state_mu_.setZero();
-    state_mu_.block<3, 1>(0, 0) << 0.3, 0.0, 0.0; // Start at offset, also for debugging
+    state_mu_.block<3, 1>(0, 0) << 0.3, 0.0, 0.0;
     state_cov_.setIdentity();
     feature_seen_.assign(features_.size(), false);
-    state_cov_.block<3, 3>(0, 0).diagonal() << initial_robot_covariance[0], initial_robot_covariance[1], initial_robot_covariance[2]; // Low initial uncertainty in robot pose
-    // RCLCPP_INFO(this->get_logger(), "WRONG STARTING COV IN EKF!!!!!");
-    // state_cov_.block<3, 3>(0, 0).diagonal() << 9.0,9.0,0.50; // use for odomless testing
+    state_cov_.block<3, 3>(0, 0).diagonal() << initial_robot_covariance[0], initial_robot_covariance[1], initial_robot_covariance[2];
 
 
     // QoS: Keep only the latest message (Depth 5)
@@ -59,7 +73,7 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
     apply_relative_constraint(7, 8, 0.0, -params.bucket_spacing_m, params.bucket_spacing_y_noise);
     apply_relative_constraint(8, 9, 0.0, -params.bucket_spacing_m, params.bucket_spacing_y_noise);
 
-    // MODIFIED FOR STATE AUGMENTATION: Initialize past covariance block
+    // Initialize the delayed pose covariance block used by frame-triggered updates.
     state_cov_.block<3, 3>(past_idx_, past_idx_).diagonal() << initial_robot_covariance[0], initial_robot_covariance[1], initial_robot_covariance[2];
 
     // Runtime wiring: odometry source, transform publisher, and subscriptions.
@@ -87,7 +101,7 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
 
     auto vision_sub_opt = rclcpp::SubscriptionOptions();
     vision_sub_opt.callback_group = vision_cbg_;
-        // 3. Assign RC and IMU to the State Group
+    // 3. Assign RC and IMU to the state group.
     rc_sub_ = this->create_subscription<mavros_msgs::msg::RCOut>(
         "/mavros/rc/out", qos_latest, 
         [this](const mavros_msgs::msg::RCOut::SharedPtr msg){
@@ -95,32 +109,32 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
             this->rc_r_ = msg->channels[0];
             this->rc_back_ = msg->channels[4];
         }, 
-        state_sub_opt); // <-- Assigned
+        state_sub_opt);
 
     imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
         "/mavros/imu/data", qos_latest,
         std::bind(&EKFSLAM::imu_sync_callback, this, std::placeholders::_1),
-        state_sub_opt); // <-- Assigned
+        state_sub_opt);
 
     // 4. Assign Features and Triggers to the Vision Group
     feature_sub_ = this->create_subscription<interfaces::msg::FeatureObservations>(
         "/cv/feature_observations", 10,
         std::bind(&EKFSLAM::batch_update, this, std::placeholders::_1),
-        vision_sub_opt); // <-- Assigned
+        vision_sub_opt);
     
-    // PAST POSE SNAPSHOT TRIGGER
+    // Snapshot pose at camera trigger time for delayed visual updates.
     trigger_sub_ = this->create_subscription<std_msgs::msg::Header>(
         "/camera/frame_trigger", 10, 
         std::bind(&EKFSLAM::trigger_callback, this, std::placeholders::_1),
-        vision_sub_opt); // <-- Assigned
+        vision_sub_opt);
         
     feature_pub_ = this->create_publisher<interfaces::msg::FeatureObservations>("/tasks/feature_observations", 10);
 
-    // 5. Assign the Predict Timer to the State Group
+    // 5. Assign the predict timer to the state group.
     timer_ = this->create_wall_timer(
         std::chrono::milliseconds(params.predict_period_ms),
         std::bind(&EKFSLAM::predict, this),
-        state_cbg_); // <-- Assigned directly
+        state_cbg_);
 }
 
 double EKFSLAM::normalize_angle(double a) {
@@ -138,15 +152,11 @@ double EKFSLAM::get_bearing_var(double range) const {
     return bearing_std_dev_ * bearing_std_dev_ + bearing_range_scale_ * range;
 }
 
-/*
- * Check if a feature observation is associated with an existing feature.
- * Returns the bearing distance to the closest acceptable feature, or a large value if no match is found.
- * modifies obs.id and obs.confident if a confident association is made.
- */
+// Returns the best angular association error and updates obs.id/confident on accepted matches.
 double EKFSLAM::association_check(interfaces::msg::FeatureObservation &obs, const std::vector<int> & candidate_ids, double override_factor, bool allow_unseen) {
     const int id = obs.id;
     if (id < 0 || static_cast<size_t>(id) >= features_.size()) {
-        return 0.001;
+        return kAssociationInvalidIdFallback;
     }
 
     const double robot_x = state_mu_(past_idx_); // use PAST pose for association
@@ -155,8 +165,8 @@ double EKFSLAM::association_check(interfaces::msg::FeatureObservation &obs, cons
     const double obs_angle = normalize_angle(obs.bearing);
 
     int closest_id = -1;
-    double closest_diff = 10.0; // basically infinity for angles
-    double second_closest_diff = 10.0; 
+    double closest_diff = kAssociationNoMatchError; // effectively infinity for angle diffs in this pipeline
+    double second_closest_diff = kAssociationNoMatchError;
 
     for (const int candidate_id : candidate_ids) {
         if (candidate_id < 0 || static_cast<size_t>(candidate_id) >= features_.size()) {
@@ -184,19 +194,18 @@ double EKFSLAM::association_check(interfaces::msg::FeatureObservation &obs, cons
     }
 
     if (closest_id == -1) {
-        return 10.0; // No valid association found, return large error
+        return kAssociationNoMatchError;
     }
-    // only happens if allow_unseen is true: flares
+    // Only reachable when allow_unseen is true (flare association path).
     if (!feature_seen_[closest_id]) {
         obs.id = closest_id;
-        // obs.confident = true; // associated but not confident since feature hasn't been seen before
-        return 5.0; // quick and dirty hardcoding for now
+        return kAssociationNewUnseenFeatureError;
     }
 
 
     auto angle_tolerance = override_factor > 0.0 ? override_factor * association_tolerance_rad_ : association_tolerance_rad_;
     if (closest_diff <= angle_tolerance) {
-        // for flares task remove the second closest check
+        // For flare observations, allow direct closest-match acceptance.
         if (obs.id == 3 || second_closest_diff > new_association_min_rad_) {
             obs.id = closest_id;
             obs.confident = true;
@@ -215,6 +224,45 @@ void EKFSLAM::init_feature(int id, double x, double y, const Eigen::Matrix2d &co
     state_cov_.block<2, 2>(idx, idx) = cov;
 }
 
+void EKFSLAM::reinitialize_unseen_flare(int flare_id, double observed_bearing) {
+    feature_seen_[flare_id] = true; // prevent re-triggering as unseen within this update pass
+
+    const double r_x = state_mu_(past_idx_);
+    const double r_y = state_mu_(past_idx_ + 1);
+    const double r_yaw = state_mu_(past_idx_ + 2);
+
+    const double default_depth = new_flare_dist_;
+    const double global_angle = normalize_angle(r_yaw + observed_bearing);
+
+    const int f_idx = 3 + (2 * flare_id);
+
+    // 1. Force the landmark directly onto the observed ray.
+    state_mu_(f_idx) = r_x + default_depth * std::cos(global_angle);
+    state_mu_(f_idx + 1) = r_y + default_depth * std::sin(global_angle);
+
+    // 2. Wipe stale cross-covariances from the previous prior hypothesis.
+    state_cov_.row(f_idx).setZero();
+    state_cov_.col(f_idx).setZero();
+    state_cov_.row(f_idx + 1).setZero();
+    state_cov_.col(f_idx + 1).setZero();
+
+    // 3. Seed anisotropic covariance aligned with the observation ray.
+    const double std_depth = new_flare_cov_depth_;
+    const double std_perp = new_flare_cov_perp_;
+    state_cov_.block<2, 2>(f_idx, f_idx) = ellipse_covariance(std_depth, std_perp, global_angle);
+
+    // 4. Re-link landmark cross-covariances with past and current robot poses.
+    Eigen::Matrix<double, 2, 3> J_r;
+    J_r << 1.0, 0.0, -default_depth * std::sin(global_angle),
+           0.0, 1.0,  default_depth * std::cos(global_angle);
+
+    state_cov_.block<2, 3>(f_idx, past_idx_) = J_r * state_cov_.block<3, 3>(past_idx_, past_idx_);
+    state_cov_.block<3, 2>(past_idx_, f_idx) = state_cov_.block<2, 3>(f_idx, past_idx_).transpose();
+
+    state_cov_.block<2, 3>(f_idx, 0) = J_r * state_cov_.block<3, 3>(past_idx_, 0);
+    state_cov_.block<3, 2>(0, f_idx) = state_cov_.block<2, 3>(f_idx, 0).transpose();
+}
+
 void EKFSLAM::publish_tf(const std::string &frame, const std::string &child, const Eigen::Vector3d &p, const rclcpp::Time &t) {
     geometry_msgs::msg::TransformStamped ts;
     ts.header.stamp = t;
@@ -229,7 +277,7 @@ void EKFSLAM::publish_tf(const std::string &frame, const std::string &child, con
 }
 
 void EKFSLAM::imu_sync_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
-    // A. Ensure last_time is valid
+    // Ensure last_time is valid.
     auto curtime = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
     if (last_imu_time_ == 0.0) {
         last_imu_time_ = curtime;
@@ -242,7 +290,7 @@ void EKFSLAM::imu_sync_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
         return;
     }
 
-    // B. Calculate DT
+    // Calculate dt.
     double dt = curtime - last_imu_time_;
     last_imu_time_ = curtime;
 
@@ -251,9 +299,9 @@ void EKFSLAM::imu_sync_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
         return;
     }
 
-    // C. Extract Yaw
+    // Extract yaw from IMU quaternion.
     double yaw = tf2::getYaw(msg->orientation);
-    double yaw_cov = msg->orientation_covariance[8]; // Assuming yaw variance is at index 8 in the covariance matrix
+    double yaw_cov = msg->orientation_covariance[8];
 
     // Feed synchronized yaw + RC inputs into the motion model.
     odom_->update_physics(rc_l_, rc_r_, rc_back_, dt, yaw, yaw_cov);
@@ -261,23 +309,23 @@ void EKFSLAM::imu_sync_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
 
 void EKFSLAM::trigger_callback(const std_msgs::msg::Header::SharedPtr msg) {
     std::lock_guard<std::mutex> lock(state_mutex_);
-    // 1. Copy the current pose into the past pose slots
+    // 1. Copy current pose into delayed-pose slots.
     state_mu_.segment<3>(past_idx_) = state_mu_.segment<3>(0);
 
-    // 2. Copy the robot's uncertainty
+    // 2. Copy current robot covariance.
     state_cov_.block<3, 3>(past_idx_, past_idx_) = state_cov_.block<3, 3>(0, 0);
 
-    // 3. Initialize the cross-covariance (They are 100% correlated right now)
+    // 3. Initialize cross-covariance between current and delayed robot pose.
     state_cov_.block<3, 3>(0, past_idx_) = state_cov_.block<3, 3>(0, 0);
     state_cov_.block<3, 3>(past_idx_, 0) = state_cov_.block<3, 3>(0, 0);
 
-    // 4. Copy the landmark correlations so the past state knows about the map
+    // 4. Copy landmark correlations into delayed-pose cross blocks.
     for (size_t i = 0; i < features_.size(); ++i) {
         int f_idx = 3 + 2 * i;
         state_cov_.block<3, 2>(past_idx_, f_idx) = state_cov_.block<3, 2>(0, f_idx);
         state_cov_.block<2, 3>(f_idx, past_idx_) = state_cov_.block<2, 3>(f_idx, 0);
     }
-    // Arm the snapshot
+    // Arm the snapshot for the next visual batch.
     snapshot_time_ = msg->stamp.sec + msg->stamp.nanosec * 1e-9;
     snapshot_ready_ = true;
 }
@@ -329,30 +377,22 @@ void EKFSLAM::predict() {
     }
     state_cov_ = 0.5 * (state_cov_ + state_cov_.transpose()); // Ensure symmetry
 
-    // Add this right before publish_transforms();
     if (state_mu_.hasNaN() || state_cov_.hasNaN()) {
         RCLCPP_ERROR(this->get_logger(), "FATAL MATH ERROR: NaNs detected in EKF! Resetting state to prevent crash.");
         return;
-        // // 1. Reset the robot's pose to origin (or last known safe pose)
-        // state_mu_.segment<3>(0) << 0.0, 0.0, 0.0; 
-        
-        // // 2. Blow up the robot's covariance so it trusts the next visual update heavily
-        // state_cov_.block<3, 3>(0, 0).diagonal() << 10.0, 10.0, M_PI; 
-        
-        // Note: You can leave the landmarks alone, just reset the robot.
     }
     publish_transforms();
 }
 
 void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr features) {
-    // Update step: keep only valid observations and resolve ambiguous IDs if possible.
-    // update robot's past pose, not current
+    // Update step runs on delayed robot pose captured at camera trigger time.
     if (!active_) return;
     std::lock_guard<std::mutex> lock(state_mutex_);
     double msg_time = features->header.stamp.sec + features->header.stamp.nanosec * 1e-9;
     
-    // Ensure this YOLO measurement matches current snapshot (tolerance of 1ms)
-    if (!snapshot_ready_ || std::abs(msg_time - snapshot_time_) > 0.001) {
+    // Snapshot/measurement pairing invariant:
+    // each feature batch must correspond to the latest trigger_callback snapshot.
+    if (!snapshot_ready_ || std::abs(msg_time - snapshot_time_) > snapshot_time_tolerance_s_) {
         RCLCPP_WARN(this->get_logger(), "YOLO measurement timestamp mismatch or no snapshot ready. Dropping update.");
         return;
     }
@@ -375,20 +415,20 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
             if (features_[new_obs.id].substr(0, 5) == "gate_") {
                 // if gate is already seen, try match it in the map
                 std::vector<int> candidate_ids = {
-                    0, // for maingate we compare to flag as well
+                    kFeatureFlagId, // for maingate we compare to flag as well
                     new_obs.id
                 };
                 
-                // if gate is unseen, this is a new gate observation
+                // For first gate observation, accept and inflate covariance.
                 if (!feature_seen_[new_obs.id]) {
-                    new_obs.confident = true; // if gate not seen, we assume first observation is good
-                    new_obs.bearing_cov *= 2.0; // set high covariance for new uncertain gate observations, since they are critical to get right
+                    new_obs.confident = true;
+                    new_obs.bearing_cov *= 2.0;
                 } else {
                     association_check(new_obs, candidate_ids);
                 } 
                 
-                if (new_obs.id == 0) {
-                    new_obs.confident = false; // don't consider potential false flag
+                if (new_obs.id == kFeatureFlagId) {
+                    new_obs.confident = false;
                 }
             } else if (features_[new_obs.id].substr(0, 10) == "qual_gate_") {
                 // if gate is already seen, try match it in the map
@@ -398,120 +438,70 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
 
                 association_check(new_obs, candidate_ids);
                 if (!feature_seen_[new_obs.id]) {
-                    new_obs.confident = true; // if gate not seen, we assume first observation is good
-                    new_obs.bearing_cov *= 2.0; // set high covariance for new uncertain gate observations, since they are critical to get right
+                    new_obs.confident = true;
+                    new_obs.bearing_cov *= 2.0;
                 }
             } else if (features_[new_obs.id] == "flag") {
                 if (feature_seen_[new_obs.id]) {
-                    // if flag already seen, try match it in the map
                     const std::vector<int> candidate_ids = {
                         new_obs.id
                     };
                     association_check(new_obs, candidate_ids);
                 } else {
-                    new_obs.confident = true; // if flag not seen, we assume first observation is good
-                    new_obs.bearing_cov *= 2.0; // set high covariance for new uncertain flag observations, since they are critical to get right
+                    new_obs.confident = true;
+                    new_obs.bearing_cov *= 2.0;
                 }
             } else if (features_[new_obs.id] == "flare_1") {
-                // if flare has been detected, compare it against other flares, flag and gate to be strict
+                // Compare flare candidate against nearby ambiguous classes.
                 std::vector<int> candidate_ids = {
                     new_obs.id,
                     new_obs.id + 1,
                     new_obs.id + 2,
-                    0,  // flag
+                    kFeatureFlagId,
                 };
-                // if gate is seen, only then allow gate association
-                if (feature_seen_[1] && feature_seen_[2]) {
-                    candidate_ids.push_back(1); // gate left
-                    candidate_ids.push_back(2); // gate right
+                // Include gate candidates only after gate is initialized.
+                if (feature_seen_[kFeatureGateLeftId] && feature_seen_[kFeatureGateRightId]) {
+                    candidate_ids.push_back(kFeatureGateLeftId);
+                    candidate_ids.push_back(kFeatureGateRightId);
                 }
-                double association_error = association_check(new_obs, candidate_ids, flare_association_factor_, true); // use a stricter tolerance for flares since they may be confused with each other
-                if (new_obs.id <= 2) {
-                    // if matching a gate or flag, ignore it, just adds noise
+                double association_error = association_check(new_obs, candidate_ids, flare_association_factor_, true);
+                if (new_obs.id <= kFeatureGateRightId) {
                     new_obs.confident = false;
-                } else if (association_error == 5.0) { // >= 3 && !feature_seen_[new_obs.id] && association_error == 5.0) { // closest is an unseen flare
+                } else if (association_error == kAssociationNewUnseenFeatureError) {
                     RCLCPP_INFO(this->get_logger(), "MADE NEW TING");
-                    
-                    // for (int i = 3; i < 6; ++i) {
-                    //     if (!feature_seen_[i]) {
-                    //         new_obs.id = i;
-                    //         break;
-                    //     }
-                    // }
                     new_obs.confident = true;
-                    // if (!new_obs.confident) {
-                    //     RCLCPP_WARN(this->get_logger(), "Received new flare observation but all flare slots are taken. Ignoring.");
-                    //     continue;
-                    // }
-                    feature_seen_[new_obs.id] = true; // mark this flare as seen so it doesnt trigger again this loop
-
-                    double r_x = state_mu_(past_idx_);
-                    double r_y = state_mu_(past_idx_ + 1);
-                    double r_yaw = state_mu_(past_idx_ + 2);
-                    
-                    double default_depth = new_flare_dist_; 
-                    double global_angle = normalize_angle(r_yaw + new_obs.bearing);
-                    
-                    int f_idx = 3 + (2 * new_obs.id);
-                    
-                    // 1. Force the landmark directly onto the observed ray
-                    state_mu_(f_idx) = r_x + default_depth * std::cos(global_angle);
-                    state_mu_(f_idx + 1) = r_y + default_depth * std::sin(global_angle);
-                    
-                    // 2. SEVER THE GHOST CHAINS: Wipe stale cross-covariances from the old prior
-                    state_cov_.row(f_idx).setZero();
-                    state_cov_.col(f_idx).setZero();
-                    state_cov_.row(f_idx + 1).setZero();
-                    state_cov_.col(f_idx + 1).setZero();
-
-                    // 3. THE CIGAR COVARIANCE
-                    double std_depth = new_flare_cov_depth_;  
-                    double std_perp = new_flare_cov_perp_; // Tighter perpendicular variance to act as a true ray
-                    state_cov_.block<2, 2>(f_idx, f_idx) = ellipse_covariance(std_depth, std_perp, global_angle);
-
-                    // 4. RE-LINK ROBOT CROSS-COVARIANCE 
-                    Eigen::Matrix<double, 2, 3> J_r;
-                    J_r << 1.0, 0.0, -default_depth * std::sin(global_angle),
-                           0.0, 1.0,  default_depth * std::cos(global_angle);
-                    
-                    // Re-link the landmark to the past pose (where it was observed)
-                    state_cov_.block<2, 3>(f_idx, past_idx_) = J_r * state_cov_.block<3, 3>(past_idx_, past_idx_);
-                    state_cov_.block<3, 2>(past_idx_, f_idx) = state_cov_.block<2, 3>(f_idx, past_idx_).transpose();
-
-                    // Re-link the landmark to the current flying pose
-                    state_cov_.block<2, 3>(f_idx, 0) = J_r * state_cov_.block<3, 3>(past_idx_, 0);
-                    state_cov_.block<3, 2>(0, f_idx) = state_cov_.block<2, 3>(f_idx, 0).transpose();
-                    // ---------------------------------------
+                    reinitialize_unseen_flare(new_obs.id, new_obs.bearing);
                 }
             } else if (features_[new_obs.id].substr(0, 6) == "bucket") {
-                // assumption: buckets observations are in reverse order 4,3,2,1 right to left
+                // Assumes bucket observations are indexed right-to-left (4,3,2,1).
                 int bucket_num = features_[new_obs.id][7] - '0'; // Convert char to int
 
                 if (buckets_locked_) {
-                    // if all buckets have been seen at once before, we can be strict in association
                     const std::vector<int> candidate_ids = {
-                        6,7,8,9 // all buckets are similar, so compare against all of them
+                        kFeatureFirstBucketId,
+                        kFeatureFirstBucketId + 1,
+                        kFeatureFirstBucketId + 2,
+                        kFeatureLastBucketId
                     };
-                    association_check(new_obs, candidate_ids, 0.5); // use a stricter tolerance for buckets 
+                    association_check(new_obs, candidate_ids, 0.5);
                 } else {
                     new_obs.confident = true;
-                    // cv should already have put a high covariance on the buckets
                 }
 
-                if (!buckets_locked_ && bucket_num + buckets_seen < 4 && new_obs.color != 0) {
-                    new_obs.color = 0; // if we have never seen all 4 buckets simultaneously, ignore color
+                if (!buckets_locked_ && bucket_num + buckets_seen < kBucketCount && new_obs.color != 0) {
+                    new_obs.color = 0;
                 }
 
                 if (new_obs.confident) buckets_seen++;
             }
         }
-        if (buckets_seen == 4) buckets_locked_ = true; // if wesee all 4 buckets simultaneously, can be confident in any associations
+        if (buckets_seen == kBucketCount) buckets_locked_ = true;
 
         if (!new_obs.confident) {
             continue;
         }
 
-        // ensure observations are unique
+        // Keep only one accepted observation per feature id.
         if (accepted_ids[new_obs.id]) {
             continue;
         }
@@ -524,7 +514,7 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
         feature_seen_[valid_obs.id] = true;
     }
 
-    // publish only valid features to task
+    // Publish filtered observations for task execution.
     interfaces::msg::FeatureObservations obs_msg;
     obs_msg.header.stamp = features->header.stamp;
     obs_msg.size = valid_observations.size();
@@ -532,19 +522,16 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
     feature_pub_->publish(obs_msg);
     
     int N = static_cast<int>(valid_observations.size());
-    // Commented out to ensure the IMU update still runs even if no visual features are seen
-    // if (N == 0) return;
-
     const int imu_measurement_count = use_imu_update_ ? 1 : 0;
     int N_total = N + imu_measurement_count;
     if (N_total == 0) return;
 
-    // Z: measured bearings, h_x: predicted bearings from current state.
+    // Z: measured bearings, h_x: predicted bearings from state.
     Eigen::VectorXd Z(N_total), h_x(N_total);
     Eigen::MatrixXd R = Eigen::MatrixXd::Zero(N_total, N_total);
     Eigen::MatrixXd H = Eigen::MatrixXd::Zero(N_total, state_size_);
 
-    // USE PAST STATE FOR UPDATE
+    // Use delayed robot pose for visual update alignment.
     double rx = state_mu_(past_idx_), ry = state_mu_(past_idx_ + 1), rt = state_mu_(past_idx_ + 2); 
     int i = 0;
     RCLCPP_INFO(this->get_logger(), "Processing %d feature observations", N);
@@ -572,7 +559,6 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
         H(i, past_idx_) = dy / q;
         H(i, past_idx_ + 1) = -dx / q;
         H(i, past_idx_ + 2) = -1.0;
-        // dh/dx_f, dh/dy_f
         H(i, f_idx) = -dy / q;
         H(i, f_idx + 1) = dx / q;
 
@@ -585,11 +571,11 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
         Z(i) = imu_yaw;
         h_x(i) = state_mu_(2); // Predicted yaw is the state yaw
 
-        // Hardcoded standard deviation of 0.5 degrees -> variance
-        double imu_std_dev_rad = 0.5 * M_PI / 180.0;
+        // Fixed IMU yaw noise model: 0.5 degrees converted to variance.
+        double imu_std_dev_rad = imu_yaw_std_dev_deg_ * M_PI / 180.0;
         R(i, i) = imu_std_dev_rad * imu_std_dev_rad;
 
-        // Jacobian for direct yaw measurement wrt robot yaw
+        // Jacobian for direct yaw observation.
         H(i, 2) = 1.0;
 
         i++; // Increment total active measurements
@@ -624,22 +610,7 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
 
     state_cov_ = 0.5 * (state_cov_ + state_cov_.transpose()); // Ensure symmetry 
     
-    // apply_active_flare_constraints(); // constrain the flare, absolute y and relative x
-
-    // if (i == 0) {
-    //     RCLCPP_INFO(this->get_logger(), "No valid features observed");
-    //     return;
-    // }
-
-    // if (use_imu_update_ && i == 1) {
-    //     RCLCPP_INFO(this->get_logger(), "No valid features observed, IMU update completed");
-    //     return;
-    // }
-    // if (use_imu_update_) {
-    //     RCLCPP_INFO(this->get_logger(), "Batch update completed with %d bearing observations (and IMU update)", i-1);
-    // } else {
     RCLCPP_INFO(this->get_logger(), "Batch update completed with %d bearing observations", i);
-    // }
 }
 
 void EKFSLAM::apply_relative_constraint(int id_a, int id_b, double dx_known, double dy_known, double y_noise) {
@@ -708,7 +679,7 @@ void EKFSLAM::publish_transforms() {
     ts.transform = tf2::toMsg(t_map_odom);
     tf_broadcaster_->sendTransform(ts);
 
-    // 5. Publish Features
+    // 5. Publish feature transforms.
     for (size_t i = 0; i < features_.size(); ++i) {
         int idx = 3 + (2 * i);
         Eigen::Vector3d f_pose;
@@ -716,7 +687,7 @@ void EKFSLAM::publish_transforms() {
         publish_tf("map", features_[i], f_pose, now);
     }
 
-    // publish past pose for debugging
+    // Publish delayed pose for visualization.
     Eigen::Vector3d past_pose = state_mu_.segment<3>(past_idx_);
     publish_tf("map", "past_base_link", past_pose, now);
 }

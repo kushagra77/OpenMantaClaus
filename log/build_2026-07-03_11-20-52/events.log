@@ -1,0 +1,11 @@
+[0.000000] (-) TimerEvent: {}
+[0.000349] (-) JobUnselected: {'identifier': 'brain'}
+[0.000806] (-) JobUnselected: {'identifier': 'cv'}
+[0.000844] (-) JobUnselected: {'identifier': 'cv_testing'}
+[0.001135] (-) JobUnselected: {'identifier': 'interfaces'}
+[0.001199] (-) JobUnselected: {'identifier': 'mavros_control'}
+[0.001244] (-) JobUnselected: {'identifier': 'tasks'}
+[0.001293] (ekfslam) JobQueued: {'identifier': 'ekfslam', 'dependencies': OrderedDict([('interfaces', '/home/kushion/Documents/OpenMantaClaus/install/interfaces')])}
+[0.001349] (ekfslam) JobStarted: {'identifier': 'ekfslam'}
+[0.033880] (ekfslam) JobEnded: {'identifier': 'ekfslam', 'rc': 1}
+[0.044535] (-) EventReactorShutdown: {}

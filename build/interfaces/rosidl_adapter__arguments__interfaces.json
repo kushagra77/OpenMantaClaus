@@ -1,0 +1,11 @@
+{
+  "package_name": "interfaces",
+  "non_idl_tuples": [
+    "/home/kushion/Documents/OpenMantaClaus/src/interfaces:msg/FeatureObservation.msg",
+    "/home/kushion/Documents/OpenMantaClaus/src/interfaces:msg/FeatureObservations.msg",
+    "/home/kushion/Documents/OpenMantaClaus/src/interfaces:msg/TaskStatus.msg",
+    "/home/kushion/Documents/OpenMantaClaus/src/interfaces:srv/Setup.srv",
+    "/home/kushion/Documents/OpenMantaClaus/src/interfaces:srv/TaskCommand.srv",
+    "/home/kushion/Documents/OpenMantaClaus/src/interfaces:srv/TaskComplete.srv"
+  ]
+}

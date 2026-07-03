@@ -1,12 +1,13 @@
 
 #include "tasks/task_runner.hpp"
+#include "tasks/task_protocol.hpp"
 
 #include <sstream>
 
 TaskRunner::TaskRunner()
   : rclcpp::Node("task_runner"), tf_buffer_(std::make_shared<tf2_ros::Buffer>(this->get_clock())), tf_listener_(*tf_buffer_) {
   
-  active_ = false; // Start inactive until a task command is received
+  active_ = false;
   stop_cooldown_end_time_ = this->now();
   setpoint_updated_ = false;
   frame_count_ = 0;
@@ -18,13 +19,12 @@ TaskRunner::TaskRunner()
     Task::feature_seen[feature_name] = false;
   }
 
-  // control loop timer
   control_timer_ = this->create_wall_timer(
     std::chrono::milliseconds(static_cast<int>(1000 / params_.control_frequency_hz)),
     std::bind(&TaskRunner::control_loop, this)
   );
 
-  executor_ = create_task_executor(params_.default_task, tf_buffer_, params_.task_config, params_.flare_config, params_.aruco_config, params_.buckets_config, params_.gripper_config, params_.gate_config, params_.qual_gate_config, this->get_clock()->now(), true); // default task, will be overridden by task command
+  executor_ = create_task_executor(params_.default_task, tf_buffer_, params_.task_config, params_.flare_config, params_.aruco_config, params_.buckets_config, params_.gripper_config, params_.gate_config, params_.qual_gate_config, this->get_clock()->now(), true);
   feature_obs_sub_ = this->create_subscription<interfaces::msg::FeatureObservations>(
     "/tasks/feature_observations", 10,
     std::bind(&TaskRunner::feature_callback, this, std::placeholders::_1));
@@ -38,9 +38,6 @@ TaskRunner::TaskRunner()
   rc_override_ = this->create_publisher<mavros_msgs::msg::OverrideRCIn>("/mavros/rc/override", 10);
   task_status_pub_ = this->create_publisher<interfaces::msg::TaskStatus>("/tasks/task_status", 10);
   debug_pub_ = this->create_publisher<std_msgs::msg::String>("/debug", 10);
-  
-  
-  // log frequency for debugging
   if (debug_flag_) 
   fps_timer_ = this->create_wall_timer(
     std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::duration<double>(params_.fps_log_period_s)),
@@ -60,13 +57,12 @@ void TaskRunner::publish_debug(const std::string & event, const std::string & de
 void TaskRunner::feature_callback(const interfaces::msg::FeatureObservations::SharedPtr msg) {
   for (const auto & obs : msg->observations) {
     Task::feature_seen[params_.feature_names[static_cast<size_t>(obs.id)]] = true;
-    // if color is provided, set that in task
     if (obs.color != 0) {
       Task::process_colored_feature(obs.id, obs.color);
     }
   }
 
-  if (!active_) return; // Ignore observations if not active
+  if (!active_) return;
 
   run_executor(msg);
   setpoint_updated_ = true;
@@ -74,9 +70,6 @@ void TaskRunner::feature_callback(const interfaces::msg::FeatureObservations::Sh
 }
 
 void TaskRunner::bottom_feature_callback(const std_msgs::msg::Int32::SharedPtr msg) {
-  // This callback is specifically for receiving angle information from the bottom camera.
-  // For simplicity, let's assume we directly use it to influence the current command if the current task is "gripper".
-  
   if (curtask_ == "gripper") {
     interfaces::msg::FeatureObservation obs;
     obs.bearing = msg->data;
@@ -95,13 +88,10 @@ void TaskRunner::run_executor(const interfaces::msg::FeatureObservations::Shared
   if (!active_) return;
   int state_result = executor_->execute(msg);
   
-  // Publish task status message
-  if (state_result == -1) {
-    // Task completed
-    active_ = false; // Deactivate until next task command
-    cur_state_ = 0; // reset state for next time
-    
-    // separate handling for gripper servo logic - QUICK AND EASY..
+  if (state_result == task_protocol::kTaskComplete) {
+    active_ = false;
+    cur_state_ = 0;
+
     if (curtask_ == "gripper") {
       if (curtask_initial_) {
         rc_override(0.0,0.0,1);
@@ -119,11 +109,9 @@ void TaskRunner::run_executor(const interfaces::msg::FeatureObservations::Shared
     interfaces::srv::TaskComplete::Request request;
     request.task_completed = true;
     (void)task_complete_client_->async_send_request(std::make_shared<interfaces::srv::TaskComplete::Request>(request));
-  } else if (state_result == -10) {
-    // transform not found, stop all rc commands and wait until it's found
+  } else if (state_result == task_protocol::kTransformUnavailable) {
     stop();
   } else if (state_result != cur_state_){
-    // Normal state
     auto task_status_msg = interfaces::msg::TaskStatus();
     task_status_msg.task = curtask_;
     task_status_msg.state = state_result;
@@ -162,7 +150,6 @@ void TaskRunner::control_loop() {
   }
   frame_count_ += debug_flag_;
 
-  // get most recent command based on map (needs timestamp from message)
   if (!setpoint_updated_ && curtask_ != "gripper") {
     interfaces::msg::FeatureObservations::SharedPtr empty_msg = std::make_shared<interfaces::msg::FeatureObservations>();
     empty_msg->header.stamp = this->get_clock()->now();
@@ -172,9 +159,7 @@ void TaskRunner::control_loop() {
   setpoint_updated_ = false;
   Task::Pos command = executor_->getCommand();
 
-  // separate handling for gripper task since it uses command fields differently - QUICK AND EASY also..
   if (curtask_ == "gripper") {
-    // for gripper, command.x is used for speed, command.yaw is used for yaw 
     rc_override(command.x*params_.gripper_linear_speed  / params_.default_speed, command.yaw*params_.gripper_yaw_speed);
     return;
   }
@@ -184,27 +169,16 @@ void TaskRunner::control_loop() {
     turnPDReset();
     return;
   } else if (command.x == 0.0 && command.y == 0.0) {
-    command.x = 0.0001; // prevent divide by zero in yaw calculation
+    command.x = task_protocol::kCommandEpsilon;
     rc_override(0.0, turnPD(command.yaw));
     return;
   }
-  // half speed at aggressive angles, full speed otherwise
   rc_override(abs(command.yaw) > params_.aggressive_turn_angle_rad ?
               (abs(command.yaw) > 2*params_.aggressive_turn_angle_rad ? 0.0 : 0.5) : 1.0 , turnPD(command.yaw));
 }
 
 void TaskRunner::rc_override(double speed, double yaw, int servo, bool set_z_0) {
-  // speed = 0.0;
-  // yaw = -1.0;
-  // ARDUSUB MAPPING (Standard)
-  // Ch 1: Pitch (Index 0)
-  // Ch 2: Roll  (Index 1)
-  // Ch 3: Throttle (Index 2)
-  // Ch 4: Yaw   (Index 3)
-  // Ch 5: Forward (Index 4)
-  // Ch 6: Lateral (Index 5)
   if (this->now() < stop_cooldown_end_time_) {
-    // RC command ignored: Robot is still stopping.
     return;
   }
 
@@ -216,34 +190,31 @@ void TaskRunner::rc_override(double speed, double yaw, int servo, bool set_z_0) 
 
   if (yaw != IGNORE) {
     yaw = std::max(std::min(yaw, params_.max_turn_speed), -params_.max_turn_speed);
-    if (std::abs(yaw * prev_yaw_cmd_) > 1e-6 && std::abs(yaw - prev_yaw_cmd_) > 0.3) { // Only apply filtering if the change is significant
-      yaw = prev_yaw_cmd_ + (yaw - prev_yaw_cmd_) * (10.0/params_.control_frequency_hz); // simple low-pass filter for smoothing yaw commands
+    if (std::abs(yaw * prev_yaw_cmd_) > 1e-6 && std::abs(yaw - prev_yaw_cmd_) > 0.3) {
+      yaw = prev_yaw_cmd_ + (yaw - prev_yaw_cmd_) * (10.0/params_.control_frequency_hz);
     }
-    // clockwise is positive in ardupilot
-    msg.channels[3] = 1500 - 500*yaw;
+    msg.channels[3] = task_protocol::kRcNeutralPwm - task_protocol::kRcCommandScale * yaw;
   }
   
   if (speed != IGNORE) {
-    if (std::abs(speed * prev_speed_cmd_) > 1e-6 && // only apply filtering if neither is zero
-       std::abs(speed - prev_speed_cmd_) > 0.3) { // only apply filtering if the change is significant
-      speed = prev_speed_cmd_ + (speed - prev_speed_cmd_) * (10.0/params_.control_frequency_hz); // simple low-pass filter for smoothing speed commands
+    if (std::abs(speed * prev_speed_cmd_) > 1e-6 &&
+       std::abs(speed - prev_speed_cmd_) > 0.3) {
+      speed = prev_speed_cmd_ + (speed - prev_speed_cmd_) * (10.0/params_.control_frequency_hz);
     }
-    msg.channels[4] = speed*500 + 1500;
+    msg.channels[4] = speed * task_protocol::kRcCommandScale + task_protocol::kRcNeutralPwm;
   }
   if (servo == 2) {
-    msg.channels[6] = 1500 - params_.servo_90_pwm_diff;
+    msg.channels[6] = task_protocol::kRcNeutralPwm - params_.servo_90_pwm_diff;
   } else if (servo == 1) {
-    msg.channels[6] = 1500 - params_.servo_90_pwm_diff / 2;
+    msg.channels[6] = task_protocol::kRcNeutralPwm - params_.servo_90_pwm_diff / 2;
   } else {
-    msg.channels[6] = 1500; // neutral for servo
+    msg.channels[6] = task_protocol::kRcNeutralPwm;
   }
   if (set_z_0) {
     msg.channels[2] = 0;
   }
-  // RCLCPP_INFO(this->get_logger(), "sending rc commands speed: %f, yaw: %f, servo: %d", speed, yaw, servo);
   rc_override_->publish(msg);
   if (servo != 0) {
-    // publish extra just in case
     rc_override_->publish(msg);
     rc_override_->publish(msg);
   }
@@ -273,21 +244,17 @@ double TaskRunner::turnPD(double error) {
     prev_time_ = current_time;
     prev_error_yaw_ = error;
     pd_initialized_ = true;
-    return params_.kp_turn * error; // Initial proportional output
+    return params_.kp_turn * error;
   }
-  
-  // Calculate time difference
+
   rclcpp::Duration dt_duration = current_time - prev_time_;
   double dt = dt_duration.seconds();
-  if (dt == 0.0) dt = 1e-6; // prevent divide by zero, shouldn't happen
-  
-  // Calculate derivative
+  if (dt == 0.0) dt = 1e-6;
+
   double error_derivative = (error - prev_error_yaw_) / dt;
-  
-  // PD control output
+
   double output = params_.kp_turn * error + params_.kd_turn * error_derivative;
-  
-  // Update previous values
+
   prev_error_yaw_ = error;
   prev_time_ = current_time;
   
@@ -296,14 +263,13 @@ double TaskRunner::turnPD(double error) {
 
 void TaskRunner::stop() {
   rc_override(0.0, 0.0);
-  stop_cooldown_end_time_ = this->now() + rclcpp::Duration(0, 0.3e9); //300ms cooldown
+  stop_cooldown_end_time_ = this->now() + rclcpp::Duration::from_seconds(params_.stop_cooldown_s);
   turnPDReset();
 }
 
 void TaskRunner::turnPDReset() {
   pd_initialized_ = false;
   prev_error_yaw_ = 0.0;
-  // prev_time_ will be reset on next turnPD call
 }
 
 int main(int argc, char **argv) {

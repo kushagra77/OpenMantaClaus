@@ -1,0 +1,38 @@
+[35m[1mConsolidate compiler generated dependencies of target task_runner[0m
+[  9%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/task_runner.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/utils/task_runner_params.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/qual_gate.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/gate.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/buckets.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/gripper.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/task_runner.dir/src/controllers/aruco.cpp.o[0m
+[ 72%] [32m[1mLinking CXX executable task_runner[0m
+[100%] Built target task_runner
+-- Install configuration: ""
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/lib/tasks/task_runner
+-- Set runtime path of "/home/kushion/Documents/OpenMantaClaus/install/tasks/lib/tasks/task_runner" to ""
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/controllers
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/controllers/task_factory.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_config.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_runner.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task.hpp
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/task_protocol.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/utils
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/include/tasks/utils/task_runner_params.hpp
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/package_run_dependencies/tasks
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/parent_prefix_path/tasks
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/ament_prefix_path.sh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/path.sh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/environment/path.dsv
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.bash
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.sh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.zsh
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/local_setup.dsv
+-- Installing: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/package.dsv
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/ament_index/resource_index/packages/tasks
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/cmake/tasksConfig.cmake
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/cmake/tasksConfig-version.cmake
+-- Up-to-date: /home/kushion/Documents/OpenMantaClaus/install/tasks/share/tasks/package.xml
