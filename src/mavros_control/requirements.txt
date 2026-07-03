@@ -1,0 +1,3 @@
+pygeodesy
+numpy < 2.0.0
+transforms3d
