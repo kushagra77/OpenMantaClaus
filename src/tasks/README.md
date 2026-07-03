@@ -61,8 +61,8 @@ Current implementation notes:
 - Uses different repellant sets and behavior for drop vs. pickup modes
 - **Drop mode** (`drop=true`): Approach bucket for dropping object
 - **Pickup mode** (`drop=false`): Approach bucket for picking up object
-- Bucket color lock: automatically locks bucket color when within `lock_bucket_proximity_threshold_m` (2.5m default)
-- Task completes when target bucket reached (distance threshold 0.2m default)
+- Bucket color lock: automatically locks bucket color when within `lock_bucket_proximity_threshold_m` (5.0m default)
+- Task completes when target bucket reached (distance threshold 1.0m default)
 
 ## Gripper Task Behavior
 
@@ -98,42 +98,42 @@ Current runtime data path:
 
 ## Parameters
 
-Loaded from shared launch parameters in `src/brain/launch/params.yaml`, including:
+Loaded from shared launch parameters in `src/manta_bringup/launch/params.yaml`, including:
 
 ### **Control Loop Configuration**
 - `control_frequency_hz`: 20.0 Hz - main task execution rate
 - `default_speed`: 0.3 - default forward/backward motion scale
 - `max_turn_speed`: 0.5 - maximum yaw motion scale
 - `kp_turn`: 0.5 - proportional gain for yaw PD control
-- `kd_turn`: 0.05 - derivative gain for yaw PD control
+- `kd_turn`: 0.07 - derivative gain for yaw PD control
 - `aggressive_turn_angle_deg`: 45.0 - threshold for reducing turn speed
 
 ### **Shared APF (Artificial Potential Field) Configuration**
 Applied to all tasks through `TaskConfig`:
 - `target_gain`: 5.0 - attractive force strength toward targets
-- `repellant_gain`: 3.0 - repulsive force strength from obstacles
-- `repellant_range`: 2.0m - range at which repulsive forces activate
+- `repellant_gain`: 6.0 - repulsive force strength from obstacles
+- `repellant_range`: 6.0m - range at which repulsive forces activate
 - `repellant_ellipse_x`, `repellant_ellipse_y`: 1.0, 1.0 - elliptical shape of repulsive field
 - `repellant_passed_margin_rad`: 1.0 - angle threshold for ignoring obstacles behind robot
 
 ### **Gate Configuration** (`gate.*`)
 - `ellipse_x`: 5.0 - APF attractive field shape (forward-back)
 - `ellipse_y`: 2.0 - APF attractive field shape (left-right)
-- `forward_exit_margin_m`: 0.3 - distance past gate for completion (forward mode)
+- `forward_exit_margin_m`: 1.0 - distance past gate for completion (forward mode)
 - `apf_target_x_offset_m`: -1.0 - horizontal offset for APF target
 - `gate_gain`: 5.0 - task-specific attractive force gain
-- `blind_gate_gain_factor`: 0.5 - multiplier applied when neither gate pillar is visible
+- `blind_gate_gain_factor`: 0.7 - multiplier applied when neither gate pillar is visible
 - `repellant_gain`: 3.0 - task-specific repulsive force gain
-- `repellant_range`: 2.0m - task-specific repulsive field range
+- `repellant_range`: 5.0m - task-specific repulsive field range
 - `repellant_ellipse_x`, `repellant_ellipse_y`: 1.5, 1.0 - elliptical shape of task repulsive field
-- `repellant_passed_margin_m`: 0.5 - angle threshold for task-specific repulsive field
+- `repellant_passed_margin_m`: 1.0 - angle threshold for task-specific repulsive field
 
 ### **Qualification Gate Configuration** (`qual_gate.*`)
 - `angle_tolerance_deg`: 1.5 - yaw alignment threshold for turn completion
 - `ellipse_x`: 5.0, `ellipse_y`: 2.0 - APF field shape
-- `forward_exit_margin_m`: 0.5 - exit distance for forward pass
-- `backward_exit_margin_m`: 0.8 - exit distance for backward pass
-- `turn_target_yaw_offset_deg`: 179.5 - target yaw offset for 180° U-turn (180° - 0.5° margin)
+- `forward_exit_margin_m`: 1.5 - exit distance for forward pass
+- `backward_exit_margin_m`: 5.0 - exit distance for backward pass
+- `turn_target_yaw_offset_deg`: -179.0 - target yaw offset for 180° U-turn
 - `apf_target_x_offset_m`: 1.0 - horizontal offset for APF target
 
 ### **Flare Configuration** (`flare.*`)
@@ -141,23 +141,23 @@ Applied to all tasks through `TaskConfig`:
 - `target_reached_threshold_m`: 0.1 - distance threshold in non-scan mode (precise approach)
 
 ### **Bucket Configuration** (`buckets.*`)
-- `target_reached_threshold_m`: 0.2 - distance threshold for task completion
-- `lock_bucket_proximity_threshold_m`: 2.5 - distance at which bucket color is locked
+- `target_reached_threshold_m`: 1.0 - distance threshold for task completion
+- `lock_bucket_proximity_threshold_m`: 5.0 - distance at which bucket color is locked
 
 ### **ArUco Configuration** (`aruco.*`)
 - `target_reached_threshold_m`: 5.0 - distance threshold for task completion (marker detection range)
 
 ### **Gripper Configuration** (`gripper.*`)
 - `task_timeout_s`: 20.0 - timeout duration in seconds
-- `drop_angle_deadband_deg`: 30.0 - servo angle deadband for drop mode completion
-- `pickup_angle_deadband_deg`: 10.0 - servo angle deadband for pickup mode completion
+- `drop_angle_deadband_deg`: 35.0 - servo angle deadband for drop mode completion
+- `pickup_angle_deadband_deg`: 15.0 - servo angle deadband for pickup mode completion
 
 ### **Gripper Control Parameters** (applies during gripper task)
-- `servo_90_pwm_diff`: 650 - PWM difference for 90° servo rotation
-- `gripper_linear_speed`: 0.1 - forward/backward motion speed scale during gripper task
-- `gripper_yaw_speed`: 0.15 - yaw motion speed scale during gripper task
-- `servo_sleep`: 1.0 - delay (seconds) before moving servo in pickup mode
-- `pickup_sleep`: 2.0 - delay (seconds) after servo movement before starting approach
+- `servo_90_pwm_diff`: 700 - PWM difference for 90° servo rotation
+- `gripper_linear_speed`: 0.15 - forward/backward motion speed scale during gripper task
+- `gripper_yaw_speed`: 0.2 - yaw motion speed scale during gripper task
+- `servo_sleep`: 2.0 - delay (seconds) before moving servo in pickup mode
+- `pickup_sleep`: 5.0 - delay (seconds) after servo movement before starting approach
 
 ### **Common Features**
 - `common.feature_names`: List of feature names (flag, gate_left, gate_right, flare_1, flare_2, flare_3, bucket_1, bucket_2, bucket_3, bucket_4, aruco_marker, qual_gate_left, qual_gate_right)

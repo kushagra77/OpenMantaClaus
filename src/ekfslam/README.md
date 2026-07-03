@@ -67,7 +67,7 @@ The EKF SLAM system maintains 13 predefined landmarks (pool geometry is fixed an
 ### Odometry Prediction (25 Hz)
 
 - **Input**: RC PWM commands from `/mavros/rc/out`
-- **Odometry model**: 7kg mass, 0.45m thruster width, drag/thrust coefficients
+- **Odometry model**: 7kg mass, 0.45m thruster width, drag/thrust coefficients are parameterized in the shared launch file
 - **Prediction**: Updates robot (x, y, yaw) state through dead reckoning
 - **Process noise**: Determined by odometry model dynamics
 
@@ -111,13 +111,13 @@ Loaded in `src/ekfslam/src/utils/slam_params.cpp`:
   
 - **Observation Processing**:
   - `bearing_noise.std_dev`: 0.1 rad - bearing measurement noise
-  - `association_tolerance_deg`: 5.0 - angular tolerance for feature association
+  - `association_tolerance_deg`: 15.0 - angular tolerance for feature association
   - `new_association_min_deg`: Threshold for assigning to unseen landmarks
   
 - **Odometry Model**:
   - Mass: 7kg
   - Thruster width: 0.45m
-  - Drag and thrust coefficients (in code)
+  - Drag and thrust coefficients are parameterized in the shared launch file
   
 - **Map Constraints**:
   - Gate separation: 1.5m (fixed geometry)
@@ -125,7 +125,8 @@ Loaded in `src/ekfslam/src/utils/slam_params.cpp`:
   
 - **Feature Configuration**:
   - `common.feature_names`: List of 13 landmark names
-  - `common.feature_indices`: Index mapping for feature access
+  - `snapshot_time_tolerance_s`: frame-trigger tolerance used for batch alignment
+  - `imu_yaw_std_dev_deg`: IMU yaw noise used for the optional absolute yaw update
 
 ## Usage
 

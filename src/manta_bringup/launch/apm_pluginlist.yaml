@@ -1,0 +1,17 @@
+/**:
+  ros__parameters:
+    system_id: 255
+    plugin_denylist:
+      # common
+      - '*'
+
+    plugin_allowlist:
+      - 'sys_*'
+      - 'imu'
+      - 'rc_io'
+      - 'param'
+      - 'command'
+      - 'distance_sensor'
+      - 'global_position'
+      - 'local_position'
+      - 'setpoint_position'

@@ -48,7 +48,7 @@ For qualification runs, the queue is configured as `["qual_gate", "-qual_gate"]`
 
 ## Parameters
 
-Loaded from `src/brain/launch/params.yaml` under:
+Loaded from `src/manta_bringup/launch/params.yaml` under:
 
 - **Mission configuration** (`mission.*`):
   - `main_run`: true/false - selects main arena sequence (true) or qualification sequence (false)
@@ -76,7 +76,7 @@ ros2 run brain brain_node
 Normally this package is started through:
 
 ```bash
-ros2 launch brain robot_bringup.launch.py
-ros2 launch brain main.launch.py
-ros2 launch brain qual.launch.py
+ros2 launch manta_bringup robot_bringup.launch.py
+ros2 launch manta_bringup main.launch.py
+ros2 launch manta_bringup qual.launch.py
 ```

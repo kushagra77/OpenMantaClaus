@@ -11,7 +11,8 @@ This repository contains the runtime stack for mission orchestration, perception
 
 ## Package Overview
 
-- `src/brain`: mission orchestration and vehicle setup.
+- `src/brain`: mission orchestration node.
+- `src/manta_bringup`: launch and shared configuration assets.
 - `src/cv`: camera capture and feature detection.
 - `src/ekfslam`: bearing-only EKF SLAM and TF publication.
 - `src/tasks`: task execution and RC override control.
@@ -67,22 +68,22 @@ colcon build
 source install/setup.bash
 ```
 
-Run robot bringup (all runtime nodes except brain):
+Run robot bringup (starts cv, bottom_cv, tasks, ekfslam, and MAVROS):
 
 ```bash
-ros2 launch brain robot_bringup.launch.py
+ros2 launch manta_bringup robot_bringup.launch.py
 ```
 
 Run main mission brain node:
 
 ```bash
-ros2 launch brain main.launch.py
+ros2 launch manta_bringup main.launch.py
 ```
 
 Run qualification brain node:
 
 ```bash
-ros2 launch brain qual.launch.py
+ros2 launch manta_bringup qual.launch.py
 ```
 
 ## Useful Commands

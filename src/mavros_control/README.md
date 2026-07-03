@@ -12,7 +12,7 @@
 
 ## Launch Files
 
-- `launch/mavros.launch` (included by `brain` launches)
+- `launch/mavros.launch` (included by `manta_bringup` launches)
 - `launch/demo.launch.py` (controller demo)
 
 ## Usage
@@ -33,5 +33,5 @@ ros2 launch mavros_control demo.launch.py
 In normal mission runs, MAVROS is started indirectly via:
 
 ```bash
-ros2 launch brain robot_bringup.launch.py
+ros2 launch manta_bringup robot_bringup.launch.py
 ```

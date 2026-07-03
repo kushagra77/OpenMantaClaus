@@ -7,6 +7,7 @@ This document describes package responsibilities, node interfaces, and runtime f
 Core subsystems:
 
 - Mission orchestration: `brain`
+- Launch and shared configuration: `manta_bringup`
 - Perception: `cv`
 - Vision testing and bag replay: `cv_testing`
 - State estimation and mapping: `ekfslam`
@@ -14,7 +15,7 @@ Core subsystems:
 - Shared interfaces: `interfaces`
 - MAVROS bridge and utility controls: `mavros_control`
 
-Shared runtime parameters are loaded from `src/brain/launch/params.yaml` by the launch files.
+Shared runtime parameters are loaded from `src/manta_bringup/launch/params.yaml` by the launch files.
 
 ## Primary Runtime Flow
 
@@ -31,20 +32,27 @@ Shared runtime parameters are loaded from `src/brain/launch/params.yaml` by the 
 Purpose:
 Mission orchestrator that performs setup, selects mission sequence, dispatches tasks, and advances mission state.
 
+Launch and shared parameter ownership has moved to `manta_bringup`.
+
 ### Node
 
 | Node | Source | Description | Interfaces |
 | --- | --- | --- | --- |
 | `brain_node` | `src/brain/src/brain.cpp` | Main mission state machine. Performs setup, dispatches commands, and handles completion transitions. | Subscribes: `mavros/state`, `/tasks/task_status`. Publishes: `mavros/setpoint_position/global`. Clients: `mavros/cmd/arming`, `mavros/set_mode`, `/cv/task_command`. Server: `/tasks/task_complete`. |
 
+## Package: `manta_bringup`
+
+Purpose:
+Owns the runtime launch files and shared configuration YAMLs for the mission stack.
+
 ### Launch
 
 | Launch File | Purpose | Notes |
 | --- | --- | --- |
-| `src/brain/launch/robot_bringup.launch.py` | Robot bringup launch | Starts `cv`, `tasks`, `ekfslam`, and includes MAVROS launch. |
-| `src/brain/launch/only_mavros.launch.py` | MAVROS-only launch | Starts only MAVROS for isolated FCU/link bringup and testing. |
-| `src/brain/launch/main.launch.py` | Main mission brain launch | Starts `brain` with `mission.main_run=True`. |
-| `src/brain/launch/qual.launch.py` | Qualification brain launch | Starts `brain` with `mission.main_run=False`. |
+| `src/manta_bringup/launch/robot_bringup.launch.py` | Robot bringup launch | Starts `cv`, `bottom_cv`, `tasks`, `ekfslam`, and includes MAVROS launch. |
+| `src/manta_bringup/launch/only_mavros.launch.py` | MAVROS-only launch | Starts only MAVROS for isolated FCU/link bringup and testing. |
+| `src/manta_bringup/launch/main.launch.py` | Main mission brain launch | Starts `brain` with `mission.main_run=True`. |
+| `src/manta_bringup/launch/qual.launch.py` | Qualification brain launch | Starts `brain` with `mission.main_run=False`. |
 
 ## Package: `cv`
 
@@ -57,7 +65,7 @@ Camera perception pipeline and YOLO-based observation publisher.
 | --- | --- | --- | --- |
 | `cv_node` | `src/cv/cv/cv_node.py` | Captures frames, runs shared camera preprocessing/exposure control, performs YOLO26n TFLite inference, publishes observations, and handles task-command handoff from `brain` to `tasks`. | Publishes: `/camera/img`, `/cv/feature_observations`. Server: `/cv/task_command`. Client: `/tasks/task_command`. |
 | `testing_node` | `src/cv/cv/testing_node.py` | Camera image publisher for debug/performance checks using the same shared camera-control pipeline as `cv_node`. | Publishes: `/camera/img`. |
-| `cv_replay_node` | `src/cv/cv/cv_replay_node.py` | Offline replay/test pipeline (not part of mission launch stack). | Publishes: processed test outputs. |
+| Offline replay tooling | `scripts/cv_testing/` | Development-only replay path for recorded images. It is not part of the mission launch stack. | Publishes replayed camera input for downstream CV testing. |
 
 Shared CV camera-control module:
 
@@ -171,7 +179,7 @@ All tasks now use task-specific configuration structs loaded from ROS parameters
   - `drop_angle_deadband_deg`: Servo angle deadband for drop mode
   - `pickup_angle_deadband_deg`: Servo angle deadband for pickup mode
 
-All configuration values are declared and loaded through `TaskRunnerParams` from `src/brain/launch/params.yaml`.
+All configuration values are declared and loaded through `TaskRunnerParams` from `src/manta_bringup/launch/params.yaml`.
 
 ## Package: `interfaces`
 
@@ -195,7 +203,7 @@ Custom ROS 2 messages and services used by runtime packages.
 Purpose:
 MAVROS launch/config bridge plus a Python controller utility used for demo/testing flows.
 
-`mavros_control/launch/mavros.launch` is included by both `brain` launch files.
+`mavros_control/launch/mavros.launch` is included by the `manta_bringup` launch files.
 
 ## SAUVC Qualification Consistency
 

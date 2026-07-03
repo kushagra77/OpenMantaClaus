@@ -13,7 +13,7 @@ def generate_launch_description():
     namespace = ''
     nodes = []
     params_file = PathJoinSubstitution([
-        FindPackageShare('brain'),
+        FindPackageShare('manta_bringup'),
         'launch',
         'params.yaml'
     ])

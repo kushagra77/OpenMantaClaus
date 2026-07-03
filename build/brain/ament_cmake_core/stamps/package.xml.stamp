@@ -2,7 +2,7 @@
 <package format="3">
 	<name>brain</name>
 	<version>0.0.0</version>
-	<description>Brain controller node for the vehicle (C++ node using MAVROS messages)</description>
+	<description>Brain mission orchestration node for the vehicle (C++ node using MAVROS messages)</description>
 	<maintainer email="you@example.com">kushion</maintainer>
 	<license>Apache-2.0</license>
 

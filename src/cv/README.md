@@ -1,6 +1,6 @@
 # cv
 
-`cv` is the perception package. It captures camera frames, runs a single YOLO26n TFLite inference pipeline, and publishes feature observations for SLAM and task execution.
+`cv` is the perception package. It captures camera frames, runs a YOLO26n TFLite inference pipeline, and publishes feature observations for SLAM and task execution.
 
 `cv` is the production runtime package. Perception changes are typically developed and validated first in `scripts/cv_testing`, then copied back here once they are stable.
 
@@ -10,14 +10,14 @@
 - Run YOLO inference based on the current task command.
 - Publish raw `FeatureObservations` for downstream EKF filtering.
 - Keep camera state and exposure control consistent across runtime and testing nodes.
-- Serve as the mission-facing perception path used by `brain` and the main launch files.
+- Serve as the mission-facing perception path used by `brain` through `manta_bringup`.
 
 ## Executables
 
 - `cv_node` (main runtime node for forward camera)
 - `testing_node` (camera throughput/debug publisher)
 - `bottom_cv_node` (bottom camera UDP bridge - experimental)
-- `cv_replay_node` (offline replay/testing)
+- Offline replay tooling lives under `scripts/cv_testing/` and is not part of this package.
 
 ## Interfaces
 
@@ -117,12 +117,12 @@ Gain behavior:
 
 - `aruco_marker_ids` (or `aruco.marker_ds`): Array of 6 integer ArUco marker IDs to detect. Parameter name supports both formats for backward compatibility.
 
-Current runtime parameters include camera control, capture timing, debug flags, `debug_yolo` switch, YOLO configuration, and ArUco marker detection settings.
+Current runtime parameters include camera control, capture timing, debug flags, `debug_yolo` switch, YOLO configuration, and ArUco marker detection settings. Mission launches load the shared values from `src/manta_bringup/launch/params.yaml`; standalone runs keep the code defaults from `src/cv/cv/utils/cv_node_params.py`.
 
 Current YOLO note:
 
 - `debug_yolo=true` draws the YOLO bounding boxes on the original frame before the debug image is published.
-- The YOLO model path defaults to the repository copy of `scripts/yolo/runs/detect/pretrain_generalist_v1/weights/best_saved_model/best_int8.tflite`, can be overridden with `yolo.model_path`, and can also be overridden with `CV_YOLO_MODEL_PATH`.
+- The code default model path is `scripts/yolo/runs/detect/pretrain_generalist_v1/weights/best_saved_model/best_int8.tflite`; mission launches override it through `manta_bringup` to the current runtime model path.
 
 Current node behavior note:
 
@@ -144,4 +144,4 @@ Run:
 ros2 run cv cv_node
 ```
 
-The main launches in `brain` start this package with the shared `params.yaml`.
+The main launches in `manta_bringup` start this package with the shared `params.yaml`.

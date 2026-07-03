@@ -16,7 +16,8 @@ Brain::Brain(const std::string & name)
   } else {
     RCLCPP_INFO(this->get_logger(), "Configured for QUALIFIER mission sequence.");
   }
-  // QoS and subscriptions
+
+  // Core mission subscriptions and clients.
   auto qos = rclcpp::QoS(10);
   callback_group_logic_ = this->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
   rclcpp::SubscriptionOptions sub_opts;
@@ -28,17 +29,16 @@ Brain::Brain(const std::string & name)
 
   setpoint_pub_ = this->create_publisher<geographic_msgs::msg::GeoPoseStamped>("mavros/setpoint_position/global", qos);
 
-  // Create service clients for arming and mode setting
+  // Service clients for vehicle setup and mission handoff.
   arm_client_ = this->create_client<mavros_msgs::srv::CommandBool>("mavros/cmd/arming");
   set_mode_client_ = this->create_client<mavros_msgs::srv::SetMode>("mavros/set_mode");
 
-  // Client to activate ekfslam when setup is complete
+  // EKF SLAM stays idle until setup finishes.
   ekf_activate_client_ = this->create_client<std_srvs::srv::SetBool>("/ekfslam/activate");
 
-  // choose whether to do qualifier task or full arena
   reset_task_queue();
-  
-  // more Task stuff
+
+  // Task dispatch path used by CV and task completion callbacks.
   task_command_client_ = this->create_client<interfaces::srv::TaskCommand>("/cv/task_command");
   task_status_sub_ = this->create_subscription<interfaces::msg::TaskStatus>(
     "/tasks/task_status", qos,
@@ -61,6 +61,7 @@ Brain::Brain(const std::string & name)
 
 void Brain::reset_task_queue()
 {
+  // Rebuild the queue from the selected mission profile without changing order.
   task_queue_ = build_task_queue(
     mission_config_.main_run ? mission_config_.main_sequence : mission_config_.qual_sequence);
 }
@@ -73,8 +74,8 @@ void Brain::run_main_logic() {
     static_cast<float>(mission_config_.setup_target_depth_m),
     mission_config_.setup_start_delay_s
   );
-  
-  // Activate EKFSLAM and wait until it reports ready
+
+  // Activate EKF SLAM and wait until it reports ready.
   RCLCPP_INFO(this->get_logger(), "Activating ekfslam and waiting for ready response...");
   while (rclcpp::ok()) {
     if (!ekf_activate_client_->wait_for_service(std::chrono::seconds(1))) {
@@ -113,11 +114,11 @@ void Brain::run_task() {
   std::string current_task = task_queue_.front();
   interfaces::srv::TaskCommand::Request request;
   if (current_task[0] == '-') {
-    request.command = current_task.substr(1); // remove '-' prefix for command
-    request.initial = false; // set to false to indicate reverse state
+    request.command = current_task.substr(1);
+    request.initial = false;
   } else {
     request.command = current_task;
-    request.initial = true; 
+    request.initial = true;
   }
   task_queue_.pop();
   RCLCPP_INFO(this->get_logger(), "Requesting task: %s", current_task.c_str());
@@ -134,7 +135,7 @@ void Brain::run_task() {
 void Brain::state_cb(const mavros_msgs::msg::State::SharedPtr msg) {
   this->vehicle_state = *msg;
   if (this->vehicle_state.connected) {
-    state_sub_.reset(); // Unsubscribe once connected, might change later
+    state_sub_.reset();
   }
 }
 
@@ -142,7 +143,7 @@ void Brain::task_status_cb(const interfaces::msg::TaskStatus::SharedPtr msg) {
   RCLCPP_INFO(this->get_logger(), "Received task status update: task=%s, status=%d, message=%s", 
               msg->task.c_str(), msg->state, msg->message.c_str());
   set_target_depth(static_cast<float>(mission_config_.setup_target_depth_m));
-  if (msg->task == "qual_gate" && msg->state == 1) { // if qual gate is reversing
+  if (msg->task == "qual_gate" && msg->state == 1) {
     RCLCPP_INFO(this->get_logger(), "Sending command to CV to set qual gate for reversing...");
     run_task();
   }
@@ -163,7 +164,7 @@ void Brain::task_complete_callback(const std::shared_ptr<interfaces::srv::TaskCo
 
 void Brain::surface() {
   RCLCPP_WARN(this->get_logger(), "INITIATING RESURFACE");
-  set_target_depth(0.0f); // Publish surface setpoint
+  set_target_depth(0.0f);
   while (rclcpp::ok() && !this->arm(false)) {
     RCLCPP_INFO(this->get_logger(), "Failed to disarm vehicle");
     std::this_thread::sleep_for(10ms);
@@ -176,21 +177,16 @@ void Brain::surface() {
 }
 
 void Brain::emergency_shutdown() {
-
-  // RCLCPP_INFO(this->get_logger(), "INITIATING EMERGENCY SHUTDOWN");
   std::cout<<"INITIATING EMERGENCY SHUTDOWN" << std::endl;
-  // Fire DISARM command
+
   auto arm_req = std::make_shared<mavros_msgs::srv::CommandBool::Request>();
   arm_req->value = false;
   arm_client_->async_send_request(arm_req);
 
-  // Fire MANUAL mode command
   auto mode_req = std::make_shared<mavros_msgs::srv::SetMode::Request>();
   mode_req->custom_mode = "MANUAL";
   set_mode_client_->async_send_request(mode_req);
 
-
-  // 3. Freeze the teardown for 100ms so the packets actually leave
   std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
 
@@ -202,7 +198,6 @@ void Brain::set_target_depth(float depth) {
   pose.pose.position.longitude = 0.0;
   pose.pose.position.altitude = -std::abs(depth);
 
-  // Safety: publish multiple times to ensure setpoint is latched by MAVROS.
   for (int i = 0; i < mission_config_.setpoint_publish_count; i++) {
     setpoint_pub_->publish(pose);
     std::this_thread::sleep_for(

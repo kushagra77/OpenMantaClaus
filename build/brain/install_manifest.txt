@@ -1,16 +1,4 @@
 /home/kushion/Documents/OpenMantaClaus/install/brain/lib/brain/brain_node
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/qual.launch.py
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/main.launch.py
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/sim_only_mavros.launch.py
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/params.yaml
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/robot_bringup.launch.py
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/apm_pluginlist.yaml
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/only_mavros.launch.py
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/dummy_cv.yaml
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/apm_config.yaml
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/brain_qual.yaml
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/hardcode_qual_full.launch.py
-/home/kushion/Documents/OpenMantaClaus/install/brain/share/brain/launch/mavros.launch
 /home/kushion/Documents/OpenMantaClaus/install/brain/include/brain/brain.hpp
 /home/kushion/Documents/OpenMantaClaus/install/brain/include/brain/utils/brain_params.hpp
 /home/kushion/Documents/OpenMantaClaus/install/brain/share/ament_index/resource_index/package_run_dependencies/brain
