@@ -46,8 +46,11 @@ The detailed hardware Bill of Materials with sourcing links, quantities, and est
 
 ## CAD & Assembly
 
-The CAD models and basic assembly instructions are hosted on GrabCAD.
-**[GrabCAD Library Page](https://grabcad.com/library/mantaclaus-auv-1)** (CAD files and assembly guides)
+The CAD models are hosted on GrabCAD.
+**[GrabCAD Library Page](https://grabcad.com/library/mantaclaus-auv-1)** (CAD files)
+
+> [!NOTE]
+> Detailed assembly instructions are currently in progress and will be developed if there is interest from the community in building this specific chassis.
 
 ## MantaClaus Wiring Diagram
 
@@ -85,7 +88,7 @@ Despite entering the competition without full-pool integration testing, the bear
 While reading the [full architecture documentation](docs/architecture.md) is recommended to gain a deep understanding of the system, you can follow this quick-start guide to get the robot up and running.
 
 ### 1. Build and Assemble the Robot
-Follow the [Bill of Materials (BOM.md)](BOM.md) and the [CAD & Assembly instructions](#cad--assembly) to construct the robot. Ensure all wiring matches the [Wiring Diagram](#mantaclaus-wiring-diagram).
+Follow the [Bill of Materials (BOM.md)](BOM.md) and use the CAD files in [CAD & Assembly](#cad--assembly) to construct the robot. Ensure all wiring matches the [Wiring Diagram](#mantaclaus-wiring-diagram).
 
 ### 2. Configure BlueOS
 1. Access the companion computer and get familiarized with the [BlueOS interface](https://blueos.bluerobotics.com/).
@@ -93,7 +96,9 @@ Follow the [Bill of Materials (BOM.md)](BOM.md) and the [CAD & Assembly instruct
 3. Connect BlueOS to a reliable Wi-Fi hotspot for seamless development and telemetry.
 
 ### 3. Set Up VS Code Development Environment
-Install the **Blueos ROS 2 extension (`ros2-manta`)** and open VS Code inside the dockerized container provided by the extension. This mounts the workspace and gives you direct access to the built-in development environment. You should be able to clone this repository within the shared persistent workspace by adding your github ssh key to the shared .ssh folder for easier access.
+Install the **Blueos ROS 2 extension (`ros2-manta`)** and open VS Code inside the dockerized container provided by the extension. This mounts the workspace and gives you direct access to the built-in development environment. You should be able to clone this repository within the shared persistent workspace by adding your GitHub SSH key to the shared `.ssh` folder for easier access.
+
+For reference on how the Docker image is built, see the [blueos-ros2 (ros2-humble branch) repository](https://github.com/kushagra77/blueos-ros2/tree/ros2-humble). It is a custom fork of the original [blueos-ros2 repository](https://github.com/itskalvik/blueos-ros2) specifically tailored for this project.
 
 ### 4. Sensor Calibration & Pre-flight Checks
 - **Sensor Calibration:** Calibrate all sensors (IMU, pressure, etc.) via the BlueOS dashboard.
