@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software in your research or competition development, please cite it as below."
+authors:
+- family-names: "Javeri"
+  given-names: "Kushagra"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "OpenMantaClaus: An Accessible, Low-Cost Autonomous Underwater Vehicle (AUV) for SAUVC"
+version: 1.0.0
+date-released: 2026-07-06
+url: "https://github.com/kushagra77/OpenMantaClaus"
+preferred-citation:
+  type: generic
+  authors:
+  - family-names: "Javeri"
+    given-names: "Kushagra"
+  title: "OpenMantaClaus: Design and Field-Testing of a Low-Cost AUV Stack"
+  year: 2026
+  notes: "Pending publication / research draft."

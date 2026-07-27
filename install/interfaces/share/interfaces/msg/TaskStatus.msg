@@ -1,3 +1,1 @@
-int32 state
-string task
-string message
+/home/kushion/Documents/OpenMantaClaus/src/interfaces/msg/TaskStatus.msg

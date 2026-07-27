@@ -1,0 +1,37 @@
+name: ROS 2 Humble Build & Test
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ros:humble
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Initialize rosdep
+      run: |
+        apt-get update
+        apt-get install -y python3-pip
+        rosdep update
+
+    - name: Install dependencies
+      run: |
+        rosdep install --from-paths src --ignore-src -y --rosdistro humble
+
+    - name: Build Workspace
+      run: |
+        . /opt/ros/humble/setup.sh
+        colcon build --symlink-install
+
+    - name: Test Workspace
+      run: |
+        . /opt/ros/humble/setup.sh
+        colcon test
+        colcon test-result --verbose

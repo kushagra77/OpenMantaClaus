@@ -51,6 +51,7 @@ task_runner:
     buckets:
       target_reached_threshold_m: 1.0 # Distance threshold for reaching a bucket, in meters.
       lock_bucket_proximity_threshold_m: 5.0  # Distance within which bucket colors lock when dropping, in meters.
+      repellant_names: ["flare_1", "flare_2", "flare_3", "gate_left", "gate_right"]  # Active feature names treated as repellants in buckets APF.
     gate:
       ellipse_x: 5.0  # Semi-axis used for the artificial potential field around each gate post along x.
       ellipse_y: 2.0  # Semi-axis used for the artificial potential field around each gate post along y.
@@ -63,6 +64,7 @@ task_runner:
       repellant_ellipse_x: 1.5  # Repellent-object elliptical field x-axis radius.
       repellant_ellipse_y: 1.5  # Repellent-object elliptical field y-axis radius.
       repellant_passed_margin_m: 1.0  # Objects farther behind robot than this margin are ignored for repulsion.
+      repellant_names: ["flare_1", "flare_2", "flare_3"]  # Active feature names treated as repellants in gate APF. flag is a default repellant.
     qual_gate:
       angle_tolerance_deg: 1.5  # Angular tolerance for finishing the turn phase in the qual gate controller, in degrees.
       slam_trust: 0.7  # UNUSED: Weight applied to SLAM yaw versus vision yaw when both are available.
@@ -140,6 +142,10 @@ cv_node:
 
 ekfslam:
   ros__parameters:
+    initial_pose:
+      x: 0.3  # Robot starting X-pose. WARNING: Non-zero values are for debugging and testing individual tasks to start the robot not at the origin.
+      y: 0.0  # Robot starting Y-pose.
+      yaw_deg: 0.0  # Robot starting yaw heading angle in degrees.
     initial_robot_covariance: [1.0e-06, 1.0e-06, 1.0e-04]  # Initial diagonal covariance for robot x, y, and yaw before any updates.
     predict_period_ms: 40  # Period of the EKF prediction timer, in milliseconds. (25hz)
     brainless_run: false  # Start EKF SLAM active immediately when true, without waiting for /ekfslam/activate.
@@ -171,11 +177,21 @@ ekfslam:
       r_yaw: 0.00005  # COV (per second), Process noise applied to yaw in the odometry model.
     features:
       gate_x: 16.0
+      gate_left_y: 0.75  # Target Y coordinate prior for left gate post in EKF initialization, in meters.
+      gate_right_y: -0.75  # Target Y coordinate prior for right gate post, in meters.
       qual_gate_x: 10.0
+      qual_gate_left_y: 0.75  # Target Y coordinate prior for left qual gate post, in meters.
+      qual_gate_right_y: -0.75  # Target Y coordinate prior for right qual gate post, in meters.
       bucket_x: 23.0
+      bucket1_y: 1.5  # Target Y coordinate prior for bucket 1, in meters.
+      bucket2_y: 0.5  # Target Y coordinate prior for bucket 2, in meters.
+      bucket3_y: -0.5  # Target Y coordinate prior for bucket 3, in meters.
+      bucket4_y: -1.5  # Target Y coordinate prior for bucket 4, in meters.
       flare_x: 12.0
       flag_x: 5.50
+      flag_y: 0.0  # Target Y coordinate prior for flag landmark, in meters.
       aruco_marker_x: 0.0
+      aruco_marker_y: 0.0  # Target Y coordinate prior for ArUco marker landmark, in meters.
       flare1_y: 5.0
       flare2_y: 0.0
       flare3_y: -5.0

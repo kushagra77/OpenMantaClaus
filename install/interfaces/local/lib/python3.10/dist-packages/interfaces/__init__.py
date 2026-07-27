@@ -1,0 +1,1 @@
+/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_generator_py/interfaces/__init__.py

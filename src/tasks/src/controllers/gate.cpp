@@ -14,6 +14,9 @@ Gate::Gate(
 int Gate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
   (void)msg;
 
+  // ASSUMPTION: The try-catch below acts as an initial guard. The subsequent lookups on
+  // lines outside the try-catch assume that EKF SLAM is actively running and publishing
+  // these frames (base_link, gate_left, gate_right) at all times, making them safe to access.
   try {
     auto robot_transform = get_transform("base_link");
     auto gate_l_transform = get_transform("gate_left");
@@ -41,7 +44,7 @@ int Gate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
   };
   
   std::vector<Task::Pos> repellants;
-  std::vector<std::string> repellant_names = {"flare_1", "flare_2", "flare_3"};
+  std::vector<std::string> repellant_names = config_.repellant_names;
   
 
   if (!forward_) {
@@ -54,6 +57,8 @@ int Gate::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
     if (robot_p.x > gate_l_p.x + config_.forward_exit_margin_m) {
       return task_protocol::kTaskComplete;
     }
+    // ASSUMPTION: The 'flag' is a default/essential repellant that must always be present.
+    // The lookup assumes that the 'flag' TF frame is actively published by EKF SLAM.
     auto flag_tf = get_transform("flag");
     repellants.push_back({
       flag_tf.transform.translation.x,

@@ -1,4 +1,1 @@
-string command
-bool initial
----
-bool success
+/home/kushion/Documents/OpenMantaClaus/src/interfaces/srv/TaskCommand.srv

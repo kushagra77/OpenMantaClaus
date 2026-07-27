@@ -51,6 +51,7 @@ TaskRunnerParams load_task_runner_params(rclcpp::Node & node)
   node.declare_parameter<double>("aruco.target_reached_threshold_m", params.aruco_config.target_reached_threshold_m);
   node.declare_parameter<double>("buckets.target_reached_threshold_m", params.buckets_config.target_reached_threshold_m);
   node.declare_parameter<double>("buckets.lock_bucket_proximity_threshold_m", params.buckets_config.lock_bucket_proximity_threshold_m);
+  node.declare_parameter<std::vector<std::string>>("buckets.repellant_names", params.buckets_config.repellant_names);
   node.declare_parameter<double>("gate.ellipse_x", params.gate_config.ellipse_x);
   node.declare_parameter<double>("gate.ellipse_y", params.gate_config.ellipse_y);
   node.declare_parameter<double>("gate.forward_exit_margin_m", params.gate_config.forward_exit_margin_m);
@@ -62,6 +63,7 @@ TaskRunnerParams load_task_runner_params(rclcpp::Node & node)
   node.declare_parameter<double>("gate.repellant_ellipse_x", params.gate_config.repellant_ellipse_x);
   node.declare_parameter<double>("gate.repellant_ellipse_y", params.gate_config.repellant_ellipse_y);
   node.declare_parameter<double>("gate.repellant_passed_margin_m", params.gate_config.repellant_passed_margin_m);
+  node.declare_parameter<std::vector<std::string>>("gate.repellant_names", params.gate_config.repellant_names);
   node.declare_parameter<double>("qual_gate.angle_tolerance_deg", params.qual_gate_config.angle_tolerance_rad * kRadToDeg);
   node.declare_parameter<double>("qual_gate.slam_trust", params.qual_gate_config.slam_trust);
   node.declare_parameter<double>("qual_gate.ellipse_x", params.qual_gate_config.ellipse_x);
@@ -115,6 +117,7 @@ TaskRunnerParams load_task_runner_params(rclcpp::Node & node)
   node.get_parameter("aruco.target_reached_threshold_m", params.aruco_config.target_reached_threshold_m);
   node.get_parameter("buckets.target_reached_threshold_m", params.buckets_config.target_reached_threshold_m);
   node.get_parameter("buckets.lock_bucket_proximity_threshold_m", params.buckets_config.lock_bucket_proximity_threshold_m);
+  params.buckets_config.repellant_names = node.get_parameter("buckets.repellant_names").as_string_array();
   node.get_parameter("gate.ellipse_x", params.gate_config.ellipse_x);
   node.get_parameter("gate.ellipse_y", params.gate_config.ellipse_y);
   node.get_parameter("gate.forward_exit_margin_m", params.gate_config.forward_exit_margin_m);
@@ -126,6 +129,7 @@ TaskRunnerParams load_task_runner_params(rclcpp::Node & node)
   node.get_parameter("gate.repellant_ellipse_x", params.gate_config.repellant_ellipse_x);
   node.get_parameter("gate.repellant_ellipse_y", params.gate_config.repellant_ellipse_y);
   node.get_parameter("gate.repellant_passed_margin_m", params.gate_config.repellant_passed_margin_m);
+  params.gate_config.repellant_names = node.get_parameter("gate.repellant_names").as_string_array();
   node.get_parameter("qual_gate.angle_tolerance_deg", params.qual_gate_config.angle_tolerance_rad);
   params.qual_gate_config.angle_tolerance_rad *= kDegToRad;
   node.get_parameter("qual_gate.slam_trust", params.qual_gate_config.slam_trust);

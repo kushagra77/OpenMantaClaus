@@ -24,6 +24,9 @@ Flare::Flare(
 int Flare::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
   (void)msg;
 
+  // ASSUMPTION: The try-catch below acts as an initial guard. The subsequent lookups on
+  // lines outside the try-catch assume that EKF SLAM is actively running and publishing
+  // these frames (base_link, flare_1, flag, gate_left, gate_right) at all times, making them safe to access.
   try {
     auto robot_transform = get_transform("base_link");
     auto gate_l_transform = get_flare_transform("flare_1");

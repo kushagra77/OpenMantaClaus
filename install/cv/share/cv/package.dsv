@@ -4,3 +4,6 @@ source;share/cv/hook/pythonpath.sh
 source;share/cv/hook/ament_prefix_path.ps1
 source;share/cv/hook/ament_prefix_path.dsv
 source;share/cv/hook/ament_prefix_path.sh
+source;../../build/cv/share/cv/hook/pythonpath_develop.ps1
+source;../../build/cv/share/cv/hook/pythonpath_develop.dsv
+source;../../build/cv/share/cv/hook/pythonpath_develop.sh

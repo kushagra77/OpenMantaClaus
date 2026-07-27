@@ -151,6 +151,10 @@ Task execution node that converts target behavior into RC override commands.
 
 `tasks` is the downstream controller stage of the main mission pipeline: it does not start tasks on its own and only consumes the EKF-filtered observations published by `ekfslam`.
 
+> [!IMPORTANT]
+> **TF Transform Availability Assumption:**
+> The task controllers in `tasks` execute unchecked `get_transform()` lookups (e.g. looking up target features, landmarks, and repellants relative to `base_link` or other coordinate frames). This design relies on the assumption that the `ekfslam` node is active and actively publishing TF transforms for all course features at all times once running. If `ekfslam` stops publishing or fails to initialize a landmark, a `tf2::TransformException` will be thrown.
+
 ### Node
 
 | Node | Source | Description | Interfaces |

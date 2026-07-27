@@ -1,1 +1,1 @@
-interfaces
+/home/kushion/Documents/OpenMantaClaus/build/interfaces/ament_cmake_python/interfaces/interfaces.egg-info/top_level.txt

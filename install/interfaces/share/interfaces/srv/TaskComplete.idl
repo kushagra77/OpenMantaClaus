@@ -1,15 +1,1 @@
-// generated from rosidl_adapter/resource/srv.idl.em
-// with input from interfaces/srv/TaskComplete.srv
-// generated code does not contain a copyright notice
-
-
-module interfaces {
-  module srv {
-    struct TaskComplete_Request {
-      boolean task_completed;
-    };
-    struct TaskComplete_Response {
-      uint8 structure_needs_at_least_one_member;
-    };
-  };
-};
+/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces/srv/TaskComplete.idl

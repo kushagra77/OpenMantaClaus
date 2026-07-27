@@ -40,7 +40,8 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
 
     // State layout: [robot_x, robot_y, robot_yaw, landmark_0_x, landmark_0_y, ...].
     state_mu_.setZero();
-    state_mu_.block<3, 1>(0, 0) << 0.3, 0.0, 0.0;
+    double initial_yaw_rad = params.initial_pose_yaw_deg * M_PI / 180.0;
+    state_mu_.block<3, 1>(0, 0) << params.initial_pose_x, params.initial_pose_y, initial_yaw_rad;
     state_cov_.setIdentity();
     feature_seen_.assign(features_.size(), false);
     state_cov_.block<3, 3>(0, 0).diagonal() << initial_robot_covariance[0], initial_robot_covariance[1], initial_robot_covariance[2];
@@ -50,21 +51,21 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
     auto qos_latest = rclcpp::QoS(rclcpp::KeepLast(5)).best_effort();
 
     // Initialize landmark priors from known course geometry so SLAM starts anchored.
-    // Use configured X-position priors from params
-    init_feature(0, params.flag_x, 0.0, ellipse_covariance(0.2, 1.0));  // flag
-    init_feature(1, params.gate_x, 0.75, ellipse_covariance(0.05, 2.0));  // gate_left
-    init_feature(2, params.gate_x, -0.75, ellipse_covariance(0.05, 2.0));  // gate_right
+    // Use configured X and Y position priors from params
+    init_feature(0, params.flag_x, params.flag_y, ellipse_covariance(0.2, 1.0));  // flag
+    init_feature(1, params.gate_x, params.gate_left_y, ellipse_covariance(0.05, 2.0));  // gate_left
+    init_feature(2, params.gate_x, params.gate_right_y, ellipse_covariance(0.05, 2.0));  // gate_right
     // Flares: shared X configured by params.flare_x, Y configured individually
     init_feature(3, params.flare_x, params.flare1_y, ellipse_covariance(0.2, 1.0));  // flare_1
     init_feature(4, params.flare_x, params.flare2_y, ellipse_covariance(0.2, 1.0));  // flare_2
     init_feature(5, params.flare_x, params.flare3_y, ellipse_covariance(0.2, 1.0));  // flare_3
-    init_feature(6, params.bucket_x, 1.5, ellipse_covariance(0.2, 2.0));  // bucket_1
-    init_feature(7, params.bucket_x, 0.5, ellipse_covariance(0.2, 2.0));  // bucket_2
-    init_feature(8, params.bucket_x, -0.5, ellipse_covariance(0.2, 2.0));  // bucket_3
-    init_feature(9, params.bucket_x, -1.5, ellipse_covariance(0.2, 2.0));  // bucket_4
-    init_feature(10, params.aruco_marker_x, 0.0, ellipse_covariance(0.01, 0.01));  // aruco_marker
-    init_feature(11, params.qual_gate_x, 0.75, ellipse_covariance(0.05, 0.1));  // qual_gate_left
-    init_feature(12, params.qual_gate_x, -0.75, ellipse_covariance(0.05, 0.1));  // qual_gate_right
+    init_feature(6, params.bucket_x, params.bucket1_y, ellipse_covariance(0.2, 2.0));  // bucket_1
+    init_feature(7, params.bucket_x, params.bucket2_y, ellipse_covariance(0.2, 2.0));  // bucket_2
+    init_feature(8, params.bucket_x, params.bucket3_y, ellipse_covariance(0.2, 2.0));  // bucket_3
+    init_feature(9, params.bucket_x, params.bucket4_y, ellipse_covariance(0.2, 2.0));  // bucket_4
+    init_feature(10, params.aruco_marker_x, params.aruco_marker_y, ellipse_covariance(0.01, 0.01));  // aruco_marker
+    init_feature(11, params.qual_gate_x, params.qual_gate_left_y, ellipse_covariance(0.05, 0.1));  // qual_gate_left
+    init_feature(12, params.qual_gate_x, params.qual_gate_right_y, ellipse_covariance(0.05, 0.1));  // qual_gate_right
 
     // Enforce known structural constraints (gate width, bucket spacing).
     apply_relative_constraint(1, 2, 0.0, -params.gate_width_m); // Gate width

@@ -98,6 +98,10 @@ Current runtime data path:
 - `tasks` does not subscribe directly to `/cv/feature_observations`.
 - `tasks` executes from the EKF-filtered stream on `/tasks/feature_observations`.
 
+> [!IMPORTANT]
+> **TF Transform Availability Assumption:**
+> The controller classes in `tasks` perform unchecked `get_transform()` lookups (e.g. for target features, landmarks, and repellants relative to `base_link` or other frames). This is based on the architectural assumption that the `ekfslam` node is running and publishing TF frames for all course features at all times. If a landmark is not published or fails to initialize, a `tf2::TransformException` will be thrown.
+
 ## Parameters
 
 Loaded from shared launch parameters in `src/manta_bringup/launch/params.yaml`, including:
@@ -129,6 +133,7 @@ Applied to all tasks through `TaskConfig`:
 - `repellant_range`: 5.0m - task-specific repulsive field range
 - `repellant_ellipse_x`, `repellant_ellipse_y`: 1.5, 1.0 - elliptical shape of task repulsive field
 - `repellant_passed_margin_m`: 1.0 - angle threshold for task-specific repulsive field
+- `repellant_names`: `["flare_1", "flare_2", "flare_3"]` - list of active features treated as repellants (note: the flag is always a default repellant).
 
 ### **Qualification Gate Configuration** (`qual_gate.*`)
 - `angle_tolerance_deg`: 1.5 - yaw alignment threshold for turn completion
@@ -145,6 +150,7 @@ Applied to all tasks through `TaskConfig`:
 ### **Bucket Configuration** (`buckets.*`)
 - `target_reached_threshold_m`: 1.0 - distance threshold for task completion
 - `lock_bucket_proximity_threshold_m`: 5.0 - distance at which bucket color is locked
+- `repellant_names`: `["flare_1", "flare_2", "flare_3", "gate_left", "gate_right"]` - list of active features treated as repellants in buckets APF.
 
 ### **ArUco Configuration** (`aruco.*`)
 - `target_reached_threshold_m`: 5.0 - distance threshold for task completion (marker detection range)

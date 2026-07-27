@@ -24,6 +24,7 @@ struct GateConfig {
   double repellant_ellipse_x = 1.5;
   double repellant_ellipse_y = 1.0;
   double repellant_passed_margin_m = 0.5;
+  std::vector<std::string> repellant_names = {"flare_1", "flare_2", "flare_3"};
 };
 
 struct QualGateConfig {
@@ -49,6 +50,7 @@ struct ArucoConfig {
 struct BucketsConfig {
   double target_reached_threshold_m = 0.5;
   double lock_bucket_proximity_threshold_m = 0.5;
+  std::vector<std::string> repellant_names = {"flare_1", "flare_2", "flare_3", "gate_left", "gate_right"};
 };
 
 struct GripperConfig {

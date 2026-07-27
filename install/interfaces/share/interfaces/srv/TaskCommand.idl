@@ -1,17 +1,1 @@
-// generated from rosidl_adapter/resource/srv.idl.em
-// with input from interfaces/srv/TaskCommand.srv
-// generated code does not contain a copyright notice
-
-
-module interfaces {
-  module srv {
-    struct TaskCommand_Request {
-      string command;
-
-      boolean initial;
-    };
-    struct TaskCommand_Response {
-      boolean success;
-    };
-  };
-};
+/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces/srv/TaskCommand.idl

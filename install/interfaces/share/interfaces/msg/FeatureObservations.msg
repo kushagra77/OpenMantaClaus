@@ -1,3 +1,1 @@
-std_msgs/Header header
-int32 size
-FeatureObservation[] observations
+/home/kushion/Documents/OpenMantaClaus/src/interfaces/msg/FeatureObservations.msg

@@ -47,9 +47,6 @@ class CVNode(Node):
         self._fps_window_start_ns = self.get_clock().now().nanoseconds
         self._frame_count = 0.0
         
-        self._camera_fx = 533.16473
-        self._camera_cx = 318.89810
-
         self._cap = cv2.VideoCapture(
             params.capture_device_index,
             params.capture_backend,
@@ -63,6 +60,15 @@ class CVNode(Node):
         self._aruco = False
         self._last_inactive_process_ns = 0
         self._bridge = CvBridge()
+
+        # Initialize Camera Control first to setup undistortion maps and obtain matrix
+        self._img_size = (params.processing_width, params.processing_height)
+        self._camera_control = CameraControl(self._cap, params)
+        self._camera_control.setup_camera()
+        
+        # Dynamically extract focal length and principal point from the optimal new camera matrix
+        self._camera_fx = float(self._camera_control.new_camera_matrix[0, 0])
+        self._camera_cx = float(self._camera_control.new_camera_matrix[0, 2])
         
         # --- Initialize Detection Filter ---
         self._detection_filter = DetectionFilter(
@@ -90,10 +96,6 @@ class CVNode(Node):
         self._yolo_input_dtype = input_details["dtype"]
         self._yolo_input_scale, self._yolo_input_zp = input_details["quantization"]
         self._yolo_output_scale, self._yolo_output_zp = output_details["quantization"]
-
-        self._img_size = (params.processing_width, params.processing_height)
-        self._camera_control = CameraControl(self._cap, params)
-        self._camera_control.setup_camera()
 
         if self._debug_image:
             self._image_pub = self.create_publisher(Image, "/camera/debug_img", qos_profile_sensor_data)

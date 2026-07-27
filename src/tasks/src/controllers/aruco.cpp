@@ -9,6 +9,9 @@ Aruco::Aruco(std::shared_ptr<tf2_ros::Buffer> tf_buffer, const ArucoConfig & con
 int Aruco::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
   (void)msg;
 
+  // ASSUMPTION: The try-catch below acts as an initial guard. The subsequent lookups on
+  // lines outside the try-catch assume that EKF SLAM is actively running and publishing
+  // these frames (base_link, aruco_marker, flag) at all times, making them safe to access.
   try {
     auto robot_transform = get_transform("base_link");
     auto gate_l_transform = get_transform("aruco_marker");

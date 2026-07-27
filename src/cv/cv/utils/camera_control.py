@@ -53,7 +53,7 @@ class CameraControl:
         self._cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self._params.capture_frame_height)
         self._cap.set(cv2.CAP_PROP_FPS, self._params.capture_fps)
 
-        new_camera_matrix, _ = cv2.getOptimalNewCameraMatrix(
+        self.new_camera_matrix, _ = cv2.getOptimalNewCameraMatrix(
             self._camera_matrix,
             self._dist_coeffs,
             self._img_size,
@@ -64,7 +64,7 @@ class CameraControl:
             self._camera_matrix,
             self._dist_coeffs,
             None,
-            new_camera_matrix,
+            self.new_camera_matrix,
             self._img_size,
             cv2.CV_32FC1,
         )

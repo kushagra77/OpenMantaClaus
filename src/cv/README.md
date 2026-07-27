@@ -54,8 +54,8 @@ Detection filtering (task-specific feature extraction):
 - `src/cv/cv/utils/filter_detections.py` - task-aware filtering of YOLO detections into bearing observations
 
 ### **YOLO Model and Inference**
-
-- **Model**: TFLite quantized (`scripts/yolo/runs/detect/pretrain_generalist_v1/weights/best_saved_model/best_int8.tflite`)
+ 
+- **Model**: TFLite quantized (`scripts/yolo/runs/detect/pretrain_generalist_v2/weights/best_saved_model/best_int8.tflite` configured via parameter)
 - **Input size**: 256×256 pixels (letterboxed from original frame)
 - **Detection classes** (4 total):
   - `flag` (id=0)
@@ -75,7 +75,7 @@ After YOLO inference, detections are task-aware filtered:
 - **Flare filter** (`filter_flare()`): Extracts centroid-based bearing, tags as generic flare feature
 - **Bucket filter** (`filter_bucket()`): Extracts centroid-based bearing, tags as generic bucket feature
 
-All bearing observations use camera intrinsics (fx=533.16, cx=318.89) to convert pixel coordinates to radians.
+All bearing observations use camera intrinsics (`fx` and `cx`) dynamically extracted from the `camera.camera_matrix` parameter after undistortion/rectification setup in `CameraControl`.
 
 ### **ArUco Detection**
 

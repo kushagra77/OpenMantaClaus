@@ -25,16 +25,30 @@ struct EKFSLAMParams {
   double bucket_spacing_y_noise = 0.2;
   // Feature X-position priors (course geometry)
   double gate_x = 16.0;
-  double qual_gate_x = 7.0;
-  double bucket_x = 24.0;
   // Shared flare X-position prior
   double flare_x = 12.0;
   // Flare Y-position priors
   double flare1_y = 5.0;
-  double flare2_y = 5.0;
+  double flare2_y = 0.0;
   double flare3_y = -5.0;
-  double flag_x = 6.0;
-  double aruco_marker_x = -0.3;
+  double flag_x = 5.50;
+  double flag_y = 0.0;
+  double gate_left_y = 0.75;
+  double gate_right_y = -0.75;
+  double qual_gate_x = 10.0;
+  double qual_gate_left_y = 0.75;
+  double qual_gate_right_y = -0.75;
+  double bucket_x = 23.0;
+  double bucket1_y = 1.5;
+  double bucket2_y = 0.5;
+  double bucket3_y = -0.5;
+  double bucket4_y = -1.5;
+  double aruco_marker_x = 0.0;
+  double aruco_marker_y = 0.0;
+  // Initial robot pose
+  double initial_pose_x = 0.3;
+  double initial_pose_y = 0.0;
+  double initial_pose_yaw_deg = 0.0;
   Odometry::Config odometry_config;
   // New flare tuning parameters
   double flare_association_factor = 0.6; // used as override factor when associating flares

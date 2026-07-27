@@ -1,16 +1,1 @@
-// generated from rosidl_adapter/resource/msg.idl.em
-// with input from interfaces/msg/TaskStatus.msg
-// generated code does not contain a copyright notice
-
-
-module interfaces {
-  module msg {
-    struct TaskStatus {
-      int32 state;
-
-      string task;
-
-      string message;
-    };
-  };
-};
+/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces/msg/TaskStatus.idl

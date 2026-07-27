@@ -46,21 +46,22 @@ Association behavior in current code:
 
 ## Landmark Map
 
-The EKF SLAM system maintains 13 predefined landmarks (pool geometry is fixed and known):
+The EKF SLAM system maintains 13 predefined landmarks. All initial positions and priors (previously hardcoded) are now fully parameterized under `features.*` in `params.yaml`:
 
-| ID | Feature Name | Initial Position | Role |
+| ID | Feature Name | Default Prior Position (X, Y) | Role |
 |----|--|-------------|------|
-| 0 | flag | (6.0, 0.0) | Primary vertical reference landmark |
-| 1-2 | gate_left, gate_right | (16.0, ±0.75) | First gate posts (qualification gate) |
-| 3-5 | flare_1, flare_2, flare_3 | (12.0, ±5.0) | Three flare targets |
-| 6-9 | bucket_1, bucket_2, bucket_3, bucket_4 | (24.0, ±1.5 to ±0.5) | Four bucket positions with 1.0m spacing |
-| 10 | aruco_marker | (-0.3, 0.0) | ArUco marker (starts at robot position) |
-| 11-12 | qual_gate_left, qual_gate_right | (10.0, ±0.75) | Alternative gate landmarks for qualification |
+| 0 | flag | (`flag_x`=5.5, `flag_y`=0.0) | Primary vertical reference landmark |
+| 1-2 | gate_left, gate_right | (`gate_x`=16.0, `gate_left_y`=0.75, `gate_right_y`=-0.75) | First gate posts (qualification gate) |
+| 3-5 | flare_1, flare_2, flare_3 | (`flare_x`=12.0, `flare1_y`=5.0, `flare2_y`=0.0, `flare3_y`=-5.0) | Three flare targets |
+| 6-9 | bucket_1, bucket_2, bucket_3, bucket_4 | (`bucket_x`=23.0, `bucket1_y`=1.5, `bucket2_y`=0.5, `bucket3_y`=-0.5, `bucket4_y`=-1.5) | Four bucket positions with 1.0m spacing |
+| 10 | aruco_marker | (`aruco_marker_x`=0.0, `aruco_marker_y`=0.0) | ArUco marker reference |
+| 11-12 | qual_gate_left, qual_gate_right | (`qual_gate_x`=10.0, `qual_gate_left_y`=0.75, `qual_gate_right_y`=-0.75) | Alternative gate landmarks for qualification |
 
 **Pool Geometry Constraints:**
-- Gate posts fixed at 1.5m separation
-- Buckets arranged in line with 1.0m spacing
-- Flag and ArUco positioned as primary references
+- Gate posts separation is parameterized by `constraints.gate_width_m` (default 1.5m)
+- Buckets spacing is parameterized by `constraints.bucket_spacing_m` (default 1.0m)
+- Initial robot starting pose is parameterized by `initial_pose.x`, `initial_pose.y`, and `initial_pose.yaw_deg` (intended for debug/testing tasks).
+
 
 ## EKF SLAM Process
 
@@ -105,6 +106,7 @@ Current odometry covariance note:
 Loaded in `src/ekfslam/src/utils/slam_params.cpp`:
 
 - **EKF Configuration**:
+  - `initial_pose.x`, `initial_pose.y`, `initial_pose.yaw_deg`: Starting robot pose (YAW in degrees, X/Y in meters). Designed for task testing.
   - `initial_robot_covariance`: [1e-6, 1e-6, 1e-4] - initial (x, y, yaw) covariance
   - `predict_period_ms`: 40 (25 Hz prediction rate)
   - `brainless_run`: false - start EKF SLAM active immediately
@@ -125,6 +127,7 @@ Loaded in `src/ekfslam/src/utils/slam_params.cpp`:
   
 - **Feature Configuration**:
   - `common.feature_names`: List of 13 landmark names
+  - `features.*_x`, `features.*_y`: Parameterized X and Y prior positions for course landmarks (flag, gate pillars, qual gate pillars, buckets, flares, and ArUco marker)
   - `snapshot_time_tolerance_s`: frame-trigger tolerance used for batch alignment
   - `imu_yaw_std_dev_deg`: IMU yaw noise used for the optional absolute yaw update
 

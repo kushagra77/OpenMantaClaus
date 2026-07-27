@@ -9,6 +9,9 @@ Buckets::Buckets(std::shared_ptr<tf2_ros::Buffer> tf_buffer, const BucketsConfig
 int Buckets::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) {
   (void)msg;
 
+  // ASSUMPTION: The try-catch below acts as an initial guard. The subsequent lookups on
+  // lines outside the try-catch assume that EKF SLAM is actively running and publishing
+  // these frames (base_link, bucket_1, target bucket, repellants) at all times, making them safe to access.
   try {
     auto robot_transform = get_transform("base_link");
     auto gate_l_transform = get_transform("bucket_1");
@@ -48,7 +51,7 @@ int Buckets::execute(const interfaces::msg::FeatureObservations::SharedPtr msg) 
   
   std::vector<Task::Pos> repellants;
   if (!drop_) {
-    std::vector<std::string> repellant_names = {"flare_1", "flare_2", "flare_3", "gate_left", "gate_right"};
+    std::vector<std::string> repellant_names = config_.repellant_names;
     for (auto repellant_name : repellant_names) {
       if (Task::feature_seen[repellant_name]) {
         auto repellant_tf = get_transform(repellant_name);
