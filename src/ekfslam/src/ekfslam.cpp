@@ -77,8 +77,11 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
     // Initialize the delayed pose covariance block used by frame-triggered updates.
     state_cov_.block<3, 3>(past_idx_, past_idx_).diagonal() << initial_robot_covariance[0], initial_robot_covariance[1], initial_robot_covariance[2];
 
-    // Runtime wiring: odometry source, transform publisher, and subscriptions.
-    odom_ = std::make_unique<Odometry>(params.odometry_config);
+    // Runtime wiring: transform listener/broadcaster.
+    xy_dist_noise_scaler_ = params.odometry_config.xy_dist_noise_scaler;
+    r_yaw_ = params.odometry_config.r_yaw;
+    tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
+    tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
     tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
     // Activation service: allow other nodes (brain) to enable EKF odometry processing.
@@ -97,27 +100,10 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
     vision_cbg_ = this->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
 
     // 2. Create SubscriptionOptions to assign subs to these groups
-    auto state_sub_opt = rclcpp::SubscriptionOptions();
-    state_sub_opt.callback_group = state_cbg_;
-
     auto vision_sub_opt = rclcpp::SubscriptionOptions();
     vision_sub_opt.callback_group = vision_cbg_;
-    // 3. Assign RC and IMU to the state group.
-    rc_sub_ = this->create_subscription<mavros_msgs::msg::RCOut>(
-        "/mavros/rc/out", qos_latest, 
-        [this](const mavros_msgs::msg::RCOut::SharedPtr msg){
-            this->rc_l_ = msg->channels[1];
-            this->rc_r_ = msg->channels[0];
-            this->rc_back_ = msg->channels[4];
-        }, 
-        state_sub_opt);
 
-    imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
-        "/mavros/imu/data", qos_latest,
-        std::bind(&EKFSLAM::imu_sync_callback, this, std::placeholders::_1),
-        state_sub_opt);
-
-    // 4. Assign Features and Triggers to the Vision Group
+    // 3. Assign Features and Triggers to the Vision Group
     feature_sub_ = this->create_subscription<interfaces::msg::FeatureObservations>(
         "/cv/feature_observations", 10,
         std::bind(&EKFSLAM::batch_update, this, std::placeholders::_1),
@@ -131,9 +117,9 @@ EKFSLAM::EKFSLAM() : Node("ekf_slam") {
         
     feature_pub_ = this->create_publisher<interfaces::msg::FeatureObservations>("/tasks/feature_observations", 10);
 
-    // 5. Assign the predict timer to the state group.
+    // 4. Assign the predict timer to the state group (running at a fixed 30Hz).
     timer_ = this->create_wall_timer(
-        std::chrono::milliseconds(params.predict_period_ms),
+        std::chrono::duration<double>(1.0 / 30.0),
         std::bind(&EKFSLAM::predict, this),
         state_cbg_);
 }
@@ -277,37 +263,6 @@ void EKFSLAM::publish_tf(const std::string &frame, const std::string &child, con
     tf_broadcaster_->sendTransform(ts);
 }
 
-void EKFSLAM::imu_sync_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
-    // Ensure last_time is valid.
-    auto curtime = msg->header.stamp.sec + msg->header.stamp.nanosec * 1e-9;
-    if (last_imu_time_ == 0.0) {
-        last_imu_time_ = curtime;
-        return; // Skip the first update to establish a baseline
-    }
-
-    // If not active, keep baseline and skip odometry integration
-    if (!active_) {
-        last_imu_time_ = curtime;
-        return;
-    }
-
-    // Calculate dt.
-    double dt = curtime - last_imu_time_;
-    last_imu_time_ = curtime;
-
-    if (dt <= 0.0 || dt > 1.0) {
-        RCLCPP_WARN(this->get_logger(), "IMU Time Glitch Detected! dt = %f. Skipping update.", dt);
-        return;
-    }
-
-    // Extract yaw from IMU quaternion.
-    double yaw = tf2::getYaw(msg->orientation);
-    double yaw_cov = msg->orientation_covariance[8];
-
-    // Feed synchronized yaw + RC inputs into the motion model.
-    odom_->update_physics(rc_l_, rc_r_, rc_back_, dt, yaw, yaw_cov);
-}
-
 void EKFSLAM::trigger_callback(const std_msgs::msg::Header::SharedPtr msg) {
     std::lock_guard<std::mutex> lock(state_mutex_);
     // 1. Copy current pose into delayed-pose slots.
@@ -332,21 +287,54 @@ void EKFSLAM::trigger_callback(const std_msgs::msg::Header::SharedPtr msg) {
 }
 
 void EKFSLAM::predict() {
-    // Prediction step: propagate pose and covariance using odometry increment.
+    // Prediction step: propagate pose and covariance using relative odom->base_link TF updates.
     if (!active_) return;
+
+    geometry_msgs::msg::TransformStamped t_odom_base;
+    try {
+        t_odom_base = tf_buffer_->lookupTransform("odom", "base_link", tf2::TimePointZero);
+    } catch (const tf2::TransformException & ex) {
+        return;
+    }
+
+    double cur_x = t_odom_base.transform.translation.x;
+    double cur_y = t_odom_base.transform.translation.y;
+    double cur_yaw = tf2::getYaw(t_odom_base.transform.rotation);
+    Eigen::Vector3d cur_odom_pose(cur_x, cur_y, cur_yaw);
+
     std::lock_guard<std::mutex> lock(state_mutex_);
-    auto result = odom_->get_delta_and_reset();
-    
+
+    if (!has_prev_odom_pose_) {
+        prev_odom_pose_ = cur_odom_pose;
+        has_prev_odom_pose_ = true;
+        publish_transforms();
+        return;
+    }
+
+    Eigen::Vector3d delta;
+    delta(0) = cur_odom_pose(0) - prev_odom_pose_(0);
+    delta(1) = cur_odom_pose(1) - prev_odom_pose_(1);
+    delta(2) = normalize_angle(cur_odom_pose(2) - prev_odom_pose_(2));
+    prev_odom_pose_ = cur_odom_pose;
+
+    double ds_abs = std::sqrt(delta(0) * delta(0) + delta(1) * delta(1));
+    double total_dist_noise = ds_abs * xy_dist_noise_scaler_;
+    double dt = 1.0 / 30.0;
+
+    Eigen::Matrix3d covariance = Eigen::Matrix3d::Zero();
+    covariance(0, 0) = std::pow(total_dist_noise * std::cos(cur_odom_pose(2)), 2);
+    covariance(1, 1) = std::pow(total_dist_noise * std::sin(cur_odom_pose(2)), 2);
+    covariance(2, 2) = r_yaw_ * dt;
+
     // Apply odometry increment to robot state.
-    double old_theta = state_mu_(2);
-    state_mu_(0) += result.delta(0);
-    state_mu_(1) += result.delta(1);
-    state_mu_(2) += result.delta(2);
+    state_mu_(0) += delta(0);
+    state_mu_(1) += delta(1);
+    state_mu_(2) += delta(2);
     state_mu_(2) = normalize_angle(state_mu_(2));
 
     // 1. Jacobian terms for robot orientation effect
-    double G_theta_x = -result.delta(1); 
-    double G_theta_y =  result.delta(0);
+    double G_theta_x = -delta(1); 
+    double G_theta_y =  delta(0);
 
     // 2. Update Robot-Robot Covariance (Top-Left 3x3)
     // P_rr_new = G_r * P_rr * G_r' + Q
@@ -354,21 +342,16 @@ void EKFSLAM::predict() {
     G_r(0, 2) = G_theta_x;
     G_r(1, 2) = G_theta_y;
     state_cov_.block<3, 3>(0, 0) = G_r * state_cov_.block<3, 3>(0, 0) * G_r.transpose();
-    state_cov_.block<3, 3>(0, 0) += result.covariance; // Add Q
+    state_cov_.block<3, 3>(0, 0) += covariance; // Add Q
 
     // propagate covariance to past pose. same logic as robot-landmark correlation
     state_cov_.block<3, 3>(0, past_idx_) = G_r * state_cov_.block<3, 3>(0, past_idx_);
     state_cov_.block<3, 3>(past_idx_, 0) = state_cov_.block<3, 3>(0, past_idx_).transpose();
 
     // Propagate robot-landmark correlation so map confidence stays consistent.
-    // P_rm_new = G_r * P_rm
-    // This spreads the robot's orientation uncertainty into its relationship with the landmarks
-    // Since G_r is mostly identity, we only need to update the X and Y rows based on the Theta row.
     int num_landmarks = features_.size();
     for (int i = 0; i < num_landmarks; ++i) {
         int idx = 3 + 2 * i; // Landmark index
-        // P_xm' = P_xm + G_theta_x * P_tm
-        // P_ym' = P_ym + G_theta_y * P_tm
         state_cov_.block<1, 2>(0, idx) += G_theta_x * state_cov_.block<1, 2>(2, idx);
         state_cov_.block<1, 2>(1, idx) += G_theta_y * state_cov_.block<1, 2>(2, idx);
         
@@ -568,7 +551,13 @@ void EKFSLAM::batch_update(const interfaces::msg::FeatureObservations::SharedPtr
 
     if (use_imu_update_) {
         // Append the absolute IMU yaw observation when enabled.
-        double imu_yaw = odom_->get_pose()(2);
+        double imu_yaw = 0.0;
+        try {
+            geometry_msgs::msg::TransformStamped ts_odom_base = tf_buffer_->lookupTransform("odom", "base_link", tf2::TimePointZero);
+            imu_yaw = tf2::getYaw(ts_odom_base.transform.rotation);
+        } catch (const tf2::TransformException & ex) {
+            imu_yaw = prev_odom_pose_(2);
+        }
         Z(i) = imu_yaw;
         h_x(i) = state_mu_(2); // Predicted yaw is the state yaw
 
@@ -647,31 +636,25 @@ void EKFSLAM::apply_relative_constraint(int id_a, int id_b, double dx_known, dou
 void EKFSLAM::publish_transforms() {
     auto now = this->now();
 
-    // 1. Get Poses
-    Eigen::Vector3d o_pose = odom_->get_pose();          // Odom -> Base
+    // 1. Get Pose in Map frame
     Eigen::Vector3d s_pose = state_mu_.segment<3>(0);    // Map -> Base
 
-    // 2. Publish "odom" -> "base_link" (The easy one)
-    publish_tf("odom", "base_link", o_pose, now);
-
-    // 3. Calculate "map" -> "odom" using TF2 Utilities
-    // We need: T_map_odom = T_map_base * T_odom_base^-1
-    
-    // A. Create Transform for Odom -> Base
+    // 2. Lookup latest transform "odom" -> "base_link"
     tf2::Transform t_odom_base;
-    t_odom_base.setOrigin(tf2::Vector3(o_pose(0), o_pose(1), 0.0));
-    tf2::Quaternion q_odom; 
-    q_odom.setRPY(0, 0, o_pose(2));
-    t_odom_base.setRotation(q_odom);
+    try {
+        geometry_msgs::msg::TransformStamped ts_odom_base = tf_buffer_->lookupTransform("odom", "base_link", tf2::TimePointZero);
+        tf2::fromMsg(ts_odom_base.transform, t_odom_base);
+    } catch (const tf2::TransformException & ex) {
+        t_odom_base.setIdentity();
+    }
 
-    // B. Create Transform for Map -> Base
+    // 3. Calculate "map" -> "odom": T_map_odom = T_map_base * T_odom_base^-1
     tf2::Transform t_map_base;
     t_map_base.setOrigin(tf2::Vector3(s_pose(0), s_pose(1), 0.0));
     tf2::Quaternion q_map; 
     q_map.setRPY(0, 0, s_pose(2));
     t_map_base.setRotation(q_map);
 
-    // C. The Math: Map -> Odom
     tf2::Transform t_map_odom = t_map_base * t_odom_base.inverse();
     geometry_msgs::msg::TransformStamped ts;
     ts.header.stamp = now;
@@ -680,7 +663,7 @@ void EKFSLAM::publish_transforms() {
     ts.transform = tf2::toMsg(t_map_odom);
     tf_broadcaster_->sendTransform(ts);
 
-    // 5. Publish feature transforms.
+    // 4. Publish feature transforms.
     for (size_t i = 0; i < features_.size(); ++i) {
         int idx = 3 + (2 * i);
         Eigen::Vector3d f_pose;

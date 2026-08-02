@@ -136,13 +136,18 @@ Development-only image replay package that publishes recorded frames to camera t
 ## Package: `ekfslam`
 
 Purpose:
-Bearing-only EKF SLAM with odometry prediction and feature update.
+Independent odometry integration and bearing-only EKF SLAM with 30Hz prediction and feature measurement updates.
 
-### Node
+> [!WARNING]
+> **Custom Odometry Node Recommendation:**
+> Users are strongly urged to create their own odometry node (and modify the bringup launch files in `manta_bringup` to point to their custom node). The default `odometry_node` is specifically designed for differential-drive thrusters, relies on a fragile `/mavros/rc/out` topic dependent on specific channel wiring and hardware, and is tuned specifically for the original OpenMantaClaus AUV. To use custom odometry (e.g. VIO or DVL), simply implement a node that publishes `odom -> base_link` on TF at a high frequency (ideally > 50 Hz); `ekfslam_node` will automatically read `odom -> base_link` to compute SLAM updates and publish `map -> odom`.
+
+### Nodes
 
 | Node | Source | Description | Interfaces |
 | --- | --- | --- | --- |
-| `ekfslam_node` | `src/ekfslam/src/ekfslam.cpp` | Maintains robot pose and landmark map, publishes TF, and republishes validated, uniquely-associated feature observations for task control. | Subscribes: `/mavros/rc/out`, `/mavros/imu/data`, `/cv/feature_observations`. Publishes: TF and `/tasks/feature_observations`. |
+| `odometry_node` | `src/ekfslam/src/odometry_node.cpp` | Computes local vehicle displacement and publishes `odom -> base_link` TF transform. | Subscribes: `/mavros/rc/out`, `/mavros/imu/data`. Publishes: TF (`odom -> base_link`). |
+| `ekfslam_node` | `src/ekfslam/src/ekfslam.cpp` | Runs 30Hz prediction via `odom -> base_link` TF comparison, maintains robot pose and landmark map, publishes `map -> odom` and landmark TFs, and republishes validated feature observations. | Subscribes: `/cv/feature_observations`, `/camera/frame_trigger`. TF Lookup: `odom -> base_link`. Publishes: TF (`map -> odom`, landmark frames) and `/tasks/feature_observations`. |
 
 ## Package: `tasks`
 

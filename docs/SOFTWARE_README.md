@@ -13,7 +13,7 @@ This repository contains the runtime stack for mission orchestration, perception
 
 The runtime stack is split across two launch layers:
 
-- `ros2 launch manta_bringup robot_bringup.launch.py` starts the perception, SLAM, and task nodes: `cv`, `bottom_cv`, `tasks`, and `ekfslam`.
+- `ros2 launch manta_bringup robot_bringup.launch.py` starts perception, odometry, SLAM, and task nodes: `cv`, `bottom_cv`, `odometry`, `ekfslam`, and `tasks`.
 - `ros2 launch manta_bringup main.launch.py` starts `brain` with the main mission sequence.
 - `ros2 launch manta_bringup qual.launch.py` starts `brain` with the qualification sequence.
 
@@ -22,16 +22,17 @@ The main runtime flow is:
 1. `brain` selects `main_sequence` from `mission.main_run=true` and sends the first task command to `cv`.
 2. `cv` configures the detector/task context and forwards task start/update requests to `tasks`.
 3. `cv` publishes raw detections on `/cv/feature_observations`.
-4. `ekfslam` filters and associates detections, then republishes validated observations on `/tasks/feature_observations`.
-5. `tasks` consumes the EKF-filtered stream, publishes `/mavros/rc/override`, and reports `/tasks/task_status` and `/tasks/task_complete` back to `brain`.
-6. `brain` advances through the mission sequence until all tasks are complete, then commands `none` to stop CV/task activity before surfacing.
+4. `odometry` calculates vehicle displacement and publishes `odom -> base_link` TF transform.
+5. `ekfslam` runs a 30Hz prediction timer using `odom -> base_link` TF lookups, filters and associates detections, publishes `map -> odom`, and republishes validated observations on `/tasks/feature_observations`.
+6. `tasks` consumes the EKF-filtered stream, publishes `/mavros/rc/override`, and reports `/tasks/task_status` and `/tasks/task_complete` back to `brain`.
+7. `brain` advances through the mission sequence until all tasks are complete, then commands `none` to stop CV/task activity before surfacing.
 
 ## Package Overview
 
 - `src/brain`: mission orchestration node.
 - `src/manta_bringup`: launch and shared configuration assets.
 - `src/cv`: camera capture and feature detection.
-- `src/ekfslam`: bearing-only EKF SLAM and TF publication.
+- `src/ekfslam`: independent odometry node, bearing-only EKF SLAM, and TF publication.
 - `src/tasks`: task execution and RC override control.
 - `src/interfaces`: shared custom ROS messages/services.
 - `src/mavros_control`: MAVROS launch bridge and control utility.

@@ -140,6 +140,17 @@ cv_node:
 
 
 
+odometry:
+  ros__parameters:
+    mass: 7.0
+    width: 0.45
+    drag_lin: 8.0
+    thrust_k_f: 0.016
+    thrust_k_r: 0.013
+    rc_lag: 5.0
+    xy_dist_noise_scaler: 0.2
+    r_yaw: 0.00005
+
 ekfslam:
   ros__parameters:
     initial_pose:

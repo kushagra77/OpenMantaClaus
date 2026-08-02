@@ -210,6 +210,19 @@ ekfslam_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/build
 .PHONY : ekfslam_node/fast
 
+#=============================================================================
+# Target rules for targets named odometry_node
+
+# Build rule for target.
+odometry_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 odometry_node
+.PHONY : odometry_node
+
+# fast build rule for target.
+odometry_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/build
+.PHONY : odometry_node/fast
+
 src/ekfslam.o: src/ekfslam.cpp.o
 .PHONY : src/ekfslam.o
 
@@ -234,12 +247,36 @@ src/ekfslam.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/src/ekfslam.cpp.s
 .PHONY : src/ekfslam.cpp.s
 
+src/odometry_node.o: src/odometry_node.cpp.o
+.PHONY : src/odometry_node.o
+
+# target to build an object file
+src/odometry_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/src/odometry_node.cpp.o
+.PHONY : src/odometry_node.cpp.o
+
+src/odometry_node.i: src/odometry_node.cpp.i
+.PHONY : src/odometry_node.i
+
+# target to preprocess a source file
+src/odometry_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/src/odometry_node.cpp.i
+.PHONY : src/odometry_node.cpp.i
+
+src/odometry_node.s: src/odometry_node.cpp.s
+.PHONY : src/odometry_node.s
+
+# target to generate assembly for a file
+src/odometry_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/src/odometry_node.cpp.s
+.PHONY : src/odometry_node.cpp.s
+
 src/utils/odometry.o: src/utils/odometry.cpp.o
 .PHONY : src/utils/odometry.o
 
 # target to build an object file
 src/utils/odometry.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/src/utils/odometry.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/src/utils/odometry.cpp.o
 .PHONY : src/utils/odometry.cpp.o
 
 src/utils/odometry.i: src/utils/odometry.cpp.i
@@ -247,7 +284,7 @@ src/utils/odometry.i: src/utils/odometry.cpp.i
 
 # target to preprocess a source file
 src/utils/odometry.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/src/utils/odometry.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/src/utils/odometry.cpp.i
 .PHONY : src/utils/odometry.cpp.i
 
 src/utils/odometry.s: src/utils/odometry.cpp.s
@@ -255,7 +292,7 @@ src/utils/odometry.s: src/utils/odometry.cpp.s
 
 # target to generate assembly for a file
 src/utils/odometry.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/src/utils/odometry.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/src/utils/odometry.cpp.s
 .PHONY : src/utils/odometry.cpp.s
 
 src/utils/slam_params.o: src/utils/slam_params.cpp.o
@@ -298,9 +335,13 @@ help:
 	@echo "... ekfslam_uninstall"
 	@echo "... uninstall"
 	@echo "... ekfslam_node"
+	@echo "... odometry_node"
 	@echo "... src/ekfslam.o"
 	@echo "... src/ekfslam.i"
 	@echo "... src/ekfslam.s"
+	@echo "... src/odometry_node.o"
+	@echo "... src/odometry_node.i"
+	@echo "... src/odometry_node.s"
 	@echo "... src/utils/odometry.o"
 	@echo "... src/utils/odometry.i"
 	@echo "... src/utils/odometry.s"

@@ -55,6 +55,15 @@ def generate_launch_description():
     )
     nodes.append(tasks)
 
+    odom = Node(
+        package='ekfslam',
+        executable='odometry_node',
+        name='odometry',
+        output='screen',
+        parameters=[params_file],
+    )
+    nodes.append(odom)
+
     slam = Node(
         package='ekfslam',
         executable='ekfslam_node',

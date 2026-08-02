@@ -1,6 +1,6 @@
 # OpenMantaClaus
 
-**[PLACEHOLDER: Hero shot image of the OpenMantaClaus robot]**
+![OpenMantaClaus Robot](docs/assets/hero_shot.jpg)
 
 OpenMantaClaus is a competitive robotics project for an untethered underwater robot built for SAUVC 2026. The hardware stack has 5 thrusters, designed specifically to be a cheap, accessible entry into AUVs. The software stack combines mission orchestration, monocular perception, bearing-only EKF SLAM, and task execution for a 5-thruster vehicle. Custom YOLO datasets and models are also integrated for robust visual tracking.
 
@@ -16,7 +16,7 @@ The robot is designed to execute the competition mission pipeline end to end: th
 - Control is treated like a differential-drive-style planar system for mission logic.
 - A monocular camera provides the primary visual feed.
 
-**[PLACEHOLDER: Mechanical assembly photo or CAD rendering of the 5-thruster frame layout]**
+![CAD Rendering & Frame Layout](docs/assets/robot_render.png)
 
 ## YOLO Resources
 
@@ -27,7 +27,7 @@ The robot is designed to execute the competition mission pipeline end to end: th
 - **YOLO Development Repository:** The repository containing the scripts used for data processing and model training can be found at **[SAUVC_yolo](https://github.com/kushagra77/SAUVC_yolo)** (Note: This repository is for reference only, is not actively maintained, and is not structured for clean viewing).
 - **Model Storage:** Training runs and exported model weights/artifacts are stored under `scripts/yolo/runs/detect/`.
 
-**[PLACEHOLDER: Image showing sample labeled bounding boxes from the YOLO dataset]**
+<video src="docs/assets/yolo_recording.mp4" autoplay loop muted playsinline width="100%"></video>
 
 ## Bill of Materials
 
@@ -42,7 +42,8 @@ The detailed hardware Bill of Materials with sourcing links, quantities, and est
 * **Perception:** Monocular camera device connected via USB.
 * **Structure:** Watertight companion compute enclosure, battery enclosure, and custom aluminum/acrylic frame.
 
-**[PLACEHOLDER: Hardware system architecture layout or photo of internal electronics]**
+![Hardware System Architecture Layout](docs/assets/hardware_layout_full.png)
+![Electronics Tray Hardware Layout](docs/assets/hardware_layout_electronics_tray.png)
 
 ## CAD & Assembly
 
@@ -55,7 +56,7 @@ The CAD models are hosted on GrabCAD.
 ## MantaClaus Wiring Diagram
 
 The complete electrical and electronic wiring schematic for the entire robot, including the companion computer (Raspberry Pi 4B), flight controller, thruster ESCs, power distribution, and the relay-controlled emergency stop (E-Stop) loop.
-**[PLACEHOLDER: MantaClaus Wiring Diagram Image / PDF]**
+![MantaClaus Electrical & Wiring Schematic](docs/assets/electrical_schematic.jpg)
 
 > [!IMPORTANT]
 > Some experience with and access to crimping tools and standard connectors (like Dupont and RCY connectors) is strongly recommended for assembling the electronics tray and wiring loop correctly and safely.
@@ -64,7 +65,7 @@ The complete electrical and electronic wiring schematic for the entire robot, in
 
 ### Physical Robot Experiences (2nd Place Finish)
 OpenMantaClaus is a budget-focused solo build that successfully competed in **SAUVC 2026** and secured **2nd Place**.
-* **Pre-qualification Video:** **[PLACEHOLDER: YouTube pre-qualification video link]**
+* **Pre-qualification Video:** [SAUVC 2026 Pre-qualification Video](https://youtu.be/PHm0sGHbVYI)
 
 Despite entering the competition without full-pool integration testing, the bearing-only EKF SLAM coupled with simple odometry and IMU updates performed exceptionally well:
 * **Gate Task:** Cleared the gate reliably in both forward and reverse modes.
@@ -113,11 +114,15 @@ For reference on how the Docker image is built, see the [blueos-ros2 (ros2-humbl
 > [!IMPORTANT]
 > Thruster and direction verification is a crucial step. If you get stuck, feel free to ask the author, raise a GitHub issue, or ask on public AUV/ArduSub forums.
 
-### 6. Tune Odometry (Required)
-Before running the autonomous stack, you must tune the odometry model for your specific physical build (OR alternatively, setup your own odometry node using bottom camera VIO):
-* **Standard Build (BLUEROV1 Frame):** Adjust the physical scaling constants `thrust_k_f` (forward thrust) and `thrust_k_r` (reverse thrust) under the `odometry` section in [params.yaml](src/manta_bringup/launch/params.yaml).
-* **Different Thruster Configuration:** Modify the vehicle dynamic model directly in the [odometry node](src/ekfslam/src/utils/odometry.cpp), this also needs to be modified if any thrusters are reversed in the blueos software (flip force sign).
-* **External Odometry Sensors (e.g., DVL):** The repository does not support external plug-and-play odometry out of the box. You will need to customize [ekfslam](src/ekfslam/src/ekfslam.cpp) to ignore the default model-based odometry and subscribe to your external sensor topic instead.
+### 6. Create or Tune your Odometry Node (Crucial)
+> [!WARNING]
+> Users are strongly urged to create their own odometry node (and modify the launch files in `manta_bringup` to launch their custom node instead of the default `odometry_node`). The default odometry node is specifically designed for differential-drive thrusters, relies on a fragile `/mavros/rc/out` topic that is highly dependent on specific channel wiring and hardware, and is tuned specifically for the original OpenMantaClaus AUV build.
+>
+> To create your own custom odometry node (e.g., using bottom-camera VIO, DVL, or custom kinetics), you simply need to build a ROS 2 node that publishes the `odom -> base_link` transform on TF at a high frequency (ideally > 50 Hz). Point the bringup launch files to your node, and `ekfslam_node` will automatically read `odom -> base_link` to compute SLAM map updates and publish `map -> odom`.
+
+If you choose to use or adapt the default model-based odometry:
+* **Standard Build (BLUEROV1 Frame):** Adjust physical scaling constants `thrust_k_f` (forward thrust) and `thrust_k_r` (reverse thrust) under the `odometry` section in [params.yaml](src/manta_bringup/launch/params.yaml).
+* **Different Thruster Configuration or Reversed ESCs:** Modify the vehicle dynamic model in [odometry_node.cpp](src/ekfslam/src/odometry_node.cpp) and [odometry.cpp](src/ekfslam/src/utils/odometry.cpp) (e.g. flipping force signs if thrusters are reversed in BlueOS).
 
 ### 7. Calibrate Perception & Deploy
 Once the odometry is tuned and you verify that all sensors (especially the camera) are operational:
@@ -137,7 +142,7 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-**[PLACEHOLDER: Photo of the physical robot undergoing testing or deployment in the pool]**
+![Robot Pool Testing & Deployment](docs/assets/testing_shot.png)
 
 Vehicle bringup:
 

@@ -9,9 +9,8 @@
 #include <mutex>
 #include "rclcpp/rclcpp.hpp"
 #include "tf2_ros/transform_broadcaster.h"
-#include "mavros_msgs/msg/rc_out.hpp"
-#include "sensor_msgs/msg/imu.hpp"
-#include "ekfslam/odometry.hpp"
+#include "tf2_ros/buffer.h"
+#include "tf2_ros/transform_listener.h"
 #include "std_msgs/msg/header.hpp"
 
 #include <tf2/LinearMath/Quaternion.h>
@@ -40,13 +39,7 @@ public:
     void apply_relative_constraint(int id_a, int id_b, double dx, double dy, double y_noise=1e-6);
     
     /**
-    * @brief Updates odometry inputs from synchronized IMU data.
-    * @param msg Incoming IMU sample.
-     */
-    void imu_sync_callback(const sensor_msgs::msg::Imu::SharedPtr msg);
-    
-    /**
-     * @brief EKF Prediction step using odometry
+     * @brief EKF Prediction step using relative odom->base_link TF updates.
      */
     void predict();
 
@@ -69,13 +62,13 @@ private:
     std::vector<bool> feature_seen_;
     Eigen::Matrix<double, state_size_, 1> state_mu_;
     Eigen::Matrix<double, state_size_, state_size_> state_cov_;
-    std::unique_ptr<Odometry> odom_;
+    std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
+    std::shared_ptr<tf2_ros::TransformListener> tf_listener_{nullptr};
     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-    int rc_l_ = 1500, rc_r_ = 1500, rc_back_ = 1500;
-    double imu_yaw_ = 0.0;
-    double last_imu_time_ = 0.0;
-    rclcpp::Subscription<mavros_msgs::msg::RCOut>::SharedPtr rc_sub_;
-    rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub_;
+    Eigen::Vector3d prev_odom_pose_;
+    bool has_prev_odom_pose_ = false;
+    double xy_dist_noise_scaler_ = 0.2;
+    double r_yaw_ = 0.00005;
     rclcpp::Subscription<interfaces::msg::FeatureObservations>::SharedPtr feature_sub_;
     rclcpp::Publisher<interfaces::msg::FeatureObservations>::SharedPtr feature_pub_;
     rclcpp::TimerBase::SharedPtr timer_;
@@ -94,7 +87,7 @@ private:
     bool buckets_locked_ = false;
 
     // --- Callback Groups ---
-    // Handles fast physics: IMU, RC, and the Predict Timer
+    // Handles state timer
     rclcpp::CallbackGroup::SharedPtr state_cbg_;
     
     // Handles heavy CV: Frame Trigger and Feature Observations

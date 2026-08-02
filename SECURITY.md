@@ -14,7 +14,7 @@ This document outlines safety-critical thresholds, companion computer constraint
 
 ### 3. Emergency Stop (E-Stop) Loop
 * The hardware includes a physical E-Stop loop wired through a relay interface. Disconnecting the loop isolates the motor controller power line immediately.
-* Refer to the wiring documentation for detail. **[PLACEHOLDER: Link to E-Stop Relay Wiring Diagram]**
+* Refer to the [MantaClaus Electrical & Wiring Schematic](docs/assets/electrical_schematic.jpg) for details.
 
 ## Reporting Vulnerabilities
 

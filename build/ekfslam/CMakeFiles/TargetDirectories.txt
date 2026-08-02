@@ -1,6 +1,7 @@
 /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles/uninstall.dir
 /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles/ekfslam_uninstall.dir
 /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles/ekfslam_node.dir
+/home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles/odometry_node.dir
 /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles/test.dir
 /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles/edit_cache.dir
 /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles/rebuild_cache.dir

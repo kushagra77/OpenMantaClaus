@@ -37,7 +37,6 @@ Please remember that this software controls physical robotics hardware. Be mindf
 
 We welcome contributions to help improve the OpenMantaClaus platform! Here are some key areas you can work on:
 
-1. **Independent Odometry Node (Top Priority):** Changing the odometry setup to its own independent node to make it easier to plug and play different odometry approaches.
-2. **Visual Inertial Odometry (VIO):** Implementing planar tracking utilizing the bottom-facing camera (e.g., OpenMV) to reduce odometry drift.
-3. **Simulation Integration:** Setting up a Gazebo/UUV Simulator environment to enable dry testing of the full autonomous stack.
-4. **Parameter Tuning Automation:** Developing automated tuning tools for physical parameters (`thrust_k_f` and `thrust_k_r`).
+1. **Visual Inertial Odometry (VIO):** Implementing planar tracking utilizing the bottom-facing camera (e.g., OpenMV) to reduce odometry drift.
+2. **Simulation Integration:** Setting up a Gazebo/UUV Simulator environment to enable dry testing of the full autonomous stack.
+3. **Parameter Tuning Automation:** Developing automated tuning tools for physical parameters (`thrust_k_f` and `thrust_k_r`).

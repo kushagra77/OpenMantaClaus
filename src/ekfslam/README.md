@@ -1,48 +1,35 @@
 # ekfslam
 
-`ekfslam` provides robot pose prediction and landmark map updates using bearing-only feature observations.
+`ekfslam` provides independent odometry publishing (`odometry_node`), robot pose prediction via TF, and landmark map updates using bearing-only feature observations (`ekfslam_node`).
 
 ## Purpose
 
-- Fuse IMU + RC-derived odometry in EKF prediction.
-- Apply batched bearing updates from CV observations.
-- Publish TF transforms for robot and landmarks.
+- Estimate vehicle displacement via model-based odometry and publish `odom -> base_link` TF (`odometry_node`).
+- Run 30Hz prediction using `odom -> base_link` TF deltas and publish `map -> odom` TF (`ekfslam_node`).
+- Apply batched bearing updates from CV observations and publish landmark TF frames.
 - Republish validated observations with unique final feature IDs to `/tasks/feature_observations` for task control.
 
-Current odometry covariance note:
-
-- Yaw covariance is sourced from IMU orientation covariance (`orientation_covariance[8]`) when available; `odometry.r_yaw` is only used as fallback process-noise growth when IMU yaw variance is unavailable/non-positive.
+> [!WARNING]
+> **Custom Odometry Node Recommendation:**
+> Users are strongly urged to create their own odometry node (and modify bringup launch files to point there). The default `odometry_node` is specifically designed for differential-drive thrusters, relies on a fragile `/mavros/rc/out` topic that is highly dependent on specific channel wiring and hardware, and is tuned specifically for the original OpenMantaClaus AUV build. Custom odometry nodes (e.g. VIO or DVL) need only publish `odom -> base_link` on TF at a high frequency (ideally > 50 Hz) for `ekfslam_node` to work seamlessly.
 
 In current runtime, `ekfslam` is the observation bridge between perception and tasks:
 
 - input: `/cv/feature_observations`
 - output: `/tasks/feature_observations`
 
-Association behavior in current code:
+## Main Nodes
 
-- Uncertain observations are associated against candidate landmark IDs using map-predicted bearing angles.
-- Association only considers candidate IDs that have already been seen in a previously accepted update.
-- The closest and second-closest seen candidates are compared; an association is accepted only when the closest candidate is within `association_tolerance_deg` and the second-closest candidate is outside `2 * association_tolerance_deg`.
-- Flare disambiguation path is currently gated until `gate_left` has been seen.
-- In that flare path, candidates include flare IDs plus gate IDs (`gate_left`, `gate_right`) for angle-based disambiguation.
-- If a flare observation is too far from any seen candidate, the code may assign it to the first unseen flare ID when the closest association error exceeds `new_association_min_deg`.
-- Accepted observations mark their final IDs as seen.
-- Republished observations are filtered so each final feature ID appears at most once per batch.
-
-## Main Node
-
+- Executable: `odometry_node`
+  - Source: `src/ekfslam/src/odometry_node.cpp`
+  - Subscribes: `/mavros/rc/out` (`mavros_msgs/msg/RCOut`), `/mavros/imu/data` (`sensor_msgs/msg/Imu`)
+  - Publishes: `odom -> base_link` transform on TF
 - Executable: `ekfslam_node`
-- Source: `src/ekfslam/src/ekfslam.cpp`
+  - Source: `src/ekfslam/src/ekfslam.cpp`
+  - Subscribes: `/cv/feature_observations` (`interfaces/msg/FeatureObservations`), `/camera/frame_trigger` (`std_msgs/msg/Header`)
+  - TF Lookups: `odom -> base_link`
+  - Publishes: `map -> odom` transform, feature landmark TF frames, `/tasks/feature_observations` (`interfaces/msg/FeatureObservations`)
 
-## Interfaces
-
-- Subscribes:
-	- `/mavros/rc/out` (`mavros_msgs/msg/RCOut`)
-	- `/mavros/imu/data` (`sensor_msgs/msg/Imu`)
-	- `/cv/feature_observations` (`interfaces/msg/FeatureObservations`)
-- Publishes:
-	- TF transforms (`map`, `odom`, `base_link`, feature frames)
-	- `/tasks/feature_observations` (`interfaces/msg/FeatureObservations`)
 
 ## Landmark Map
 

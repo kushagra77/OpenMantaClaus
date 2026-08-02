@@ -23,7 +23,6 @@ include_directories(
 
 add_executable(ekfslam_node
   src/ekfslam.cpp
-  src/utils/odometry.cpp
   src/utils/slam_params.cpp
 )
 
@@ -48,8 +47,33 @@ target_link_libraries(ekfslam_node
   Eigen3::Eigen
 )
 
+add_executable(odometry_node
+  src/odometry_node.cpp
+  src/utils/odometry.cpp
+)
+
+ament_target_dependencies(odometry_node
+  rclcpp
+  geometry_msgs
+  std_msgs
+  mavros_msgs
+  tf2
+  tf2_ros
+  tf2_geometry_msgs
+)
+
+target_include_directories(odometry_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(odometry_node
+  Eigen3::Eigen
+)
+
 install(TARGETS
   ekfslam_node
+  odometry_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

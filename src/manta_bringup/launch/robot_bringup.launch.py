@@ -55,6 +55,16 @@ def generate_launch_description():
     )
     nodes.append(bottom_cv)
 
+    odom = Node(
+        package='ekfslam',
+        executable='odometry_node',
+        name='odometry',
+        output='screen',
+        parameters=[params_file],
+        ros_arguments=['--log-level', log_level]
+    )
+    nodes.append(odom)
+
     slam = Node(
         package='ekfslam',
         executable='ekfslam_node',

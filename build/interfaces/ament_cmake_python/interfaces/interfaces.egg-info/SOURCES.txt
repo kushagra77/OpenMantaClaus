@@ -4,3 +4,11 @@ interfaces.egg-info/PKG-INFO
 interfaces.egg-info/SOURCES.txt
 interfaces.egg-info/dependency_links.txt
 interfaces.egg-info/top_level.txt
+interfaces/msg/__init__.py
+interfaces/msg/_feature_observation.py
+interfaces/msg/_feature_observations.py
+interfaces/msg/_task_status.py
+interfaces/srv/__init__.py
+interfaces/srv/_setup.py
+interfaces/srv/_task_command.py
+interfaces/srv/_task_complete.py

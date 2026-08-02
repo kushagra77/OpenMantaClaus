@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/kushion/Documents/OpenMantaClaus/build/ekfslam
 
 # The main recursive "all" target.
 all: CMakeFiles/ekfslam_node.dir/all
+all: CMakeFiles/odometry_node.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -74,6 +75,7 @@ preinstall:
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/ekfslam_uninstall.dir/clean
 clean: CMakeFiles/ekfslam_node.dir/clean
+clean: CMakeFiles/odometry_node.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -135,12 +137,12 @@ CMakeFiles/ekfslam_uninstall.dir/clean:
 CMakeFiles/ekfslam_node.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles --progress-num=1,2,3,4 "Built target ekfslam_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles --progress-num=1,2,3 "Built target ekfslam_node"
 .PHONY : CMakeFiles/ekfslam_node.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ekfslam_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ekfslam_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles 0
 .PHONY : CMakeFiles/ekfslam_node.dir/rule
@@ -153,6 +155,32 @@ ekfslam_node: CMakeFiles/ekfslam_node.dir/rule
 CMakeFiles/ekfslam_node.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ekfslam_node.dir/build.make CMakeFiles/ekfslam_node.dir/clean
 .PHONY : CMakeFiles/ekfslam_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/odometry_node.dir
+
+# All Build rule for target.
+CMakeFiles/odometry_node.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles --progress-num=4,5,6 "Built target odometry_node"
+.PHONY : CMakeFiles/odometry_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/odometry_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/odometry_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kushion/Documents/OpenMantaClaus/build/ekfslam/CMakeFiles 0
+.PHONY : CMakeFiles/odometry_node.dir/rule
+
+# Convenience name for target.
+odometry_node: CMakeFiles/odometry_node.dir/rule
+.PHONY : odometry_node
+
+# clean rule for target.
+CMakeFiles/odometry_node.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/odometry_node.dir/build.make CMakeFiles/odometry_node.dir/clean
+.PHONY : CMakeFiles/odometry_node.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

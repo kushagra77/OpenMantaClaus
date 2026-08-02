@@ -28,19 +28,20 @@ Note: `manta_bringup` is now the owner of the launch files and shared YAMLs; `br
 
 ## Runtime launch split
 
-- `ros2 launch manta_bringup robot_bringup.launch.py` — starts `cv`, `bottom_cv`, `tasks`, and `ekfslam` (vehicle bringup).
+- `ros2 launch manta_bringup robot_bringup.launch.py` — starts `cv`, `bottom_cv`, `tasks`, `odometry`, and `ekfslam` (vehicle bringup).
 - `ros2 launch manta_bringup main.launch.py` — starts `brain` for the main mission sequence.
 - `ros2 launch manta_bringup qual.launch.py` — starts `brain` for the qualification mission.
 
-This split means you typically run `robot_bringup` first (bring up perception, SLAM, and controllers), then start `brain` with `main.launch.py` or `qual.launch.py`.
+This split means you typically run `robot_bringup` first (bring up perception, odometry, SLAM, and controllers), then start `brain` with `main.launch.py` or `qual.launch.py`.
 
 ## Primary runtime flows (topics and handoff)
 
 - Task orchestration: `brain` → `/cv/task_command` → `cv` → `/tasks/task_command` → `tasks`
-- Perception → SLAM: `cv` → `/cv/feature_observations` → `ekfslam` → `/tasks/feature_observations` → `tasks`
+- Odometry → TF: `odometry` → `odom -> base_link` TF
+- Perception → SLAM: `cv` → `/cv/feature_observations` → `ekfslam` (30Hz predict via `odom -> base_link` TF) → `map -> odom` TF & `/tasks/feature_observations` → `tasks`
 - Task lifecycle: `tasks` → `/tasks/task_status` and `/tasks/task_complete` → `brain`
 
-`tasks` publishes RC override messages to MAVROS when active; `mavros` state and IMU topics feed `brain` and `ekfslam`.
+`tasks` publishes RC override messages to MAVROS when active; `mavros` state and IMU topics feed `brain` and `odometry`.
 
 ## Key developer paths
 

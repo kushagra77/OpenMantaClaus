@@ -1,1 +1,25 @@
-/home/kushion/Documents/OpenMantaClaus/build/cv/package.xml
+<package format="3">
+  <name>cv</name>
+  <version>0.0.0</version>
+  <description>Computer Vision package (ament_python port)</description>
+  <maintainer email="you@example.com">kushion</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>interfaces</depend>
+
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

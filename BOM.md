@@ -68,6 +68,7 @@
 | :--- | :---: | :--- | :---: | :--- |
 | **fishing magnet** | 1 | `~$4 AUD` | [AE](https://www.aliexpress.com/item/1005008275255309.html) | D25 19kg, can get a stronger one as well |
 | **neodymium magnets 15x5mm** | 10 | `~$10 AUD` | [AE](https://www.aliexpress.com/item/1005010487425207.html) | any magnet works, depending on your ball design. |
+| **spring-loaded toggle latch** | 1 | `~$5 AUD` | [AE](https://www.aliexpress.com/item/1005009115988238.html) | SS 304, sold in set of 4 |
 | **waterproof epoxy putty** | 1 | `$20 AUD` | [AMZ](https://www.amazon.com.au/JB-Weld-JB-8277-Water-Epoxy-Putty/dp/B0886DLQRL) | — |
 | **M3 hardware** | 1 | `~$25 AUD` | — | miscellaneous m3 hardware (bolts, 10-25mm), nuts, washers, M-F 10mm standoffs |
 | **M4 hardware** | 1 | `~$20 AUD` | — | miscellaneous m4 hardware (bolts, 10-25mm), nuts, washers |
