@@ -1,8 +1,10 @@
 # OpenMantaClaus
 
+OpenMantaClaus is designed to be the cheapest open-source AUV out there (~2500AUD). Specifically built for competing in SAUVC 2026 on a shoestring budget. Achieved first runner-up with the smallest team in the competition.
+
 ![OpenMantaClaus Robot](docs/assets/hero_shot.jpg)
 
-OpenMantaClaus is designed to be the cheapest open-source AUV out there — specifically built when competing in SAUVC 2026 on an incredibly limited budget. The hardware stack uses a 5-thruster configuration to serve as an accessible, low-cost entry into autonomous underwater robotics. The software stack combines mission orchestration, monocular perception, bearing-only EKF SLAM, and task execution, with integrated YOLO datasets and models for robust visual tracking.
+The hardware stack uses a 5-thruster configuration to serve as an accessible, low-cost entry into autonomous underwater robotics. The software stack combines mission orchestration, monocular perception, bearing-only EKF SLAM, and task execution, with integrated YOLO datasets and models for robust visual tracking.
 
 ## Purpose
 
