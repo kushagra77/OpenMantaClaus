@@ -21,7 +21,7 @@ jobs:
         apt-get install -y python3-pip python3-rosdep
         rosdep init || true
         rosdep update
-        pip3 install ai-edge-litert transforms3d
+        pip3 install "numpy<2" ai-edge-litert transforms3d
 
     - name: Install ROS dependencies
       run: |
