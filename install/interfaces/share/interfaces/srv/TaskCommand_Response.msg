@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_cmake/srv/TaskCommand_Response.msg

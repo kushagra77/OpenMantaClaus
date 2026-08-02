@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/srv/detail/task_command__rosidl_typesupport_introspection_cpp.hpp

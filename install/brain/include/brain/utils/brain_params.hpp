@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/src/brain/include/brain/utils/brain_params.hpp

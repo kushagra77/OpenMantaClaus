@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/src/ekfslam/include/ekfslam/utils/slam_params.hpp

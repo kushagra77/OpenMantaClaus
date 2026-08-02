@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_typesupport_fastrtps_c/interfaces/msg/detail/feature_observation__rosidl_typesupport_fastrtps_c.h

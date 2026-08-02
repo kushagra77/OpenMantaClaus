@@ -2,7 +2,7 @@
 
 ![OpenMantaClaus Robot](docs/assets/hero_shot.jpg)
 
-OpenMantaClaus is a competitive robotics project for an untethered underwater robot built for SAUVC 2026. The hardware stack has 5 thrusters, designed specifically to be a cheap, accessible entry into AUVs. The software stack combines mission orchestration, monocular perception, bearing-only EKF SLAM, and task execution for a 5-thruster vehicle. Custom YOLO datasets and models are also integrated for robust visual tracking.
+OpenMantaClaus is designed to be the cheapest open-source AUV out there — specifically built when competing in SAUVC 2026 on an incredibly limited budget. The hardware stack uses a 5-thruster configuration to serve as an accessible, low-cost entry into autonomous underwater robotics. The software stack combines mission orchestration, monocular perception, bearing-only EKF SLAM, and task execution, with integrated YOLO datasets and models for robust visual tracking.
 
 ## Purpose
 

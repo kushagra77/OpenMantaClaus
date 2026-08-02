@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/src/interfaces/msg/FeatureObservation.msg

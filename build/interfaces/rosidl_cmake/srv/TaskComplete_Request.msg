@@ -1,1 +1,0 @@
-bool task_completed

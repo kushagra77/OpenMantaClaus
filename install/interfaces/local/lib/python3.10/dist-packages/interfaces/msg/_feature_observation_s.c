@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_generator_py/interfaces/msg/_feature_observation_s.c

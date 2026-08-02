@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_generator_cpp/interfaces/msg/detail/feature_observations__type_support.hpp

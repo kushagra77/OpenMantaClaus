@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_generator_cpp/interfaces/srv/detail/setup__traits.hpp

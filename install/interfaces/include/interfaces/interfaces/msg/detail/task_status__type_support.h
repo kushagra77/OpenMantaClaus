@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_generator_c/interfaces/msg/detail/task_status__type_support.h

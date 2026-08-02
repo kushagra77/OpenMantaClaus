@@ -1,6 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces:msg/FeatureObservation.idl
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces:msg/FeatureObservations.idl
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces:msg/TaskStatus.idl
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces:srv/Setup.idl
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces:srv/TaskCommand.idl
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_adapter/interfaces:srv/TaskComplete.idl

@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/brain/ament_cmake_core/brainConfig-version.cmake

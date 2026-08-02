@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/build/interfaces/rosidl_typesupport_introspection_cpp/interfaces/msg/detail/task_status__rosidl_typesupport_introspection_cpp.hpp

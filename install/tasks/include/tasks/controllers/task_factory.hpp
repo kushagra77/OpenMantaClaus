@@ -1,1 +1,0 @@
-/home/kushion/Documents/OpenMantaClaus/src/tasks/include/tasks/controllers/task_factory.hpp
