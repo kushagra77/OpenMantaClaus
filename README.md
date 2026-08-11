@@ -29,7 +29,7 @@ The robot is designed to execute the competition mission pipeline end to end: th
 - **YOLO Development Repository:** The repository containing the scripts used for data processing and model training can be found at **[SAUVC_yolo](https://github.com/kushagra77/SAUVC_yolo)** (Note: This repository is for reference only, is not actively maintained, and is not structured for clean viewing).
 - **Model Storage:** Training runs and exported model weights/artifacts are stored under `scripts/yolo/runs/detect/`.
 
-<video src="docs/assets/yolo_recording.mp4" autoplay loop muted playsinline width="100%"></video>
+![YOLO Live Detection Recording](docs/assets/yolo_recording.webp)
 
 ## Bill of Materials
 
